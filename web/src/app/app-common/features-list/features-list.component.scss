@@ -1,0 +1,24 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.features{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+    mat-icon{
+        margin-right: 5px;
+    }
+    .yes{
+        font-weight: 700;
+        color: #3d3d3d;
+        mat-icon{
+            color: map-get($core-green, 500);
+        }
+    }
+    .no{
+        mat-icon{
+            color: lightgray;
+        }
+    }
+}

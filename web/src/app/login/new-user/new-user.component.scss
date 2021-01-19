@@ -1,0 +1,86 @@
+@import '../../core/core.theme.sass';
+
+.sub-title{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+    @media #{$screen-size-xs}{
+        font-size: 8pt;
+    }
+}
+
+.details{
+    margin-top: 40px;
+    mat-input-container{
+        width: 100%;
+        color: #545454;
+        font-size: 12pt;
+    }
+}
+
+.actions{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    width: 90%;
+    button{
+        width: 100%;
+        font-size: 14pt;
+    }
+    .continue-button{
+        font-size:16px; 
+        font-weight: 400;
+        line-height: 50px;
+        margin-top: 10px;
+        padding: 0 20px;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+    }
+}
+
+.user-full-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.horiz-spacer{
+    width: 20px;
+}
+
+.account-plan{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .plan-select{
+        font-size: 15pt;
+        flex: 1;
+    }
+    .billing-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 150px;
+    }
+}
+.plan-description{
+    color:rgba(0, 0, 0, 0.54);
+    font-family:Roboto, sans-serif;
+    font-size:15px;
+    font-weight:400;
+    line-height:16.875px;
+    outline-color:rgba(0, 0, 0, 0.54);
+    outline-style:none;
+    outline-width:0px;
+    text-align:left;  
+}
+.select-plan-image{
+    width: 25px;
+    margin-right: 25px;
+}
+
+.skip{
+    width: 100%;
+    text-decoration: none;
+}

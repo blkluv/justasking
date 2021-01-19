@@ -1,0 +1,88 @@
+<mat-card class="main-header" *ngIf="box">
+  <mat-card-title>
+    <span class="poll-link base">justasking.io/</span>
+    <span class="poll-link code">{{box.Code}}</span>
+  </mat-card-title>
+  <mat-card-content>
+    <p *ngIf="box.BoxType == 'votesbox'">Votes Poll</p>
+    <p *ngIf="box.BoxType == 'answerbox'">Answer Poll</p>
+    <p *ngIf="box.BoxType == 'questionbox'">Question Poll</p>
+    <p *ngIf="box.BoxType == 'wordcloud'">Wordcloud</p>
+    <p>{{box.CreatedAt|date:'mediumDate'}}</p>
+    <p class="box-phone-number">{{box.PhoneNumber|phoneNumber:'default'}}</p>
+    <div class="live-container">
+      <p *ngIf="box.IsLive" class="live">Live
+        <span class="red-pulse"></span>
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="actions-section">
+      <div class="actions">
+        <button *ngIf="box.IsLive" mat-button color="primary" (click)="closeBox()">
+          <span>CLOSE</span>
+        </button>
+        <button *ngIf="!box.IsLive" mat-button color="primary" (click)="openBox()">
+          <span>OPEN</span>
+        </button>
+        <button color="primary" mat-button [matMenuTriggerFor]="shareMenu">
+          <span>SHARE</span>
+        </button>
+        <a mat-button color="primary" routerLink="/{{box.Code}}">
+          <span>ENTRY</span>
+        </a>
+        <a mat-button color="primary" routerLink="/{{box.Code}}/presentation">
+          <span>RESULTS</span>
+        </a>
+        <button class="hidden-lg hidden-md hidden-sm" mat-button color="warn" (click)="confirmDeleteBox()">
+          <span>DELETE</span>
+        </button>
+      </div>
+      <div class="hidden-xs">
+        <button mat-icon-button (click)="advancedActionsAreVisible = !advancedActionsAreVisible">
+          <mat-icon class="more" *ngIf="!advancedActionsAreVisible">keyboard_arrow_up</mat-icon>
+          <mat-icon class="more" *ngIf="advancedActionsAreVisible">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="advanced-actions" *ngIf="advancedActionsAreVisible">
+      <hr>
+      <div class="actions-section">
+        <button mat-button color="warn" (click)="confirmDeleteBox()">
+          <span>DELETE</span>
+        </button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
+<mat-menu #shareMenu="matMenu">
+  <button mat-menu-item ngxClipboard [cbContent]="pollUrl" (click)="linkCopied()">
+    <mat-icon>content_copy</mat-icon>
+    <span>Copy link</span>
+  </button>
+  <hr>
+  <button mat-menu-item [sbUrl]="pollUrl" shareButton="facebook">
+    <img class="social-logo" src="../../assets/logos/facebook.png" alt="share">
+    <span>
+      Facebook
+    </span>
+  </button>
+  <button mat-menu-item [sbUrl]="pollUrl" shareButton="twitter">
+    <img class="social-logo" src="../../assets/logos/twitter.png" alt="share">
+    <span>
+      Twitter
+    </span>
+  </button>
+  <button mat-menu-item [sbUrl]="pollUrl" shareButton="google">
+    <img class="social-logo" src="../../assets/logos/googleplus.png" alt="share">
+    <span>
+      Google+
+    </span>
+  </button>
+  <button mat-menu-item [sbUrl]="pollUrl" shareButton="linkedin">
+    <img class="social-logo" src="../../assets/logos/linkedin.png" alt="share">
+    <span>
+      LinkedIn
+    </span>
+  </button>
+</mat-menu>

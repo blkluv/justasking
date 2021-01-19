@@ -1,0 +1,69 @@
+<div class="loading-box" *ngIf="loadingBox">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="row quick-stats" *ngIf="!loadingBox" > 
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container">
+    <app-quick-stat-box *ngIf="box.BaseBox" [box]="box.BaseBox" [boxWebSocket]="boxWebSocket" [accountWebSocket]="accountWebSocket" ></app-quick-stat-box>
+  </div> 
+
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container"> 
+    <app-quick-stat-participants [count]="boxClientCount"></app-quick-stat-participants>
+  </div> 
+
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container">
+      <app-quick-stat-entries [count]="entries && entries.length"></app-quick-stat-entries>
+  </div>  
+</div>
+
+<div class="row">
+  <div class="entries-container col-md-12">
+    <div class="loading-entries" *ngIf="loadingEntries">
+      <mat-spinner></mat-spinner>
+    </div>
+    
+    <div *ngIf="!loadingEntries && !loadingBox">
+
+      <!--WORD CLOUD ENTRIES-->
+      <mat-card class="entries-section">
+        <mat-card-title>
+            <span>{{box.Header}}</span>
+            <button mat-icon-button [matMenuTriggerFor]="wordCloudEntriesMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button> 
+            <mat-menu #wordCloudEntriesMenu="matMenu">
+                <button mat-menu-item color="accent" (click)="hideAllEntries()">
+                  <mat-icon>visibility_off</mat-icon>
+                  <span>Hide all entries</span>
+                </button> 
+                <button mat-menu-item color="accent" (click)="unhideAllEntries()">
+                  <mat-icon>visibility</mat-icon>
+                  <span>Show all entries</span>
+                </button>
+            </mat-menu>
+        </mat-card-title>
+        <mat-card-subtitle>Listed below are all of the entries for this question, you may hide them.</mat-card-subtitle>
+        <mat-card-content>
+          <div class="entries">
+            <mat-card
+              class="entry-card"
+              [class.entry-hidden]="entry.IsHidden" 
+              *ngFor="let entry of uniqueEntries" 
+              title="Toggle this entry"
+              (click)="toggleEntry(entry)">
+                <span class="word-cloud-entry-text">{{entry.Response}}</span>
+                <span class="entry-counter">
+                  {{entry.Count}}
+                </span>
+                <span class="icon-container">
+                  <i class="material-icons" *ngIf="!entry.IsHidden">visibility</i>
+                  <i class="material-icons" *ngIf="entry.IsHidden">visibility_off</i>
+                </span>
+            </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card> 
+      
+    </div>
+  </div>
+</div>

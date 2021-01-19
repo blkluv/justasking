@@ -1,0 +1,103 @@
+@import '../../core/core.theme.sass';
+ 
+.contact-form-trigger{
+    color: gray
+}
+
+.contact-form{
+    .contact-form-title{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        padding: 10px 15px;
+        background: map-get($core-accent, 500);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .text{
+            color: white;
+            margin: 0px;
+            font-size: 13pt;
+            font-weight: 100;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            img, mat-icon{
+                font-size: 15pt;
+                width: 20px;
+                height: 20px;
+                margin-right: 15px;
+            }
+            .vertical-center{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        .close-widget{
+            color: white;
+            cursor: pointer;
+            font-size: 15pt;
+            &:hover{
+                color: whitesmoke;
+            }            
+        }
+    }
+    .contact-form-details{
+        padding: 30px 10px 0px 10px;
+        button{
+            width: 100%;
+        }
+        .contact-from, .contact-to{
+            font-size: 11pt;
+            font-family: 'Roboto', sans-serif;
+            margin: 20px 0px 10px 2px;
+        }
+        .contact-from{
+            margin-bottom: 5px;
+        }
+        .contact-to{
+            margin-top: 0px;
+        }
+        .contact-to-from-separator{
+            margin: 0px 0px 5px 0px;
+        }
+        .comment{
+            width: 100%;
+            font-size: 13pt;
+            textarea{
+                font-size: 10pt;
+                border: 1px solid #e6e6e6;
+                border-radius: 5px;
+                resize: none;
+                padding: 10px;    
+                width: 100%;        
+            }
+        }
+    }
+    .action{
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        span{
+            flex: 1;
+        }
+        mat-icon{
+            margin-left: 10px;
+        }
+    }
+    .sla{
+        padding: 5px 0px 0px 0px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.issue-submitted{
+    margin: 15px 10px 10px 10px;
+    width: 200px;
+    font-size: 12pt;
+    text-align: center;
+}

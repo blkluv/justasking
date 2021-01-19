@@ -1,0 +1,134 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.pricing{    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 110px 0 75px 0;
+    background: map-get($core-primary, 500);
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains.png');
+    background-size: cover;
+    text-align: center;
+    .statement{
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        color: white;
+        margin: 15px 0 45px 0;
+        h1{
+            margin: 0;
+            font-size: 40pt;
+            @media #{$screen-size-md}{
+                font-size: 23pt;
+            }
+            @media #{$screen-size-sm}{
+                font-size: 23pt;
+            }
+            @media #{$screen-size-xs}{
+                font-size: 23pt;
+            }
+        }
+    }
+    .plans-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        .recommended-plan{
+            margin: 0px;
+        }
+        .plan{
+            margin: 10px;
+            padding: 0px;
+            border-radius: 5px;
+            max-width: 500px;
+            .plan-meta{
+                margin: 24px;
+                .plan-image{
+                    padding: 0px 50px;
+                    img{
+                        width: 100%;
+                        max-width: 80px;
+                        margin-bottom: 10px;
+                    }
+                }
+                .plan-name{
+                    font-family: 'Robot', sans-serif;
+                    font-weight: 100;
+                    font-size: 23pt;
+                    color: #607D8B;
+                    margin-bottom: 0px;
+                }
+                .plan-price{
+                    .price{
+                        font-size: 22pt;
+                        font-family: 'Roboto', sans-serif;
+                        color: map-get($core-primary, 500);
+                        font-weight: 700;
+                        @media #{$screen-size-xs}{
+                            font-weight: 100;
+                        }
+                        .save-discount{
+                            
+                        }
+                    } 
+                }
+            }
+            .plan-features{
+                margin: 24px;
+                .billing-toggle{
+                    mat-slide-toggle{
+                        margin: 0px 10px;
+                    }
+                    .active{
+                        font-size: 14pt;
+                        font-weight: 700;
+                        color: map-get($core-primary, 500);
+                    }
+                }
+                .features{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    flex-wrap: wrap; 
+                    mat-icon{
+                        margin-right: 5px;
+                    }
+                    .yes{
+                        font-weight: 700;
+                        color: #3d3d3d;
+                        mat-icon{
+                            color: map-get($core-green, 500);
+                        }
+                    }
+                    .no{
+                        mat-icon{
+                            color: lightgray;
+                        }
+                    }
+                }
+                .plan-actions{
+                    button{
+                        border: 1px solid map-get($core-primary, 500);
+                        border-radius: 5px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.big-bottom-margin{
+    margin-bottom: 53px;
+}
+
+.custom-plan{
+    text-align: center;
+    color: white;
+    a{
+        text-decoration: none !important;
+        outline: none !important;
+    }
+}

@@ -1,0 +1,71 @@
+@import '../../../core/core.theme.sass';
+@import '../../../core/core.colors.sass';
+
+.quick-stat{
+    height: 100%;
+    padding-top: 50px;
+    mat-card-header{
+        position: absolute;
+        right: 25px;
+        top: 10px;
+    }
+    .footer{
+        i{
+            position:relative;
+            margin-right: 5px;
+            top: 7px;
+        }
+    }
+}
+
+.card-popout-header{
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    text-align: center;
+    top: -15px;
+    border-radius: 3px;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 0 10px 0px rgba(82, 82, 82, 0.64);
+    i{
+        font-size: 36px;
+        line-height: 55px;
+        width: 55px;
+        height: 55px;
+    } 
+}
+
+.card-header-value{
+    text-align: right;
+    margin: 15px 0 0 0;
+    font-size: 50pt;
+    p{
+        line-height: 40pt;
+    }
+}
+
+.red{
+    background: map-get($core-red, 500);
+    box-shadow: 0 0 10px 1px map-get($core-red, 200);
+}
+
+.grey{
+    background: map-get($core-grey, 500);
+    box-shadow: 0 0 10px 1px map-get($core-grey, 200);
+}
+
+.orange{
+    background: map-get($core-orange, 500);
+    box-shadow: 0 0 10px 1px map-get($core-orange, 200);
+}
+
+.green{
+    background: map-get($core-green, 500);
+    box-shadow: 0 0 10px 1px map-get($core-green, 200);
+}
+
+.indigo{
+    background: map-get($core-indigo, 500);
+    box-shadow: 0 0 10px 1px map-get($core-indigo, 200);
+}

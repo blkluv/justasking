@@ -1,0 +1,17 @@
+<div class="plans-container" *ngIf="userService.user">
+  <div *ngIf="userService.user.MembershipDetails.Price < 1; else alreadyOnPremium">
+    <div class="statement">
+      <h1>Want more features?</h1>
+    </div>
+    <app-plan-pricing-card [model]="premiumPlanCardModel"></app-plan-pricing-card>
+    <br>
+    <div class="custom-plan">
+      <h3>Custom plans are available.</h3>
+      <h2>Contact us, we'll make it happen.</h2>
+      <a mat-button color="primary" href="mailto:contact@justasking.io">contact@justasking.io</a>
+    </div>
+  </div>
+  <ng-template #alreadyOnPremium>
+    <app-already-upgraded></app-already-upgraded>
+  </ng-template>
+</div>

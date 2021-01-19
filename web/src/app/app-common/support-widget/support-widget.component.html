@@ -1,0 +1,70 @@
+<button 
+  class="contact-form-trigger"
+  #supportWidgetTrigger="matMenuTrigger"
+  [matMenuTriggerFor]="supportWidget" 
+  matTooltip="Help"
+  matTooltipLocation="before"
+  mat-icon-button>
+  <mat-icon>help</mat-icon>
+</button>
+<mat-menu #supportWidget="matMenu" >
+  <div 
+    class="contact-form"
+    md-menu-item  
+    (click)="handleClick($event)">
+    <div class="contact-form-title">
+      <div class="text">
+          <div class="vertical-center">
+            <mat-icon>email</mat-icon>
+            <!-- <img src="../../assets/graphics/support-trigger.png" alt="Help"> -->
+          </div>
+          <div class="vertical-center">
+            <span>Email Support</span>
+          </div>
+        </div>
+      <div class="close-widget" (click)="closeMenu()">
+        <mat-icon>close</mat-icon>
+      </div>
+    </div>
+    <form 
+      #supportWidgetForm="ngForm" 
+      novalidate
+      class="contact-form-details">
+      <div *ngIf="!submitted; else issueSubmitted">
+        <p class="contact-from"><b>From:</b> {{userService.user && userService.user.Email}}</p>
+        <hr class="contact-to-from-separator">
+        <p class="contact-to"><b>To:</b> contact@justasking.io</p>
+        <div class="comment">
+          <textarea 
+            required
+            rows="6"
+            maxlength="250"
+            name="supportIssue"
+            [(ngModel)]="issue"
+            [disabled]="processing"
+            placeholder="How can we help?"></textarea>
+        </div>
+        <button 
+          class="action"
+          type="button"
+          color="accent"
+          [disabled]="supportWidgetForm.invalid || processing"
+          (click)="submitSupportIssue()"
+          mat-raised-button>
+          <span *ngIf="!processing">SEND</span>
+          <span *ngIf="processing">SENDING ...</span>
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+      <ng-template #issueSubmitted>
+        <br>
+        <div class="issue-submitted">
+          <span>Thank you for submitting your issue!</span>
+        </div>
+        <div class="sla">
+          <small>We'll respond within 24hrs.</small>
+        </div>
+      </ng-template>
+    </form>
+  </div>
+</mat-menu>

@@ -1,0 +1,64 @@
+<mat-card class="account-users">
+  <mat-card-title>
+    <span>
+      Users
+    </span>
+    <button mat-raised-button color="primary" routerLink="upgrade" *ngIf="userService.user.MembershipDetails.Price < 1">
+      Upgrade
+      <span class="hidden-xs">to PREMIUM</span>
+    </button>
+  </mat-card-title>
+  <div *ngIf="userService.user.MembershipDetails.Price > 0; else upgradeToPremiumTemplate">
+    <mat-card-subtitle>
+      <span>Add users to your account by entering their email and role</span>
+      <span>users</span>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <div class="users">
+        <div *ngFor="let accountUser of accountUsers">
+          <app-account-user-list-item [accountUser]="accountUser" [currentUser]="userService.user" (accountUserRemoved)="removeUserFromAccountList(accountUser)"></app-account-user-list-item>
+          <hr class="user-separator">
+        </div>
+      </div>
+      <br>
+      <form novalidate [formGroup]="inviteUserForm" *ngIf="userService.user && userService.user.MembershipDetails.Delegates >= accountUsers.length; else upgradeTemplate">
+        <div class="invite-user">
+          <mat-form-field class="user-email">
+            <input matInput formControlName="Email" placeholder="Email">
+            <mat-error *ngIf="inviteUserForm.controls.Email.invalid && (inviteUserForm.controls.Email.dirty || inviteUserForm.controls.Email.touched)">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="new-user-role">
+            <mat-select placeholder="Role" formControlName="Role">
+              <mat-option *ngFor="let role of assignableRoles" [value]="role">
+                {{ role.RoleName }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="inviteUserForm.controls.Role.invalid && (inviteUserForm.controls.Role.dirty || inviteUserForm.controls.Role.touched)">
+              Please select a role
+            </mat-error>
+          </mat-form-field>
+          <div class="invite">
+            <button mat-raised-button color="primary" [disabled]="inviteUserForm.invalid || processingService.processingAnimationIsActive"
+              (click)="inviteUser(inviteUserForm.value)">
+              <mat-icon>person_add</mat-icon>
+              Add user
+            </button>
+          </div>
+        </div>
+        <p class="role-description" [innerHTML]="inviteUserForm.value.Role && inviteUserForm.value.Role.RoleDescription"></p>
+      </form>
+      <ng-template #upgradeTemplate>
+        <p class="need-more-users">Need to add more users?
+          <a href="mailto:contact@justasking.io"> Contact us.</a>
+        </p>
+      </ng-template>
+    </mat-card-content>
+  </div>
+  <ng-template #upgradeToPremiumTemplate>
+    <mat-card-subtitle>
+      <span>Upgrade to PREMIUM to add users to your account.</span>
+    </mat-card-subtitle>
+  </ng-template>
+</mat-card>

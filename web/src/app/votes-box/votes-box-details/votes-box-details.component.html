@@ -1,0 +1,48 @@
+<div class="loading-box" *ngIf="loadingBox">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="row quick-stats" *ngIf="!loadingBox">
+  <div class="col-md-6 col-sm-12 col-xs-12 quick-stat-container">
+    <app-quick-stat-box *ngIf="box && box.BaseBox" [box]="box.BaseBox" [boxWebSocket]="boxWebSocket" [accountWebSocket]="accountWebSocket"></app-quick-stat-box>
+  </div>
+
+  <div class="col-md-3 col-sm-12 col-xs-12 quick-stat-container">
+    <app-quick-stat-participants [count]="boxClientCount"></app-quick-stat-participants>
+  </div>
+
+  <div class="col-md-3 col-sm-12 col-xs-12 quick-stat-container">
+    <app-quick-stat-entries headerText="Total votes count" [count]="votesCount"></app-quick-stat-entries>
+  </div>
+</div>
+
+<div class="row">
+  <div class="entries-container">
+    <div class="loading-entries" *ngIf="loadingEntries">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!loadingEntries && !loadingBox">
+
+      <!--VOTES POLL ENTRIES-->
+      <div>
+        <div class="quick-stat-container ">
+          <div class="entries-section">
+            <div class="question-section col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor="let question of box.Questions">
+              <mat-card>
+                <mat-card-title>
+                  <span class="header">{{question.Header}}</span>
+                </mat-card-title>
+                <mat-card-content>
+                  <app-bar-graph [answers]="question.Answers" theme="accent">
+                  </app-bar-graph>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

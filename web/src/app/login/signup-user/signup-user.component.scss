@@ -1,0 +1,126 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+mat-progress-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media #{$screen-size-xs}{
+        position: fixed;
+    }
+}
+mat-form-field{
+    width: 100%;
+    color: #545454;
+    font-size: 13pt;
+    margin: 10px 0px;
+}
+
+#signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sub-title{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+    @media #{$screen-size-xs}{
+        font-size: 8pt;
+    }
+} 
+.signup-field{
+    font-size: 12pt;
+    height: 40px;
+}
+.multiple-fields-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    mat-form-field{
+        flex: 1;
+        @media #{$screen-size-xs}{
+            margin-top: 20px;
+        }
+    }
+} 
+.account-plan{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .plan-select{
+        font-size: 15pt;
+        flex: 1;
+    }
+    .billing-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 150px;
+    }
+}
+.plan-description{
+    color:rgba(0, 0, 0, 0.54);
+    font-family:Roboto, sans-serif;
+    font-size:15px;
+    font-weight:400;
+    line-height:16.875px;
+    outline-color:rgba(0, 0, 0, 0.54);
+    outline-style:none;
+    outline-width:0px;
+    text-align:left;  
+}
+.select-plan-image{
+    width: 25px;
+    margin-right: 25px;
+}
+.sign-up-button{
+    font-size:16px; 
+    font-weight: 400;
+    line-height: 50px;
+    margin-top: 10px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+} 
+.terms{
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    a{
+        cursor: pointer;
+    }
+}
+
+.overlay-loader{
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.74);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    mat-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+.weak_password, .ok_password, .strong_password{
+    font-size: 11pt;
+}
+.weak_password,.passwords_do_not_match{
+    color: map-get($core-red, 500);
+}
+.ok_password{
+    color: map-get($core-blue, 500);
+}
+.strong_password,.passwords_match{
+    color: map-get($core-green, 500);
+}

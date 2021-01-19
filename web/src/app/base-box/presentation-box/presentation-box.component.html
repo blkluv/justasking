@@ -1,0 +1,13 @@
+<div *ngIf="box.BaseBox">
+    <app-presentation-topnav [box]="box.BaseBox"></app-presentation-topnav>
+    <section id="main" [class]="box.BaseBox.Theme">
+        <app-word-cloud-presentation [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 1">
+        </app-word-cloud-presentation>
+        <app-question-box-presentation [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 2">
+        </app-question-box-presentation>
+        <app-answer-box-presentation [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 3">
+        </app-answer-box-presentation>
+        <app-votes-box-presentation [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 4">
+        </app-votes-box-presentation>
+    </section>
+</div>

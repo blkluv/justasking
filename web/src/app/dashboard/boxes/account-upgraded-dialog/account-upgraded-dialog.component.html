@@ -1,0 +1,14 @@
+<h1 class="title" mat-dialog-title>Account Upgraded!</h1>
+<mat-dialog-content>
+  <img class="welcome-img" src="../../../assets/graphics/premium-100.png" alt="PREMIUM">
+  <p>You're now on the PREMIUM plan.</p> 
+  <app-features-list [featureSections]="featureSections"></app-features-list>
+  <br>
+  <p>Enjoy your new perks!</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button 
+    mat-raised-button 
+    (click)="closeDialog()"
+    color="primary">Continue</button>
+</mat-dialog-actions>

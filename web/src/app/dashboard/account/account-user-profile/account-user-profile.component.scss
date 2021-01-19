@@ -1,0 +1,66 @@
+@import '../../../core/core.theme.sass';
+
+.account-card{
+    margin: 0px 0px 20px 0px; 
+    padding-top: 10px;
+    @media #{$screen-size-xs}{
+        margin: 10px 0px;
+    }
+    .account-name{
+        font-size: 14pt;
+    }
+    hr{
+        color: #f7f7f7;
+        margin: 10px 0px 15px 0px;
+    }
+    mat-card-title{
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    } 
+}
+
+.profile-card{ 
+    flex: 1;
+    mat-card-title{
+        margin-bottom: 10px;
+        font-size: 15pt;
+        font-weight: 100;
+    }
+    mat-card-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80%;
+        .profile-image{
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+            }
+        }
+        .profile-details{
+            flex:1;
+            padding: 0px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @media #{$screen-size-xs}{
+                padding: 0px;
+            }
+            .user-full-name{
+                margin: 0;
+                font-size: 15pt;
+                font-weight: 400;
+            }
+            .email{
+
+            }
+        }
+    }
+    .profile-card-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}

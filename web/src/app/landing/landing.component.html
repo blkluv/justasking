@@ -1,0 +1,82 @@
+<div class="landing-container">
+  <div class="header" [class.user-scrolled]="isScrolled">
+    <div class="logo">
+      <a routerLink="/getstarted">
+        <div class="img-container">
+          <img src="../../assets/logos/logo-white.png" alt="justasking.io">
+        </div>
+        <h1>justasking.io</h1>
+      </a>
+    </div>
+    <div class="navigation">
+      <div class="hidden-sm hidden-md hidden-lg">
+        <button mat-icon-button [matMenuTriggerFor]="mobileMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #mobileMenu="matMenu">
+          <a class="external_link_mobile" mat-menu-item href="http://blog.justasking.io/" target="noopener">
+            <span>Blog</span>
+          </a>
+          <button mat-menu-item routerLink="pricing">
+            <span>Pricing</span>
+          </button>
+          <button mat-menu-item *ngIf="!userIsLoggedIn" routerLink="/login">
+            <span>Login/Register</span>
+          </button>
+          <button mat-menu-item *ngIf="userIsLoggedIn" routerLink="/dashboard">
+            <span>Dashboard</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div class="hidden-xs">
+        <a class="link_desktop" mat-button href="http://blog.justasking.io" target="noopener">
+          Blog
+        </a>
+        <a class="link_desktop" mat-button routerLink="pricing">
+          Pricing
+        </a>
+        <a class="link_desktop" *ngIf="!userIsLoggedIn" mat-button routerLink="/login">
+          Login/Register
+        </a>
+        <a class="link_desktop" *ngIf="userIsLoggedIn" mat-button routerLink="/dashboard">
+          Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <section class="footer">
+    <div class="contact">
+      <div class="logo">
+        <a routerLink="/getstarted">
+          <img src="../../assets/logos/logo-white.png" alt="justasking.io">
+          <h3 class="justasking">justasking.io</h3>
+        </a>
+      </div>
+      <hr>
+      <div class="contact-us">
+        <a href="mailto:contact@justasking.io">
+          <mat-icon>email</mat-icon>
+          <span>contact@justasking.io</span>
+        </a>
+      </div>
+      <div class="social">
+        <a href="https://www.facebook.com/justasking.io" target="noopener">
+          <img src="../assets/logos/facebook-white.png" alt="share with us on facebook">
+        </a>
+        <a href="https://twitter.com/justaskingapp" target="noopener">
+          <img src="../assets/logos/twitter-white.png" alt="share with us on twitter">
+        </a>
+        <a href="https://www.instagram.com/justasking.io" target="noopener">
+          <img src="../assets/logos/instagram-white.png" alt="share with us on instagram">
+        </a>
+      </div>
+    </div>
+    <div class="site-map">
+    </div>
+  </section>
+</div>

@@ -1,0 +1,441 @@
+@import '../../core/core.theme.sass';
+.get-started {
+    text-decoration: none;
+    color: white !important;
+    text-transform: uppercase;
+    height: 60px;
+    width: 260px;
+    font-size: 13pt;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    outline: none;
+    border: 2px solid white;
+    background: transparent !important;
+    mat-icon {
+        color: map-get($core-accent, 500) !important;
+        font-size: 35px;
+        height: 35px;
+        width: 35px;
+    }
+}
+
+.section-subheader {
+    font-size: 15pt;
+    font-weight: 700;
+    color: #ccc;
+    line-height: 200%;
+}
+
+.section-header {
+    margin: 20px 0 0 0;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    font-size: 36pt;
+    color: #222326;
+    margin-bottom: 40px;
+    @media #{$screen-size-xs} {
+        font-size: 24pt;
+    }
+}
+
+.actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    @media #{$screen-size-xs},
+    #{$screen-size-sm},
+    #{$screen-size-md} {
+        justify-content: center;
+    }
+    .demo {
+        font-size: 14pt;
+        font-weight: 100;
+    }
+}
+
+.video-container {
+    margin-bottom: 30px;
+    .close-video {
+        color: white;
+        text-align: right;
+    }
+    .video {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .video-js {
+            box-shadow: 0px 0px 80px -10px black;
+            width: 25.56vw;
+            height: 14.375vw;
+            @media #{$screen-size-sm},
+            #{$screen-size-xs} {
+                width: 80vw;
+                height: 45vw;
+            }
+            @media #{$screen-size-md} {
+                width: 60vw;
+                height: 33.751vw;
+            }
+        }
+    }
+}
+
+.statement {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    padding: 150px 0 55px 0;
+    background: map-get($core-primary, 500);
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/landing-page-header.jpg');
+    background-size: cover;
+    text-align: center;
+    @media #{$screen-size-xs} {
+        padding: 100px 0 55px 0;
+    }
+    .video-details-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @media #{$screen-size-xs},
+        #{$screen-size-sm},
+        #{$screen-size-md} {
+            flex-direction: column-reverse;
+        }
+    }
+    .details {
+        padding: 0px 25px;
+        text-align: left;
+        h1 {
+            font-family: 'Lora', serif;
+            font-weight: 100;
+            font-size: 40pt;
+            color: white;
+            margin: 15px 0 15px 0;
+            @media #{$screen-size-xs},
+            #{$screen-size-sm},
+            #{$screen-size-md} {
+                font-size: 25pt;
+                text-align: center;
+            }
+        }
+        h4 {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 5px 0 0 0;
+            font-weight: 400;
+            @media #{$screen-size-xs},
+            #{$screen-size-sm},
+            #{$screen-size-md} {
+                font-size: 11pt;
+                text-align: center;
+            }
+        }
+    }
+    .more-content-hint-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        cursor: default;
+        .more-content-hint {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .top-arrow {
+                font-size: 30pt;
+                height: 50pt;
+                width: 50pt;
+                margin-bottom: -66px;
+            }
+            .bottom-arrow {
+                $size: 50pt;
+                font-size: $size;
+                height: $size;
+                width: $size;
+            }
+        }
+    }
+    .video-trigger {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 30px;
+        mat-icon {
+            cursor: pointer;
+            font-size: 60pt;
+            height: 60pt;
+            width: 60pt;
+            transition-timing-function: ease-in;
+            -webkit-transition: opacity 0.2s;
+            /* For Safari 3.1 to 6.0 */
+            transition: opacity 0.2s;
+            &:hover {
+                opacity: 0.6;
+            }
+            &:active {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+.how-it-works {
+    background: rgba(243, 243, 243, 0.7);
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains-3-flat.png');
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+    padding: 50px 15%;
+    @media #{$screen-size-xs} {
+        padding: 20px 0;
+    }
+    h1 {
+        margin: 20px 0 0 0;
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        font-size: 36pt;
+        color: #222326;
+        margin-bottom: 40px;
+        @media #{$screen-size-xs} {
+            font-size: 24pt;
+        }
+    }
+    .steps-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        .step {
+            max-width: 300px;
+            img {
+                width: 110px;
+            }
+            .step-title {
+                font-size: 20pt;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.features-preview {
+    background: white;
+    text-align: center;
+    align-items: center;
+    padding: 40px 5% 70px 5%;
+    color: #222326;
+    @media #{$screen-size-xs} {
+        padding: 20px 0;
+    }
+    .features-container {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        @media #{$screen-size-xs} {
+            flex-direction: column;
+        }
+        .feature {
+            min-width: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            .feature-img {
+                img {
+                    width: 50%;
+                    max-width: 200px;
+                    vertical-align: middle;
+                    min-width: 90px;
+                    min-height: 90px;
+                    margin-right: 20px;
+                    @media #{$screen-size-xs} {
+                        margin-top: 10px;
+                        $size: 50px;
+                        width: $size;
+                        height: $size;
+                        min-width: $size;
+                        min-height: $size;
+                    }
+                }
+            }
+            .feature-details {
+                height: 170px;
+                text-align: left;
+                p {
+                    color: #adadad;
+                    font-weight: 500;
+                    line-height: 210%;
+                    text-align: left;
+                }
+                .feature-title {
+                    font-size: 24px;
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+}
+
+.reviews {
+    background: map-get($core-accent, 500);
+    text-align: center;
+    align-items: center;
+    padding: 100px 5%;
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains-2.png');
+    background-size: cover;
+    h1 {
+        margin: 0px;
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        font-size: 40pt;
+        color: white;
+    }
+    @media #{$screen-size-xs} {
+        padding: 100px 20px;
+        h1 {
+            font-size: 20pt;
+        }
+    }
+}
+
+.section-separation {
+    margin: 0px auto;
+    width: 9%;
+    height: 5px;
+    border-radius: 5px;
+    background: map-get($core-primary, 500);
+}
+
+.faqs {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 55vh;
+    text-align: center;
+    align-items: center;
+    padding: 50px 25% 80px 25%;
+    @media #{$screen-size-sm} {
+        padding: 50px 10px;
+    }
+    @media #{$screen-size-xs} {
+        padding: 50px 10px;
+    }
+    h1 {
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        font-size: 36pt;
+        color: #222326;
+        @media #{$screen-size-xs} {
+            font-size: 28pt;
+        }
+    }
+    h3 {
+        margin: 20px 0 0 0;
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        font-size: 14pt;
+        color: #222326;
+    }
+    .faq-container {
+        margin-top: 30px;
+        width: 100%;
+        .faq {
+            cursor: pointer;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            min-height: 110px;
+            text-align: left;
+            padding: 30px 20px;
+            i {
+                color: map-get($core-accent, 500);
+                display: inline-block;
+                font-size: 35pt;
+                float: right;
+            }
+            .question {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 100;
+                font-size: 25pt;
+                display: inline-block;
+                width: 80%;
+                @media #{$screen-size-xs} {
+                    font-size: 15pt;
+                }
+            }
+            .answer {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 100;
+                margin-top: 20px;
+                font-size: 15pt;
+                color: #a9a9a9;
+                @media #{$screen-size-xs} {
+                    font-size: 13pt;
+                }
+            }
+        }
+        .top-faq {
+            border-top: 1px solid #dedede;
+        }
+        .bottom-faq {
+            border-bottom: 1px solid #dedede;
+        }
+    }
+}
+
+.statement-closing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 35vh;
+    background: map-get($core-primary, 500);
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains.png');
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: white;
+    @media #{$screen-size-xs} {
+        background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains-3.png');
+    }
+    .details {
+        h1 {
+            font-family: 'Lora', serif;
+            font-weight: 100;
+            font-size: 40pt;
+            color: white;
+            margin: 15px 0 15px 0;
+            @media #{$screen-size-xs} {
+                font-size: 28pt;
+            }
+        }
+        h3 {
+            font-family: 'Lora', serif;
+            margin: 5px 0 0 0;
+            font-weight: 400;
+            @media #{$screen-size-xs} {
+                font-size: 11pt;
+            }
+        }
+    }
+    .actions {
+        margin-top: 50px;
+        button {
+            color: white;
+            text-transform: uppercase;
+            height: 50px;
+            width: 260px;
+            border-radius: 400px;
+            font-size: 13pt;
+            font-weight: 600;
+        }
+    }
+}

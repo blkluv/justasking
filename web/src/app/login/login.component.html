@@ -1,0 +1,22 @@
+<div class="content">
+  <div class="login-container">
+    <mat-progress-bar 
+      *ngIf="processingService.processingAnimationIsActive"
+      color="accent"
+      mode="indeterminate">
+    </mat-progress-bar>
+    <mat-card>
+      <div class="title">
+        <div class="image-container">
+          <img src="../../assets/logos/logo-teal.png" alt="justasking.io" routerLink="/">
+        </div>
+        <div class="name">
+          <h2>justasking.io</h2>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-card>
+    <p class="information-notice">We use cookies to give you the best, most relevant experience.</p>
+    <p class="information-notice">For optimal experience use <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a></p>
+  </div>
+</div>

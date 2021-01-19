@@ -1,0 +1,13 @@
+<div *ngIf="accountUserInvitation; else invalidInvitation">
+  <p class="sub-title">You've been invited to join this account</p>
+  <h3 class="confirm-text">
+    {{accountUserInvitation.AccountName}}
+  </h3>
+  <br>
+  <button class="join-account-button" mat-raised-button color="primary" (click)="joinAccount()">Join account</button>
+</div>
+<ng-template #invalidInvitation>
+  <p class="sub-title">Invitation is no longer valid.</p>
+  <br>
+  <button class="join-account-button" mat-raised-button color="primary" routerLink="/dashboard">View my dashboard</button>
+</ng-template>

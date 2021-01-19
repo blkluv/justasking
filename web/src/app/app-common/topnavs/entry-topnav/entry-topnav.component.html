@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="logo hidden-xs">
+    <img routerLink='/' src="../../assets/logos/logo-white.png" alt="justasking.io">
+    <h1><small><span class="url">justasking.io</span>/</small>{{baseBox.Code}}</h1>
+    <br/>
+    <h1 class="box-phone" *ngIf="baseBox.PhoneNumber && !hidePhone"><span>or text </span>{{baseBox.PhoneNumber|phoneNumber:'default'}}</h1>
+  </div>
+  <div class="logo mobile hidden-lg hidden-md hidden-sm">
+    <img routerLink='/' src="../../assets/logos/logo-white.png" alt="justasking.io">
+    <h1 routerLink='..'>justasking.io</h1> 
+  </div>
+  <div class="navigation-container">
+    <div class="navigation">
+        <app-user-menu [user]="userService.user"> 
+        </app-user-menu>
+    </div>
+    <div class="navigation hidden-xs" *ngIf="!userService.user">
+      <button
+        mat-button
+        routerLink='/login'>
+        Login/Register
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+        "AppSettings" : {
+                "AllowOrigin": "*",
+                "DatabaseType" : "mysql",
+                "ConnectionString" : "",
+                "TokenExpirationInDays" : "30",
+		"NoReplyEmail" : "noreply@justasking.io",
+		"NoReplyPassword" : ""
+        },
+        "Email": {
+                "Username": "",
+                "Password": "",
+                "Hostname": "",
+                "Port": 25,
+                "From": ""
+        },
+        "Server": {
+                "Hostname": "",
+                "UseHTTP": true,
+                "UseHTTPS": false,
+                "RedirectToHTTPS": false,
+                "HTTPPort": 8080,
+                "HTTPSPort": 443,
+                "CertFile": "tls/server.crt",
+                "KeyFile": "tls/server.key"
+        }
+}

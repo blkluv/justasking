@@ -1,0 +1,162 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.mat-column-select {
+    overflow: initial;
+  }
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 15px;
+    padding-left: 15px;
+    h2{
+        color: #3d3d3d;
+        font-family: 'Lora', serif;
+    }
+    .account-name{
+        margin: 10px 0px;
+        border-bottom: 1px solid #dadada;
+        padding-bottom: 15px;
+    }
+    .account-role{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 12pt;
+        color: gray;
+    }
+}
+
+.account-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .account-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    } 
+    .profile-membership{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .account-card{
+        margin: 0px 0px 20px 0px; 
+        padding-top: 10px;
+        @media #{$screen-size-xs}{
+            margin: 10px 0px;
+        }
+        .account-name{
+            font-size: 14pt;
+        }
+        hr{
+            color: #f7f7f7;
+            margin: 10px 0px 15px 0px;
+        }
+        mat-card-title{
+            justify-content: space-between;
+            display: flex;
+            flex-direction: row;
+        } 
+    }
+    .account-users-card{
+        img{
+            height: 30px;
+            width: 30px;
+            border-radius: 30px;
+            margin: 0px 10px 0px 0px;
+        }
+        .role-select{
+            padding-top: 23px;
+            width: 100px;
+        }
+        mat-list-item{
+            margin-bottom: 5px;
+            border-bottom: 1px solid whitesmoke;
+        }
+        mat-card-actions{
+            display: flex;
+            display: none;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        /deep/ .mat-list-item-content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            /deep/ .mat-select-underline{
+                height: 0px;
+            }
+        }
+    }
+    .stats-card{
+        width: 100%;
+        height: 100%;
+    }
+    .billing-card{ 
+        .billing-state-0-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            img{
+                width: 75px;
+                margin: 10px;
+            }
+            .details{
+                flex: 1;
+            }
+        }
+        .credit-cards{
+            mat-icon{
+                margin-right: 10px;
+            }
+            button{
+                margin-left: 10px;
+            } 
+            .credit-card{ 
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                img{
+                    width: 75px;
+                    margin: 10px;
+                }
+                .details{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    .details-text{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        font-size: 12pt;
+                    }
+                    .details-actions{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+            }
+            .hidden-card-numbers{
+                font-size: 9pt;
+                color: #3d3d3d;
+                font-family: 'Lora', serif;
+            } 
+            .active-card{
+                margin-left: 10px;
+                color: map-get($core-green, 500);
+            }
+        }
+    }
+
+}
+ 

@@ -1,0 +1,75 @@
+<div class="loading-box" *ngIf="loadingBox">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="row quick-stats" *ngIf="!loadingBox" > 
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container">
+    <app-quick-stat-box *ngIf="box && box.BaseBox" [box]="box.BaseBox" [boxWebSocket]="boxWebSocket" [accountWebSocket]="accountWebSocket" ></app-quick-stat-box>
+  </div> 
+
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container"> 
+    <app-quick-stat-participants [count]="boxClientCount"></app-quick-stat-participants>
+  </div> 
+
+  <div class="col-md-4 col-sm-12 col-xs-12 quick-stat-container">
+      <app-quick-stat-entries [count]="entries && entries.length"></app-quick-stat-entries>
+  </div>  
+</div>
+
+<div class="row">
+  <div class="entries-container col-md-12">
+    <div class="loading-entries" *ngIf="loadingEntries">
+      <mat-spinner></mat-spinner>
+    </div>
+    
+    <div *ngIf="!loadingEntries && !loadingBox">
+
+      <!--ANSWER POLL ENTRIES-->
+      <div>
+        <mat-card class="entries-section" *ngFor="let question of box.Questions">
+          <mat-card-title>
+            <mat-checkbox 
+              [title]="question.IsActive?'Hide this question':'Unhide this question'"
+              (change)="toggleAnswerBoxQuestion(question)"
+              [checked]="question.IsActive">
+            </mat-checkbox>
+            <span class="header">{{question.Question}}</span>
+            <button mat-icon-button [matMenuTriggerFor]="answerBoxEntriesMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button> 
+            <mat-menu #answerBoxEntriesMenu="matMenu">
+                <button mat-menu-item color="accent" (click)="hideAllAnswerBoxEntries(question)">
+                  <mat-icon>visibility_off</mat-icon>
+                  <span>Hide all entries</span>
+                </button> 
+                <button mat-menu-item color="accent" (click)="unhideAllAnswerBoxEntries(question)">
+                  <mat-icon>visibility</mat-icon>
+                  <span>Show all entries</span>
+                </button>
+            </mat-menu>
+          </mat-card-title>
+          <mat-card-subtitle>
+              Listed below are all of the entries for this box, click to toggle their visibility.
+          </mat-card-subtitle>
+          <mat-card-content>
+            <div class="entries">
+              <mat-card
+                class="entry-card"
+                [class.entry-hidden]="entry.IsHidden" 
+                *ngFor="let entry of question.Entries"
+                title="Toggle this entry"
+                (click)="toggleEntry(entry)">
+                  <span>{{entry.Entry}}</span>
+                  <span class="icon-container">
+                    <i class="material-icons" *ngIf="!entry.IsHidden">visibility</i>
+                    <i class="material-icons" *ngIf="entry.IsHidden">visibility_off</i>
+                  </span>
+              </mat-card>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div> 
+
+    </div>
+  </div>
+</div>

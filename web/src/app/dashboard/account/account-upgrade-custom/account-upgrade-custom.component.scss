@@ -1,0 +1,210 @@
+@import '../../../core/core.theme.sass';
+@import '../../../core/core.colors.sass';
+
+.title{
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    color: #3d3d3d;
+    margin: 15px 0 45px 0;
+    text-align: center;
+    h1{
+        margin: 0;
+        font-size: 40pt;
+        @media #{$screen-size-md}{
+            font-size: 23pt;
+        }
+        @media #{$screen-size-sm}{
+            font-size: 23pt;
+        }
+        @media #{$screen-size-xs}{
+            font-size: 23pt;
+        }
+    }
+}
+
+.spinner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.plans-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .recommended-plan{
+        margin: 0px;
+    }
+    .plan{
+        margin: 10px;
+        padding: 10px 0px;
+        border-radius: 5px;
+        max-width: 500px;
+        .plan-meta{
+            margin: 24px;
+            text-align: center;
+            .plan-image{
+                padding: 0px 50px;
+                img{
+                    width: 100%;
+                    max-width: 80px;
+                    margin-bottom: 10px;
+                }
+            }
+            .plan-name{
+                font-family: 'Robot', sans-serif;
+                font-weight: 100;
+                font-size: 23pt;
+                color: #607D8B;
+                margin-bottom: 0px;
+            }
+            .plan-price{
+                .price{
+                    font-size: 22pt;
+                    font-family: 'Roboto', sans-serif;
+                    color: map-get($core-primary, 500);
+                    font-weight: 700;
+                    @media #{$screen-size-xs}{
+                        font-weight: 100;
+                    }
+                } 
+            }
+        }
+        .plan-features{
+            margin: 24px;
+            .billing-toggle{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                mat-slide-toggle{
+                    margin: 0px 10px;
+                }
+                .active{
+                    font-size: 12pt;
+                    font-weight: 700;
+                    color: map-get($core-primary, 500);
+                }
+            }
+            .features{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap; 
+                mat-icon{
+                    margin-right: 5px;
+                }
+                .yes{
+                    font-weight: 700;
+                    color: #3d3d3d;
+                    mat-icon{
+                        color: map-get($core-green, 500);
+                    }
+                }
+                .no{
+                    mat-icon{
+                        color: lightgray;
+                    }
+                }
+            }
+            .plan-actions{
+                button{
+                    border: 1px solid map-get($core-primary, 500);
+                    border-radius: 5px;
+                    width: 100%;
+                }
+                a{
+                    border: 1px solid map-get($core-primary, 500);
+                    border-radius: 5px;
+                    width: 100%;
+                    text-decoration: none;
+                }
+            }
+        } 
+    }
+}
+
+.big-bottom-margin{
+    margin-bottom: 53px;
+}
+
+.custom-plan{
+    text-align: center;
+    a{
+        text-decoration: none !important;
+        outline: none !important;
+    }
+}
+
+
+.invalid-code-container{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        height: 60vh;
+    }
+    hr{
+        border-top: 1px solid #eaeaea;
+    }
+}
+.invalid-code{
+    min-height: 40vh;
+    text-align: left;
+    color: #9E9E9E;
+    text-align: center;
+    .invalid-code-header{
+        mat-icon{
+            height: 150px;
+            width: 150px;
+            font-size: 150px;
+            @media #{$screen-size-xs}{
+                height: 50px;
+                width: 50px;
+                font-size: 50px;
+            }
+            @media #{$screen-size-sm}{
+                height: 100px;
+                width: 100px;
+                font-size: 100px;
+            }
+        }
+        h2{
+            font-family: 'Lora', serif;
+            font-size: 30pt;
+            font-weight: 100;
+            @media #{$screen-size-xs}{
+                font-size: 12pt;
+            }
+        }
+        h1{
+            font-family: 'Lora', serif;
+            font-size: 100pt;
+            font-weight: 100;
+            @media #{$screen-size-xs}{
+                font-size: 34pt;
+            }
+            @media #{$screen-size-sm}{
+                font-size: 34pt;
+            }
+        }
+    }
+    .invalid-code-details{
+        h3, p{
+            font-family: 'Roboto', sans-serif;
+            font-size: 12pt;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+    .invalid-code-actions{
+        margin-top: 50px;
+        a{
+            text-decoration: none;
+            outline: none;
+        }
+    }
+}
+

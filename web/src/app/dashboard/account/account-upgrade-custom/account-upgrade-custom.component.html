@@ -1,0 +1,33 @@
+<div class="plans-container">
+  <div>
+    <div *ngIf="customPlanCardModel; else spinnerAnimationTemplate">
+      <div class="title">
+        <h1>Custom plan</h1>
+      </div>
+      <app-plan-pricing-card [model]="customPlanCardModel"></app-plan-pricing-card>
+    </div>
+    <ng-template #spinnerAnimationTemplate>
+      <div class="spinner-container" *ngIf="!invalidCustomPlanLicense; else invalidCustomPlanLicenseTemplate">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+    <ng-template #invalidCustomPlanLicenseTemplate>
+      <div class="invalid-code-container">
+        <div class="invalid-code">
+          <div class="invalid-code-header">
+            <mat-icon>link</mat-icon>
+            <h2>This custom plan link is invalid.</h2>
+            <hr>
+          </div>
+          <div class="invalid-code-details">
+            <p>Please let us if you need a custom plan and we'll get you setup.</p>
+          </div>
+          <div class="invalid-code-actions">
+            <a mat-button color="primary" href="mailto:contact@justasking.io">contact@justasking.io</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <br>
+  </div>
+</div>

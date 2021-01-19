@@ -1,0 +1,50 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.coming-soon-container{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        height: 60vh;
+    }
+    hr{
+        border-top: 1px solid #eaeaea;
+    }
+}
+.coming-soon{
+    min-height: 40vh;
+    text-align: left;
+    color: #9E9E9E;
+    text-align: center;
+    .coming-soon-header{
+        h2{
+            font-family: 'Lora', serif;
+            font-size: 30pt;
+            font-weight: 100;
+        }
+        h1{
+            font-family: 'Lora', serif;
+            font-size: 100pt;
+            font-weight: 100;
+            @media #{$screen-size-xs}{
+                font-size: 34pt;
+            }
+            @media #{$screen-size-sm}{
+                font-size: 34pt;
+            }
+        }
+    }
+    .coming-soon-details{
+        h3{
+            font-family: 'Roboto', sans-serif;
+            font-size: 12pt;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+    .coming-soon-actions{
+        margin-top: 50px;
+    }
+}

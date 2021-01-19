@@ -1,0 +1,25 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <div class="box-header">
+    <h1>
+      {{box.Header}}
+    </h1>
+  </div>
+
+  <form #addToWordCloudForm="ngForm" novalidate (ngSubmit)="onSubmit()" class="user-entry">
+    <mat-card class="entry-card">
+      <div class="entry-container">
+        <input id="boxEntry" name="boxEntry" [(ngModel)]="entry" rows="1" [appAutofocus]="!box.IsPreview" maxlength="50" autocomplete="off"
+          required>
+        <button type="submit" class="submit-entry-button" mat-raised-button [disabled]="addToWordCloudForm.invalid" color="primary">
+          <span>Submit</span>
+        </button>
+      </div>
+    </mat-card>
+  </form>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

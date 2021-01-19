@@ -1,0 +1,23 @@
+{    
+    "TwilioTestAccountSid" : "",
+    "TwilioLiveAccountSid" : "",
+    "TwilioTestAuthToken" : "",
+    "TwilioLiveAuthToken" : "",
+    "TwilioSmsUrl" : "http://512bde26.ngrok.io/sms/receive",
+    "TwilioTestModeFlag" : "true",
+    "RealTimeHubBaseUrl": "http://localhost:4202",
+    "JustAskingWebBaseUrl": "http://localhost:4200",
+    "StripeSecretKey" : "",
+    "WelcomeEmailSubject": "Welcome to Justasking.io - DEV",
+    "WelcomeEmailBcc": "",
+    "ErrorEmailSubject": "Error in {DomainName} - DEV",
+    "UpgradeEmailSubject" : "JustAsking.io Plan Upgrade - DEV",
+    "InvitationEmailSubject" : "Invitation to join JustAsking.io - DEV",
+    "ExpirationEmailSubject" : "JustAsking.io Plan Expiration - DEV",
+    "UpgradeEmailBcc" : "",
+    "ExpirationBcc" : "",
+    "PasswordResetRequestSubject" : "JustAsking.io Password Reset Request - DEV",
+    "PasswordResetConfirmationSubject" : "JustAsking.io Password Reset Confirmation - DEV",
+    "SupportIssueEmailCc": "",
+    "FeatureRequestThankYouEmailCc": ""
+}

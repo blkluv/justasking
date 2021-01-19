@@ -1,0 +1,71 @@
+@import '../../../core/core.theme.sass';
+
+mat-card-title{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+} 
+.account-users{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .users{
+        .mat-list-icon {
+            color: rgba(0, 0, 0, 0.54);
+        }
+        .user-separator{
+            margin: 2px 0px;
+        }
+    }
+    .add-user{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    .invite-user{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        @media #{$screen-size-xs}{
+            mat-form-field{
+                flex: 1;
+            } 
+        }
+        .user-email{
+            flex: 1;       
+            @media #{$screen-size-xs}, #{$screen-size-sm}, #{$screen-size-md}{
+                margin-bottom: 55px;  
+            }
+        }
+        .new-user-role{
+            margin-right: 10px;
+        }
+        .invite{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            @media #{$screen-size-xs}, #{$screen-size-sm}, #{$screen-size-md}{
+                margin: 10px 0px;
+                flex: 1; 
+            }
+            button{
+                height: 40px;
+            }
+        }
+    }
+    .role-select{
+        width: 100px;
+    }
+}
+.role-description{
+    margin: 10px 0px;
+    font-size: 10pt;
+}
+.need-more-users{
+    margin: 0px 11px;
+}
+.account-user-actions{
+    margin: 0px 20px;
+}

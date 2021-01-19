@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS `justasking`.`app_configs` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `config_type` VARCHAR(100) NOT NULL,
+  `config_code` VARCHAR(100) NOT NULL,
+  `config_value` VARCHAR(250) NOT NULL,
+  `comments` VARCHAR(250) NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));

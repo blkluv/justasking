@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `justasking`.`app_logs` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `log_type` VARCHAR(50) NOT NULL,
+  `source_name` VARCHAR(250) NOT NULL,
+  `message` VARCHAR(2000) NOT NULL,
+  `machine_name` VARCHAR(250) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
+  

@@ -1,0 +1,22 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <div class="content">
+    <div class="question-section" *ngFor="let question of box.Questions">
+      <app-bar-graph [header]="question.Header" [answers]="question.Answers" showTotalCount="true" *ngIf="question.IsActive">
+      </app-bar-graph>
+    </div>
+  </div>
+
+  <div *ngIf="visibleQuestionsCount==0">
+    <div class="box-header">
+      <h1>
+        No questions at this moment, stay tuned!
+      </h1>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

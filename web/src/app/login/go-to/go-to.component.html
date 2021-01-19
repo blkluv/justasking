@@ -1,0 +1,30 @@
+<p class="sub-title">Enter poll access code or Sign In/Register</p>
+<form 
+  novalidate 
+  [formGroup]="goToPollByAccessCodeForm">
+  <div class="form-container">
+    <mat-form-field class="signup-field">
+      <input 
+        matInput 
+        type="text"
+        maxlength="50" 
+        appAlphaNumericsOnly
+        formControlName="AccessCode"  
+        placeholder="Poll Access Code">
+        <mat-hint>justasking.io/{{goToPollByAccessCodeForm.value.AccessCode || 'code'}}</mat-hint>
+    </mat-form-field> 
+    <br>
+    <button 
+      type="button"
+      color="primary"  
+      mat-raised-button
+      class="sign-in-button" 
+      (click)="goToPoll(goToPollByAccessCodeForm.value.AccessCode)"
+      [disabled]="goToPollByAccessCodeForm.invalid">
+      Go to poll
+    </button>
+    <a class="go-to-login" routerLink="/login">
+      Sign In/Register
+    </a>
+  </div>
+</form> 

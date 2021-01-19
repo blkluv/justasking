@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{data.Header}}</h1>
+<mat-dialog-content>
+  <p *ngFor="let text of data.Texts" [innerHtml]="text"></p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button [disabled]="processing" mat-button (click)="notNow()">
+    Not now
+  </button>
+  <button [disabled]="processing" mat-raised-button color="primary" (click)="confirm()">
+    <span>{{data.ConfirmText}}</span>
+  </button>
+</mat-dialog-actions>

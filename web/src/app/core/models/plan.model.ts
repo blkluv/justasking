@@ -1,0 +1,30 @@
+export class PlanModel { 
+    ActiveBoxesLimit?:number;
+    AnswerBox?:boolean;
+    BoxesPerMonth?:number;
+    CreatedAt?: string;
+    CustomCode?:boolean;
+    Delegates?:number;
+    DeletedAt?:null;
+    FeatureDescription?: string;
+    FeatureName?: string;
+    FeatureValue?: string;
+    Id?: string;
+    ImagePath?: string;
+    IsActive?:boolean;
+    Name?: string;
+    DisplayName?: string; 
+    PlanName?: string;
+    Price?: number;
+    PriceDescription?: string;
+    Description?: string;
+    QuestionBox?:boolean;
+    Responses?:number;
+    Sms?:boolean;
+    Support?:boolean;
+    ToggleResponses?:boolean;
+    UpdatedAt?:null;
+    VotesBox?:boolean;
+    WordCloud?:boolean;
+    ExpiresInDays?: number;
+}

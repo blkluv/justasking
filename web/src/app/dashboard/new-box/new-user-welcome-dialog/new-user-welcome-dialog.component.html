@@ -1,0 +1,14 @@
+<h1 class="title" mat-dialog-title>Welcome, {{userService.user && userService.user.FirstName}}!</h1>
+<mat-dialog-content>
+  <img class="welcome-img" src="../../../assets/graphics/presentation.png" alt="Welcome!">
+  <p>We're excited to have you on board.</p>
+  <p>Go on, create your first poll!</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button 
+    mat-raised-button  
+    color="primary"
+    (click)="closeDialog()">
+      Continue
+  </button>
+</mat-dialog-actions>

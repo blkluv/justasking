@@ -1,0 +1,85 @@
+<div>
+  <p class="sub-title">Please fill these out to create your account</p>
+  <form id="signup-form" [formGroup]="signUpForm" novalidate>
+    <br>
+    <div class="multiple-fields-container">
+      <mat-form-field class="signup-field">
+        <input 
+          matInput 
+          type="text"
+          maxlength="128"
+          formControlName="GivenName" 
+          placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field class="signup-field">
+        <input 
+          matInput 
+          type="text" 
+          maxlength="128"
+          formControlName="FamilyName" 
+          placeholder="Last Name">
+      </mat-form-field>
+    </div>
+    <mat-form-field class="signup-field">
+      <input 
+        matInput 
+        type="text"
+        maxlength="128"
+        formControlName="Email"
+        placeholder="Email address">
+      <mat-error *ngIf="signUpForm.controls.Email.invalid && (signUpForm.controls.Email.dirty || signUpForm.controls.Email.touched)">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <div class="multiple-fields-container">
+      <mat-form-field class="signup-field">
+        <input 
+          matInput 
+          type="password" 
+          maxlength="32" 
+          formControlName="Password"  
+          placeholder="Password">
+        <mat-error *ngIf="signUpForm.controls.Password.invalid && (signUpForm.controls.Password.dirty || signUpForm.controls.Password.touched)">
+          Please enter at least 12 characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-field">
+        <input 
+          matInput 
+          type="password" 
+          maxlength="32" 
+          formControlName="ConfirmPassword" 
+          placeholder="Confirm Password">
+        <mat-error *ngIf="signUpForm.controls.ConfirmPassword.invalid && (signUpForm.controls.ConfirmPassword.dirty || signUpForm.controls.ConfirmPassword.touched)">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+    </div>      
+    <br>
+    <mat-form-field class="signup-field">
+      <input 
+        matInput 
+        type="text" 
+        maxlength="25"
+        formControlName="PhoneNumber" 
+        placeholder="Phone Number (optional)">
+    </mat-form-field> 
+    <br>
+    <re-captcha (resolved)="resolved($event)" siteKey="{{reCaptchaSiteKey}}"></re-captcha>
+    <button 
+      class="sign-up-button" 
+      color="primary" 
+      mat-raised-button 
+      (click)="registerUser(signUpForm.value)" 
+      [disabled]='signUpForm.invalid || registeringUser'>
+      Sign me up!
+    </button>
+    <br>
+  </form>
+  <div class="terms">
+    <span>By signing up, you agree to our
+      <a (click)="showTermsAndConditions()">terms and conditions.</a>
+    </span>
+  </div>
+</div>

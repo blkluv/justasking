@@ -1,0 +1,51 @@
+@import '../core/core.theme.sass';
+@import '../core/core.colors.sass';
+
+.error{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #9E9E9E;
+    .logo{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f9f9f9;
+        img{
+            margin: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+        }
+        span{
+            font-family: 'Lora', serif;
+            font-size: 20pt;
+            color: #3d3d3d;
+        }
+    }
+    .error-code{
+        h1{
+            font-family: 'Lora', serif;
+            font-size: 120pt;
+            font-weight: 100;
+            @media #{$screen-size-xs}{
+                font-size: 60pt;
+            }
+        }
+    }
+    .error-details{
+        h3{
+            font-family: 'Roboto', sans-serif;
+            font-size: 12pt;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+    .error-actions{
+        margin-top: 50px;
+    }
+}

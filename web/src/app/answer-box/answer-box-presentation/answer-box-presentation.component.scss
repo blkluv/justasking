@@ -1,0 +1,100 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+section#main{  
+    padding: 120px 0px;
+    min-height: 100vh;
+    height:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        padding: 80px 2% 0px 2%;
+        justify-content: flex-start;
+    }
+}
+
+.mat-input-underline{
+    display: none;
+}
+
+.box-header{
+    width: 100%;
+    text-align: center;
+    font-family: 'Lora', serif; 
+    h1{
+        font-weight: 100;
+        font-size: 30pt;
+        color: white;
+        margin: 15px 0 15px 0;
+        @media #{$screen-size-xs}{
+            font-size: 12pt;
+        }
+    }
+}
+  
+.content{
+    width: 100%;
+    padding: 0px 20px;
+    text-align: center;
+    .question-section{
+        margin: 20px 0px;
+        .question-header{
+            width: 100%;
+            display: flex;
+            cursor: pointer;
+            flex-direction: row;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Lora', serif; 
+            &:hover{
+                opacity: 0.9;
+            }
+            &:active{
+                opacity: 0.8;
+            }
+            h1{
+                font-weight: 100;
+                font-size: 30pt;
+                color: white;
+                margin: 15px 0 15px 0;
+                @media #{$screen-size-xs}{
+                    font-size: 12pt;
+                }
+            }
+            .header-actions{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 10px;
+                mat-icon{
+                    color: white;
+                    font-size: 30pt;
+                    height: 30pt;
+                    width: 30pt;
+                }
+            }
+        }
+        .question-entries{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            .question-entry{
+                animation-duration: 0.3s;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 16px 24px;
+                margin-left: 10px;
+                margin-bottom: 10px;
+                h1{
+                    margin: 0px;
+                    font-size: 12pt;
+                    color: #5a5a5a;
+                    font-family: 'Lora', serif; 
+                }
+            }
+        }
+    }
+}

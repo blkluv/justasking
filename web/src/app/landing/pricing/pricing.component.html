@@ -1,0 +1,17 @@
+  <div class="pricing">
+    <div class="statement">
+      <h1>Select your plan</h1>
+    </div>
+    <div class="plans-container">
+      <app-plan-pricing-card></app-plan-pricing-card>
+      <app-plan-pricing-card [model]="premiumPlanCardModel"></app-plan-pricing-card>
+    </div>
+    <br>
+    <div class="custom-plan">
+      <h3>Custom plans are available.</h3>
+      <h2>Contact us, we'll make it happen.</h2>
+      <a mat-button 
+        color="accent" 
+        href="mailto:contact@justasking.io">contact@justasking.io</a>
+    </div>
+  </div>

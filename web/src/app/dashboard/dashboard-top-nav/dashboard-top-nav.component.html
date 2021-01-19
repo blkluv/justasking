@@ -1,0 +1,52 @@
+<mat-toolbar class="topnav" color="primary">
+  <div class="left-menu">
+    <button mat-icon-button (click)="openSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="logo-brand-text hidden-xs" routerLink="/dashboard">justasking.io</h1>
+    <div class="accounts-section" *ngIf="userService && userService.user && accountService.accounts && accountService.accounts.length > 1">
+      <div class="separator hidden-xs"></div>
+
+      <div class="account-switch-trigger" [matMenuTriggerFor]="accountMenu">
+        <div class="icon-container">
+          <mat-icon mat-list-icon>account_box</mat-icon>
+        </div>
+        <div class="text-container">
+          <span class="account-name">{{userService.user.Account.Name}}</span>
+          <span class="account-role">{{userService.user.RolePermissions.RoleName}}</span>
+        </div>
+        <div class="icon-container">
+          <mat-icon mat-list-icon>arrow_drop_down</mat-icon>
+        </div>
+      </div> 
+      <button class="mat-elevation-z0 account-menu-trigger hidden-lg hidden-md hidden-sm" mat-mini-fab color="primary" [matMenuTriggerFor]="accountMenu">
+        <mat-icon>account_box</mat-icon>
+      </button>
+      <mat-menu #accountMenu="matMenu">
+        <mat-list class="accounts-list">
+          <div *ngFor="let account of accountService.accounts; let i = index">
+            <mat-list-item class="account-menu-item" (click)="changeCurrentAccount(account)">
+              <mat-icon mat-list-icon>account_box</mat-icon>
+              <h4 mat-line>{{account.AccountName}}</h4>
+              <p mat-line> {{account.RoleName}} </p>
+            </mat-list-item>
+            <mat-divider *ngIf="i < accountService.accounts.length - 1"></mat-divider>
+          </div>
+        </mat-list>
+      </mat-menu>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button matTooltip="Releases" matTooltipLocation="below" mat-icon-button routerLink="releases">
+    <mat-icon>new_releases</mat-icon>
+  </button>
+  <div class="separator"></div>
+  <a class="go-premium-button hidden-xs" *ngIf="userService.user && userService.user.MembershipDetails.Price < 1" mat-raised-button
+    routerLink="/dashboard/account/upgrade">
+    Go PREMIUM
+  </a>
+  <app-user-menu [user]="userService.user">
+  </app-user-menu>
+</mat-toolbar>
+<mat-progress-bar *ngIf="processingService.processingAnimationIsActive" color="accent" mode="indeterminate">
+</mat-progress-bar>

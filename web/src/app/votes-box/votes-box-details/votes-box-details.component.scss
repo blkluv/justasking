@@ -1,0 +1,89 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+ 
+.loading-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} 
+
+.quick-stats{
+    display: flex;
+    flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+    margin-top: 20px;
+    .quick-stat-container{
+        margin-bottom: 40px;
+    }  
+    .card-header-name{
+        color: gray;
+    }
+}
+
+.entries-container{
+    .loading-entries{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .entries-section{
+        margin-bottom: 40px; 
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        mat-checkbox{ 
+            margin-right: 15px;
+            /deep/ .mat-checkbox-label{
+                font-weight: 100 ;
+            }
+        }
+        mat-card{
+            height: 100%; 
+            margin: auto;
+            mat-card-title{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                span{
+                    flex: 1;
+                }
+            } 
+        }
+        .header{
+            flex: 1;
+        }
+        .question-section{
+            margin-bottom: 20px;
+        } 
+        .graph-canvas-container{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .sorted-entries{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            border-bottom: 1px solid #f7f7f7;
+            padding: 5px;
+            .vote{
+                font-size: 20pt;
+                min-width: 70px;
+            }
+            .answer{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: start;
+            }
+        }
+    }
+    .entries{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }  
+}

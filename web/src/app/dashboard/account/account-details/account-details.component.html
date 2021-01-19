@@ -1,0 +1,41 @@
+<mat-card class="account-card membership-card">
+  <mat-card-title>
+    <span>Details</span>
+    <button mat-raised-button color="primary" routerLink="upgrade" *ngIf="user.MembershipDetails.Price < 1">
+      Upgrade
+      <span class="hidden-xs">to PREMIUM</span>
+    </button>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="account-name">
+      <form novalidate [formGroup]="renameAccountForm" *ngIf="canEditAccountName; else displayAccountName">
+        <mat-form-field>
+          <input matInput maxlength="50" formControlName="Name" placeholder="Account name">
+          <mat-icon matSuffix (click)="enableNameEditMode()" *ngIf="renameAccountForm.controls.Name.disabled; else saveRename">edit</mat-icon>
+          <ng-template #saveRename>
+            <mat-icon matSuffix (click)="cancelAccountName()">clear</mat-icon>
+            <mat-icon class="save-account-name-icon" matSuffix [class.hidden]="renameAccountForm.invalid" (click)="saveAccountName(renameAccountForm.value)">check</mat-icon>
+          </ng-template>
+          <mat-error *ngIf="renameAccountForm.controls.Name.invalid && (renameAccountForm.controls.Name.dirty || renameAccountForm.controls.Name.touched)">
+            Please enter an account name
+          </mat-error>
+          <mat-hint align="end" *ngIf="!renameAccountForm.controls.Name.disabled && renameAccountForm.controls.Name.value.length > 35">{{renameAccountForm.controls.Name.value.length}}/50</mat-hint>
+        </mat-form-field>
+      </form>
+      <ng-template #displayAccountName>
+        <span class="readonly-account-name">
+          {{renameAccountForm.controls.Name.value}}
+        </span>
+      </ng-template>
+    </div>
+    <p class="plan-name">Plan:
+      <b>{{user.MembershipDetails.DisplayName}}</b>
+    </p>
+    <p *ngIf="user.MembershipDetails.Name !== planTypes.BASIC; else basicPlanExpirationTemplate"> Plan benefits expire on <b>{{user.MembershipDetails.PeriodEnd|date:'mediumDate'}}</b></p>
+    <ng-template #basicPlanExpirationTemplate>
+      <p>This plan does not expire.</p>
+    </ng-template>
+    <mat-divider></mat-divider>
+    <app-features-list [featureSections]="featureSections"></app-features-list>
+  </mat-card-content>
+</mat-card>

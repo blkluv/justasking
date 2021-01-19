@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Create poll</h1>
+<mat-dialog-content>
+  <p>
+    You will not be able to edit this poll after you create it.
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="notNow()">
+    Not now
+  </button>
+  <button mat-raised-button color="primary" [disabled]="processingService.processingAnimationIsActive" (click)="createBox(newBox)">
+    <span>Create poll</span>
+  </button>
+</mat-dialog-actions>

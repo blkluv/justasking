@@ -1,0 +1,326 @@
+<div class="header">
+  <div class="header-details">
+    <h2>New Poll</h2>
+    <p class="hidden-xs">Create a new poll.</p>
+  </div>
+</div>
+
+<div class="new-box-settings">
+
+  <div class="col-md-5 settings">
+    <form id="newBoxForm" #newBoxForm="ngForm" (ngSubmit)="confirmBoxCreation(newBox)" novalidate>
+      <mat-card class="preview-settings">
+        <mat-card-content>
+          <div class="col-md-12">
+            <br/>
+            <mat-form-field>
+              <mat-select required name="boxType" [(ngModel)]="newBox" placeholder="Select Poll Type">
+                <mat-option *ngFor="let boxType of boxTypes" [value]="boxType.Model">
+                  {{ boxType.Name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br/>
+            <div class="description">
+              <!-- <h1>{{ newBox.BaseBox.BoxType }}</h1> -->
+              <p *ngIf="newBox.BaseBox.BoxType == 'Question Poll'">
+                Challenge your participants to ask you questions.
+                <br> Participants may upvote or downvote other's questions.
+              </p>
+              <p *ngIf="newBox.BaseBox.BoxType == 'Answer Poll'">
+                Ask one or more open ended questions and choose to allow participants to answer all of them at once or in partitions.
+              </p>
+              <p *ngIf="newBox.BaseBox.BoxType == 'Votes Poll'">
+                Create multiple sets of options from which your participants can vote on.
+              </p>
+              <p *ngIf="newBox.BaseBox.BoxType == 'Word Cloud'">
+                Watch your Word Cloud come to life as your participants respond to a question.
+                <br>
+                <i>Works best if you ask them to submit their entries in one word.</i>
+              </p>
+            </div>
+            <div *ngIf="customCodeEnabled">
+              <mat-input-container class="property-preview">
+                <input required matInput maxlength="50" name="Code" class="code-input" autocomplete="off" appAlphaNumericsOnly onpaste="return false;"
+                  (keydown)="invalidateCode($event)" (keyup)="validateCode(newBox.BaseBox.Code)" [(ngModel)]="newBox.BaseBox.Code"
+                  placeholder="Poll Access Code">
+                <mat-hint align="start">
+                  <span>justasking.io/{{newBox.BaseBox.Code || 'code'}}</span>
+                </mat-hint>
+                <div class="code-status" *ngIf="newBox.BaseBox.Code">
+                  <div class="spinner" *ngIf="validatingCode">
+                    <div class="spinner__item1"></div>
+                    <div class="spinner__item2"></div>
+                    <div class="spinner__item3"></div>
+                  </div>
+                  <mat-icon class="code-exists-message available" matTooltip="Valid code" *ngIf="codeIsValid && !validatingCode">check_circle</mat-icon>
+                  <mat-icon class="code-exists-message not-available" matTooltip="Code already taken" *ngIf="!codeIsValid && !validatingCode">info</mat-icon>
+                </div>
+              </mat-input-container>
+              <br/>
+              <br/>
+            </div>
+            <div *ngIf="!customCodeEnabled">
+              <br/>
+              <mat-input-container class="property-preview non-custom-code">
+                <input disabled matInput maxlength="50" name="Code" class="code-input" value="{{newBox.BaseBox.Code}}" placeholder="Poll Access Code">
+                <mat-hint align="start">
+                  <span>justasking.io/{{newBox.BaseBox.Code}}</span>
+                </mat-hint>
+                <mat-icon matTooltipPosition="before" matTooltip="Upgrade to PREMIUM to create your own custom poll access code.">
+                  info</mat-icon>
+              </mat-input-container>
+              <br/>
+              <br/>
+            </div>
+            <br/>
+            <mat-form-field>
+              <mat-select required placeholder="Theme" name="Theme" [(ngModel)]="newBox.BaseBox.Theme">
+                <mat-option *ngFor="let theme of themes" [value]="theme.Value">
+                  <div class="theme-option">
+                    <div class="theme-preview {{theme.Value}}"></div>
+                    <span class="theme-preview-name">{{theme.Name}}</span>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <br/>
+            <div *ngIf="newBox.BaseBox.BoxType != 'Answer Poll' && newBox.BaseBox.BoxType != 'Votes Poll'">
+              <mat-input-container class="property-preview">
+                <textarea required matInput matTextareaAutosize matAutosizeMinRows="1" rows="1" maxlength="256" autocomplete="off" name="Header"
+                  [(ngModel)]="newBox.Header" placeholder="Header"></textarea>
+                <mat-hint *ngIf="newBox.Header.length > 200" align="end">{{newBox.Header.length}}/256</mat-hint>
+              </mat-input-container>
+            </div>
+            <div *ngIf="newBox.BaseBox.BoxType == 'Word Cloud'">
+              <mat-input-container class="property-preview">
+                <input matInput autocomplete="off" maxlength="50" name="DefaultWord" [(ngModel)]="newBox.DefaultWord" placeholder="Default Word">
+              </mat-input-container>
+            </div>
+
+            <div class="questions" *ngIf="newBox.BaseBox.BoxType == 'Answer Poll'">
+              <h3 class="questions-header">
+                Questions *
+              </h3>
+
+              <!--Stored Questions  -->
+              <div *ngFor="let question of newBox.Questions; let i=index;">
+                <mat-card class="question-card">
+                  <div class="question-text">
+                    <div class="question">
+                      <mat-input-container>
+                        <textarea name="{{question.QuestionId}}" matInput maxlength="128" matTextareaAutosize floatPlaceholder="false" [(ngModel)]="question.Question">
+                        </textarea>
+                      </mat-input-container>
+                    </div>
+                    <div class="question-actions">
+                      <div *ngIf="newBox.Questions && newBox.Questions.length > 1">
+                        <button type="button" mat-icon-button [matMenuTriggerFor]="moreMenu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #moreMenu="matMenu">
+                          <button type="button" mat-menu-item *ngIf="question.SortOrder > 1" (click)="moveQuestionUpwards(question)">
+                            <mat-icon>arrow_upward</mat-icon>
+                            <span>Move Up</span>
+                          </button>
+                          <button type="button" mat-menu-item *ngIf="question.SortOrder < newBox.Questions.length" (click)="moveQuestionDownwards(question)">
+                            <mat-icon>arrow_downward</mat-icon>
+                            <span>Move Down</span>
+                          </button>
+                          <button type="button" mat-menu-item (click)="removeQuestionFromAnswerBox(question)">
+                            <mat-icon>close</mat-icon>
+                            <span>Remove</span>
+                          </button>
+                        </mat-menu>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
+
+              <div class="question-add">
+                <button type="button" mat-mini-fab color="warn" (click)="addQuestionToAnswerBox()">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+
+              <br>
+            </div>
+            <div class="answers" *ngIf="newBox.BaseBox.BoxType == 'Votes Poll'">
+              <mat-card class="votes-box-questions-container">
+                <mat-tab-group #dynamicVotesQuestionsTabGroup>
+                  <mat-tab *ngFor="let question of newBox.Questions;let i = index;">
+                    <ng-template mat-tab-label>
+                      Poll Question
+                      <mat-icon class="question-tab-icon" *ngIf="newBox.Questions && newBox.Questions.length > 1" (click)="removeVoteBoxQuestion(question)">close</mat-icon>
+                    </ng-template>
+                    <div class="votes-box-question-set" *ngIf="dynamicVotesQuestionsTabGroup.selectedIndex === i">
+                      <mat-input-container class="property-preview votes-box-question">
+                        <textarea required matInput matTextareaAutosize matAutosizeMinRows="1" maxlength="128" autocomplete="off" name="{{question.QuestionId}}"
+                          [(ngModel)]="question.Header" placeholder="Question"></textarea>
+                        <mat-hint *ngIf="question.Header.length > 100" align="end">{{question.Header.length}}/128</mat-hint>
+                        <div class="question-actions votes-box-question-card-actions">
+                          <div *ngIf="newBox.Questions && newBox.Questions.length > 1">
+                            <button class="action-trigger" type="button" mat-icon-button [matMenuTriggerFor]="moreMenu">
+                              <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #moreMenu="matMenu">
+                              <button type="button" mat-menu-item *ngIf="question.SortOrder > 1" (click)="moveVoteBoxQuestionUpwards(question)">
+                                <mat-icon>arrow_upward</mat-icon>
+                                <span>Move Question Up</span>
+                              </button>
+                              <button type="button" mat-menu-item *ngIf="question.SortOrder < newBox.Questions.length" (click)="moveVoteBoxQuestionDownwards(question)">
+                                <mat-icon>arrow_downward</mat-icon>
+                                <span>Move Question Down</span>
+                              </button>
+                              <button type="button" mat-menu-item (click)="removeVoteBoxQuestion(question)">
+                                <mat-icon>close</mat-icon>
+                                <span>Remove Question</span>
+                              </button>
+                            </mat-menu>
+                          </div>
+                        </div>
+                      </mat-input-container>
+                      <h3 class="answers-header">
+                        Answers *
+                      </h3>
+                      <mat-card class="answer-card" *ngFor="let answer of question.Answers;let j = index;">
+                        <div class="answer-value-container {{j|themeByIndex}}">
+                          <h1 class="answer-value">{{answer.SortOrder}}</h1>
+                        </div>
+                        <div class="answer-text">
+                          <div class="answer">
+                            <mat-input-container>
+                              <textarea matInput maxlength="250" matTextareaAutosize floatPlaceholder="false" name="{{answer.AnswerId}}" [(ngModel)]="answer.Answer">
+                              </textarea>
+                            </mat-input-container>
+                          </div>
+                          <div class="answer-actions">
+                            <div *ngIf="question.Answers && question.Answers.length > 1">
+                              <button type="button" mat-icon-button [matMenuTriggerFor]="moreMenu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button>
+                              <mat-menu #moreMenu="matMenu">
+                                <button type="button" mat-menu-item *ngIf="answer.SortOrder > 1" (click)="moveVoteBoxQuestionAnswerUpwards(question,answer)">
+                                  <mat-icon>arrow_upward</mat-icon>
+                                  <span>Move Answer Up</span>
+                                </button>
+                                <button type="button" mat-menu-item *ngIf="answer.SortOrder < question.Answers.length" (click)="moveVoteBoxQuestionAnswerDownwards(question,answer)">
+                                  <mat-icon>arrow_downward</mat-icon>
+                                  <span>Move Answer Down</span>
+                                </button>
+                                <button type="button" mat-menu-item (click)="removeVoteBoxQuestionAnswer(question,answer)">
+                                  <mat-icon>close</mat-icon>
+                                  <span>Remove Answer</span>
+                                </button>
+                              </mat-menu>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-card>
+                      <div class="answer-add">
+                        <button type="button" mat-mini-fab color="warn" matTooltip="Add Answer" matTooltipPosition="after" (click)="addVotesBoxQuestionAnswer(question.QuestionId)">
+                          <mat-icon>add</mat-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+              </mat-card>
+
+              <br>
+
+              <!-- <div class="answer-add">
+                <button 
+                  type="button"
+                  mat-mini-fab
+                  color="warn" 
+                  matTooltip="Add Question"
+                  matTooltipPosition="after"
+                  (click)="addVotesBoxQuestion()">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div> -->
+
+              <br>
+
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="button" mat-button routerLink="../..">
+            Cancel
+          </button>
+          <button type="submit" mat-raised-button [disabled]="newBoxForm.invalid || !codeIsValid || processingService.processingAnimationIsActive"
+            color="primary">
+            Create poll
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+
+  <div class="col-md-7 hidden-xs" *ngIf="newBox.BaseBox.BoxType!=''">
+    <mat-card class="preview-container">
+      <mat-tab-group *ngIf="newBox.BaseBox.BoxType == 'Question Poll'">
+        <mat-tab label="Entry preview">
+          <app-entry-box [boxPreview]="newBox" class="box-preview">
+          </app-entry-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+        <mat-tab label="Presentation preview">
+          <app-presentation-box [boxPreview]="newBox" class="box-preview">
+          </app-presentation-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <mat-tab-group *ngIf="newBox.BaseBox.BoxType == 'Answer Poll'">
+        <mat-tab label="Entry preview">
+          <app-entry-box [boxPreview]="newBox" class="box-preview">
+          </app-entry-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+        <mat-tab label="Presentation preview">
+          <app-presentation-box [boxPreview]="newBox" class="box-preview">
+          </app-presentation-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <mat-tab-group *ngIf="newBox.BaseBox.BoxType == 'Votes Poll'">
+        <mat-tab label="Entry preview">
+          <app-entry-box [boxPreview]="newBox" class="box-preview">
+          </app-entry-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+        <mat-tab label="Presentation preview">
+          <app-presentation-box [boxPreview]="newBox" class="box-preview">
+          </app-presentation-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <mat-tab-group #wordCloudTabGroup *ngIf="newBox.BaseBox.BoxType == 'Word Cloud'" (selectChange)="toggleRenderWordCloudPresentation(wordCloudTabGroup)">
+        <mat-tab label="Entry preview">
+          <app-entry-box [boxPreview]="newBox" class="box-preview">
+          </app-entry-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+        <mat-tab label="Presentation preview">
+          <app-presentation-box *ngIf="renderWordCloudPresentation" [boxPreview]="newBox" class="box-preview">
+          </app-presentation-box>
+          <div class="overlay">
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+
+</div>

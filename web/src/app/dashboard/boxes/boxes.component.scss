@@ -1,0 +1,143 @@
+@import '../../core/core.colors.sass';
+@import '../../core/core.theme.sass';
+
+.boxes-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h2{
+        color: #3d3d3d;
+        font-family: 'Lora', serif;
+    }
+    .header-details{
+        margin-left: 10px;
+    }
+}
+
+a#new-box{
+    float: right;
+    &:focus{
+        outline: none !important; 
+        color: white;
+    }
+    &:hover{
+        color: white;
+    }
+}
+
+.future-box{
+    height: 125px;
+    width: 225px;
+    margin: 10px;
+    @media #{$screen-size-xs}{
+        width: 94%;
+    }
+} 
+.future-box-1{
+    border: 5px dashed rgba(61, 61, 61, 0.08);
+}
+.future-box-2{
+    border: 5px dashed rgba(61, 61, 61, 0.06);
+}
+.future-box-3{
+    border: 5px dashed rgba(61, 61, 61, 0.04);
+}
+.future-box-4{
+    border: 5px dashed rgba(61, 61, 61, 0.02);
+}
+
+.boxes{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    a{
+        text-decoration: none;
+        flex: 1;
+        mat-card{
+            flex: 1;
+        }
+    }
+    .box{
+        margin: 10px 10px; 
+        @media #{$screen-size-xs}{
+            width: 100%;
+        }
+        &:hover{
+            cursor: pointer;
+            mat-card-title{
+                color: map-get($core-accent, 400);
+            }
+        }
+        &:active{
+            background: #f9f9f9;
+        }
+        mat-card-header{
+            min-width: 170px; 
+        }
+        .Live{
+            top: 7px;
+            right: 10px;
+            font-size: 12pt;
+            position: absolute;
+            color: map-get($core-green, 500);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            @media #{$screen-size-xs}{
+                font-size: 12pt;
+            }
+            span{
+                width: 5px;
+                height: 5px;
+                background: map-get($core-red, 500);;
+                border-radius: 5px;
+                margin-left: 3px;
+            }
+        }
+        mat-card-title{
+            font-size: 20pt;
+            color: #545454;
+            font-weight: 100;
+            @media #{$screen-size-xs}{
+                font-size: 16pt;
+            }
+            small{
+                font-weight: 100;
+            }
+        }
+        mat-card-content{
+            min-height: 70px;
+            overflow-y: auto;
+            .mat-card-header-text {
+                margin: 0;
+            }
+            p{
+                padding: 0 8px;
+            }
+            i{
+                font-family: 'Lora', serif;
+                color: #3d3d3d;
+            }
+        }
+    }
+}
+
+.mobile-new-box{
+    position: sticky;
+    bottom: 20px;
+    right: 10px;
+}
+
+.loading-boxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

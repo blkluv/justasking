@@ -1,0 +1,25 @@
+@import '../core/core.theme.sass';
+
+.container{
+    text-align: center;
+    .title{
+        font-family: 'Lora', serif;
+        font-weight: 100;
+        font-size: 20pt;
+        margin-bottom: 50px;
+        @media #{$screen-size-xs}{ 
+            font-size: 15pt;
+        }       
+    }
+    .content{
+        font-family: 'Roboto', sans-serif;
+        max-height: 400px;
+        overflow-y: scroll;
+        text-align: left;
+    }
+    .footer{
+        text-align: right;
+        margin-top: 10px;
+        color: map-get($core-primary , 500 );
+    }
+}

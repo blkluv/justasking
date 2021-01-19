@@ -1,0 +1,19 @@
+
+.footer{
+    color: white;
+    font-size: 12pt;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    a{
+        text-decoration: none;
+        span{
+            color: rgba(255, 255, 255, 0.26);
+            &:hover{
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import '../../../core/core.theme.sass';
+@import '../../../core/core.colors.sass';
+
+.title{
+    text-align: center;
+}
+mat-dialog-content{
+    text-align: center;
+    .welcome-img{
+        margin: 20px 20px 30px 20px;
+        @media #{$screen-size-xs}{
+            width: 100px;
+        }
+    }
+}
+mat-dialog-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    button{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+

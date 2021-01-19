@@ -1,0 +1,36 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <div class="box-header">
+    <h1>
+      {{box.Header}}
+    </h1>
+  </div>
+
+  <div class="content">
+    <div class="top" *ngIf="submitted && submitted.length > 0">
+      <span class="header">Top questions</span>
+      <div *ngFor="let entry of submitted">
+        <mat-card class="question-card animated fadeInDown">
+          <div class="entry">
+            {{entry.Question}}
+          </div>
+          <div class="actions">
+            <div class="downvotes">
+              <i class="material-icons">thumb_down</i>
+              <span>{{entry.Downvotes}}</span>
+            </div>
+            <div class="upvotes">
+              <i class="material-icons">thumb_up</i>
+              <span>{{entry.Upvotes}}</span>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

@@ -1,0 +1,17 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+section#main{ 
+    background-image: url('https://storage.googleapis.com/justasking-web.appspot.com/assets/mountains-2.png');
+    background-size: cover; 
+    padding: 120px 0px;
+    min-height: 100vh;
+    height:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        padding: 60px 0px;
+        justify-content: flex-start;
+    }
+}

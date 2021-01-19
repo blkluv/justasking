@@ -1,0 +1,20 @@
+@import '../../core/core.theme.sass';
+
+.sub-title{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+    @media #{$screen-size-xs}{
+        font-size: 8pt;
+    }
+}
+.form-container{
+    margin: 30px 50px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.go-to-login{
+    margin: 20px 0px;
+    color: map-get($core-primary, 500);
+    text-decoration: none;
+}

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="feature-request">
+    <div class="header">
+      <h2>Got a sweet feature in mind?</h2>
+    </div>
+    <br>
+    <form 
+      #featureRequestForm="ngForm" 
+      class="feature-request-form" 
+      novalidate>
+      <input 
+        type="text" 
+        name="featureRequestDetails" 
+        id="featureRequestDetails"
+        maxlength="250"
+        [(ngModel)]="featureRequest"
+        required
+        [disabled]="processingFeatureRequestSubmit"
+        placeholder="Tell us about it, we're all ears!">
+      <button 
+        color="primary" 
+        [disabled]="featureRequestForm.invalid || processingFeatureRequestSubmit"
+        (click)="submitFeatureRequest()"
+        class="feature-request-action" 
+        mat-raised-button>
+        <span *ngIf="!processingFeatureRequestSubmit; else submittingFeatureRequestTemplate">Submit feature request</span>
+        <ng-template #submittingFeatureRequestTemplate>
+          Submitting . . . 
+        </ng-template>
+      </button>
+    </form>
+  </div>
+  <br>
+  <div class="header">
+    <h2>What's new?</h2>
+    <hr>
+  </div>
+  <div class="release" *ngFor="let release of releases">
+    <h2 class="release-name">{{release.Name}}</h2>
+    <p class="release-notes" *ngFor="let note of release.Notes">{{note}}</p>
+  </div>
+  <div class="blog-callout">
+    <a href="http://blog.justasking.io" target="_blank">Continue reading in our blog</a>
+  </div>
+  <div class="header">
+    <h2>What's in the pipeline?</h2>
+    <hr>
+  </div>
+  <div class="feature">
+    <h2 class="feature-name">Poll level settings</h2>
+    <p class="feature-notes">Set your polls to be private or public according to your event's needs.</p>
+  </div>
+  <div class="feature">
+    <h2 class="feature-name">Poll branding</h2>
+    <p class="feature-notes">Place your own branding on the polls you create.</p>
+    <p class="feature-notes">You will no longer see the existing justasking.io branding next to the poll link.</p>
+    <p class="feature-notes">Instead you'll be able to place your own image as well as change the background image of the poll.</p>
+  </div>
+</div>

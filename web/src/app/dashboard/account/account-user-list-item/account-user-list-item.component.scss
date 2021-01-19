@@ -1,0 +1,38 @@
+
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    border-radius: 5px;
+    margin: 0px 0px;
+    padding: 0px 10px;
+    min-height: 50px;
+    /deep/ .mat-form-field-underline{
+        display: none;
+    }
+    .field-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .email{
+        flex: 1; 
+        span{
+            font-weight: 500;
+            font-size: 12pt;
+        }
+    }
+    .account-user-actions{
+        margin: 0px 0px 0px 20px;
+    }
+}
+.cannot-manage{
+    max-width: 240px;
+    width: 100%;
+    .cannot-manage-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

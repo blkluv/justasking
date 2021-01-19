@@ -1,0 +1,61 @@
+<div class="boxes-container">
+  <div class="header">
+    <div class="header-details">
+      <h2>Polls</h2>
+      <p class="hidden-xs">Create as many polls as you like.</p>
+    </div>
+    <a class="hidden-xs"
+      id="new-box"
+      mat-fab
+      color="warn"
+      matTooltip="Create a new poll"
+      matTooltipPosition="before"
+      routerLink="../../new">
+      <mat-icon>add</mat-icon>
+    </a>
+  </div>
+
+  <div class="loading-boxes" *ngIf="loadingBoxes">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!loadingBoxes">
+ 
+    <div class="boxes">
+      <a class="box" [routerLink]="'details/'+box.Code" *ngFor="let box of boxes">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{box.Code}}</mat-card-title>
+            <mat-card-subtitle>
+              <p *ngIf="box.BoxTypeId == 1">Wordcloud</p>
+              <p *ngIf="box.BoxTypeId == 2">Question Poll</p>
+              <p *ngIf="box.BoxTypeId == 3">Answer Poll</p>
+              <p *ngIf="box.BoxTypeId == 4">Votes Poll</p>
+            </mat-card-subtitle>
+            <span *ngIf="box.IsLive" class="Live">Live<span></span></span>
+          </mat-card-header>  
+        </mat-card>  
+      </a>
+      
+      <div class="future-box future-box-1">
+      </div>  
+      <div class="future-box future-box-2">
+      </div>  
+      <div class="future-box future-box-3">
+      </div>  
+      <div class="future-box future-box-4">
+      </div>   
+
+    </div>
+
+  </div>
+
+  <div class="col-xs-12 hidden-lg hidden-md hidden-sm mobile-new-box">
+    <a id="new-box"
+      mat-fab
+      color="warn"
+      routerLink="../../new">
+      <mat-icon>add</mat-icon>
+    </a>
+  </div>
+</div>

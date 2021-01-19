@@ -1,0 +1,87 @@
+@import '../../../core/core.theme.sass';
+
+mat-icon{
+    cursor: pointer;
+    color: darkgray;
+}
+
+.account-card{
+    margin: 0px 0px 20px 0px; 
+    padding-top: 10px;
+    @media #{$screen-size-xs}{
+        margin: 10px 0px;
+    }
+    .account-name{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        font-size: 14pt;
+        form{
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            mat-form-field{
+                flex: 1;
+            }
+        }
+        .readonly-account-name{
+            margin: 0px 0px 10px 0px;
+        }
+        .save-account-name-icon{
+            margin-left: 10px;
+            color: map-get($core-accent, 500)
+        }
+    }
+    hr{
+        color: #f7f7f7;
+        margin: 10px 0px 15px 0px;
+    }
+    mat-card-title{
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    } 
+}
+
+.membership-card{  
+    flex: 1;
+    mat-card-title{
+        margin-bottom: 10px;
+        font-weight: 100;
+        font-size: 15pt;
+    }
+    mat-card-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .membership-image{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            img{
+                max-height: 70px;
+            }
+        }
+        .membership-details{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            .membership-name{
+                margin: 0;
+            }
+            .pending-cancellation{
+                height: 36px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        } 
+    }
+}
+
+.plan-name{
+    margin-top: 10px;
+} 

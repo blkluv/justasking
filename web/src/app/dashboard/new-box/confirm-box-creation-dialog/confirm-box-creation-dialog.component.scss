@@ -1,0 +1,11 @@
+  
+mat-dialog-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 15px;
+    button{
+        flex: 1;
+        margin: 1px 8px;
+    }
+}

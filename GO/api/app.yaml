@@ -1,0 +1,10 @@
+runtime: go
+api_version: go1
+env: flex
+beta_settings:
+    cloud_sql_instances: justasking-db:us-east1:justasking-db
+automatic_scaling:
+  min_num_instances: 2
+  max_num_instances: 10
+  cpu_utilization:
+    target_utilization: 0.5

@@ -1,0 +1,150 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.sub-title{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+    @media #{$screen-size-xs}{
+        font-size: 8pt;
+    }
+} 
+.login-field{
+    font-size: 13pt;
+}
+.login-by-email-psw{
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        mat-form-field{
+            flex: 1;
+            padding: 10px 0px;
+        }
+    }
+} 
+.sign-in-button, .sign-up-link, .forgot-password-link{
+    cursor: pointer;
+    font-size:16px; 
+    font-weight: 400;
+    line-height: 50px;
+    margin-top: 10px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}    
+.arrow-right{
+    width: 0px;
+    height: 12px;
+    font-size: 10pt;
+}
+.account-actions-separator{
+    border-right: 1px solid #ececec;
+}
+.or-separator{   
+    overflow: hidden;
+    text-align: center;
+    color: #888888;
+    margin: 35px 0 5px 0;
+    font-size: 11px;
+    font-weight: 700;
+    span{
+        position: relative;
+        display: inline-block;
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            border-bottom: 1px solid #e6e6e6;
+            width: 200px;
+            margin: 0 20px;
+        }
+        &:before{
+            right: 100%;
+        }
+        &:after{
+            left: 100%;
+        }
+    }
+}
+.login-ips{
+    align-items: center;
+    margin: 20px 0px 0px 0px;
+    button{
+        font-size:16px; 
+        font-weight: 400;
+        line-height: 50px;
+        margin: 0px 10px 0px 0px;
+        padding: 0 20px;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        &:disabled{
+            background:#b9b9b9;
+        }
+    }
+    img{
+        height: 30px;
+        width: 30px;
+        left: 15px;
+        position: absolute;
+        margin-top: 10px;
+    }
+    .google{
+        background: #fff !important;
+        color: #000;
+    }
+    .facebook{ 
+        background-color: #405499;
+        color: #fff !important;
+    }
+    .github{
+        background: #525659;
+        color: #fff !important;
+    }
+    .twitter{
+        background-color: #55acee;
+        color: #fff !important;
+    }
+}
+.register-forgot-password{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+.terms{
+    margin-top: 0px;
+    font-family: 'Roboto', sans-serif;
+    a{
+        cursor: pointer;
+    }
+}
+
+.overlay-loader{
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.74);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    mat-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+mat-progress-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media #{$screen-size-xs}{
+        position: fixed;
+    }
+}

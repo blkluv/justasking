@@ -1,0 +1,29 @@
+<div *ngIf="hasAccess; else noAccessTemplate">
+    <app-word-cloud-details 
+        [boxWebSocket]="boxWebSocket" 
+        [accountWebSocket]="accountWebSocket"
+        [boxClientCount]="boxClientCount"
+        *ngIf="box.BoxType == 'wordcloud'">
+    </app-word-cloud-details>
+    <app-question-box-details 
+        [boxWebSocket]="boxWebSocket" 
+        [accountWebSocket]="accountWebSocket"
+        [boxClientCount]="boxClientCount"
+        *ngIf="box.BoxType == 'questionbox'">
+    </app-question-box-details>
+    <app-votes-box-details 
+        [boxWebSocket]="boxWebSocket" 
+        [accountWebSocket]="accountWebSocket"
+        [boxClientCount]="boxClientCount"
+        *ngIf="box.BoxType == 'votesbox'">
+    </app-votes-box-details>
+    <app-answer-box-details 
+        [boxWebSocket]="boxWebSocket" 
+        [accountWebSocket]="accountWebSocket"
+        [boxClientCount]="boxClientCount"
+        *ngIf="box.BoxType == 'answerbox'">
+    </app-answer-box-details>
+</div>
+<ng-template #noAccessTemplate>
+    <app-no-access pageTitle="No access to view this poll"></app-no-access>
+</ng-template>

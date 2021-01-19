@@ -1,0 +1,96 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+section#main{ 
+    padding: 70px 0px 70px 0px;
+    min-height: 100vh;
+    height:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        padding: 80px 2% 0px 2%;
+        justify-content: flex-start;
+    }
+}
+
+.mat-input-underline{
+    display: none;
+}
+
+.box-header{
+    width: 100%;
+    text-align: center;
+    font-family: 'Lora', serif; 
+    h1{
+        font-weight: 100;
+        font-size: 30pt;
+        color: white;
+        margin: 15px 0 15px 0;
+        @media #{$screen-size-xs}{
+            font-size: 12pt;
+        }
+    } 
+}
+ 
+.user-entry{
+    width: 100%;
+    text-align: left;
+    padding: 30px 25%;
+    @media #{$screen-size-md}{
+        padding: 30px 10%;
+    }
+    @media #{$screen-size-sm}{
+        padding: 30px 10%;
+    }
+    @media #{$screen-size-xs}{
+        padding: 10px 2%;
+    }
+    .entry-card{
+        padding-bottom: 0;
+    }
+    .entry-container{
+        margin-top: -24px; 
+        #boxEntry{
+            resize: none;
+            width: 85%;
+            font-size: 20pt;
+            border: none;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            @media #{$screen-size-xs}{
+                font-size: 20pt;
+                width: 75%;
+            }
+        }
+        button{
+            width: 15%;
+            height: 100%;
+            font-size: 20pt;
+            margin-left: 10px;
+            position: absolute;
+            right: -1px;
+            top: 0px;
+            bottom: 0;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+        .counter{
+            width: 85%;
+            right: 16%;
+            bottom: 0;
+            position: absolute;
+            span{
+                float: right;
+                font-size: 10pt;
+            }
+        }
+    }
+}
+ 
+.submit-entry-button{
+    padding: 0;
+    span{
+        font-size: 80%;
+    }
+}

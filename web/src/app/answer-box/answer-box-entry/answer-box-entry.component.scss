@@ -1,0 +1,117 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+section#main{   
+    padding: 120px 0px;
+    min-height: 100vh;
+    height:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$screen-size-xs}{
+        padding: 80px 2% 0px 2%;
+        justify-content: flex-start;
+    }
+}
+
+.mat-input-underline{
+    display: none;
+}
+
+.box-header{
+    width: 100%;
+    text-align: center;
+    font-family: 'Lora', serif; 
+    h1{
+        font-weight: 100;
+        font-size: 30pt;
+        color: white;
+        margin: 15px 0 15px 0;
+        @media #{$screen-size-xs}{
+            font-size: 12pt;
+        }
+    } 
+}
+ 
+.user-question{
+    width: 100%;
+    text-align: left;
+    padding: 30px 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media #{$screen-size-md}{
+        padding: 30px 5%;
+    }
+    @media #{$screen-size-sm}{
+        padding: 30px 5%;
+    }
+    @media #{$screen-size-xs}{
+        padding: 25px 10px;
+    }
+    .form-actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        button{
+            width: 15%;
+            font-size: 20pt; 
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            @media #{$screen-size-xs}{
+                width: 100%;
+            }
+            span{
+                font-size: 80%;
+            }
+        }
+    }
+    .question-card{
+        padding: 0px 0px 0px 16px;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        button.submit-entry-button{
+            width: 15%;
+            font-size: 20pt; 
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            span{
+                font-size: 80%;
+            }
+        }
+    }
+    .question-container{
+        margin: 5px 5px 5px 5px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        textarea{
+            min-height: 42px;
+            resize: none;
+            width: 100%;
+            font-size: 20pt;
+            border: none;
+            overflow-x: hidden;
+            overflow-y: hidden; 
+        }
+        .counter{ 
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            span{
+                width: 100%;
+                text-align: right;
+                font-size: 10pt;
+            }
+        }
+    }
+}
+.submit-again{
+    color: white;
+}

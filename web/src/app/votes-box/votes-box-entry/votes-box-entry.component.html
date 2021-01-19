@@ -1,0 +1,52 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <form #submitVotesBoxForm="ngForm" novalidate *ngIf="!userAlreadyVoted; else userAlreadyVotedTemplate" (ngSubmit)="onSubmit()">
+    <div class="question-set" *ngFor="let question of box.Questions">
+      <div *ngIf="question.IsActive">
+        <div class="box-header no-select">
+          <h1>
+            {{question.Header}}
+          </h1>
+        </div>
+
+        <div class="answers no-select">
+          <mat-card class="votes-card" (click)="selectAnswerForQuestion(question,answer)" [class.selected-answer]="question.SelectedAnswerId == answer.AnswerId"
+            *ngFor="let answer of question.Answers;let i = index;">
+            <div class="votes-value-container {{i|themeByIndex}}" *ngIf="question.SelectedAnswerId == answer.AnswerId">
+              <h1 class="votes-value selected-answer">
+                <mat-icon>check</mat-icon>
+              </h1>
+            </div>
+            <div class="votes-value-container {{i|themeByIndex}}" *ngIf="question.SelectedAnswerId != answer.AnswerId">
+              <h1 class="votes-value">{{answer.SortOrder}}</h1>
+            </div>
+            <div class="votes">
+              {{answer.Answer}}
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="submit-results-container">
+        <button type="submit" mat-raised-button class="submit-entry-button" [disabled]="!allQuestionsVotedOn" color="accent">
+          <span>Submit</span>
+        </button>
+        <br>
+        <a routerLink="presentation">
+          <span>Results</span>
+        </a>
+      </div>
+    </div>
+  </form>
+
+  <ng-template #userAlreadyVotedTemplate>
+    <app-votes-box-presentation [model]="box" [boxWebSocket]="ws"></app-votes-box-presentation>
+  </ng-template>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

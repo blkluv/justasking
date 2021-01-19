@@ -1,0 +1,30 @@
+<div class="horizontal-bar-graph" [ngClass]="{'primary': theme==='primary','accent': theme==='accent','warn': theme==='warn' }">
+  <div class="header-container" *ngIf="header">
+    <h1 class="question-header">{{header}}</h1>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="bar-container" *ngFor="let answer of answers">
+    <div class="bar-answer">
+      <h3>{{answer.Answer}}</h3>
+    </div>
+    <div class="bar-votes" *ngIf="totalVotesCount > 0; else noVotesYetTemplate">
+      <div class="bar" [style.width]="(answer.Votes/totalVotesCount)*100 + '%'">
+        <span *ngIf="answer.Votes > 0">{{answer.Votes}}</span>
+      </div>
+      <div class="votes">
+        <span class="count">{{(answer.Votes/totalVotesCount)*100|number:'1.0-0'}}%</span>
+      </div>
+    </div>
+    <ng-template #noVotesYetTemplate>
+      <div class="bar-votes">
+        <div class="bar"></div>
+        <div class="votes">
+          <span class="count">0%</span>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="total-votes-count" *ngIf="showTotalCount && totalVotesCount > 0">
+      <span>{{totalVotesCount}} vote<span class="no-border" *ngIf="totalVotesCount > 1">s</span></span>
+    </div>
+</div>

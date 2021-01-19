@@ -1,0 +1,20 @@
+<div *ngIf="box.BaseBox">
+    <app-entry-topnav [box]="box.BaseBox"></app-entry-topnav>
+    <section id="main" [class]="box.BaseBox.Theme">
+        <div *ngIf="box.BaseBox.IsLive">
+            <app-word-cloud-entry [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 1">
+            </app-word-cloud-entry>
+            <app-question-box-entry [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 2">
+            </app-question-box-entry>
+            <app-answer-box-entry [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 3">
+            </app-answer-box-entry>
+            <app-votes-box-entry [model]="box" [boxWebSocket]="ws" *ngIf="box.BaseBox.BoxTypeId === 4">
+            </app-votes-box-entry>
+        </div>
+        <div class="box-closed" *ngIf="!box.BaseBox.IsLive">
+            <h1>
+                Poll is closed, thank you for participating!
+            </h1>
+        </div>
+    </section>
+</div>

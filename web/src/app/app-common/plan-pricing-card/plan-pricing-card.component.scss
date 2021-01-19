@@ -1,0 +1,65 @@
+@import '../../core/core.theme.sass';
+@import '../../core/core.colors.sass';
+
+.plan{
+    margin: 10px;
+    padding: 10px 20px 25px 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    text-align: center;
+    .plan-meta{
+        margin: 24px;
+        .plan-image{
+            padding: 0px 50px;
+            img{
+                width: 100%;
+                max-width: 80px;
+                margin-bottom: 10px;
+            }
+        }
+        .plan-name{
+            font-family: 'Robot', sans-serif;
+            font-weight: 100;
+            font-size: 23pt;
+            color: #607D8B;
+            margin-bottom: 0px;
+        }
+        .plan-price{
+            .price{
+                font-size: 22pt;
+                font-family: 'Roboto', sans-serif;
+                color: map-get($core-primary, 500);
+                font-weight: 700;
+                @media #{$screen-size-xs}{
+                    font-weight: 100;
+                }
+                .save-discount{
+                    
+                }
+            } 
+        }
+    } 
+    .plan-features{
+        .duration{
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /deep/ .mat-button-toggle-label{
+                margin-bottom: 0px;
+            }
+            /deep/ .mat-button-toggle-checked{
+                color: map-get($core-primary, 500);
+                background: whitesmoke !important;
+                font-size: 14pt;
+            }
+        }
+    }
+    .plan-actions{
+        button{
+            border: 1px solid map-get($core-primary, 500);
+            border-radius: 5px;
+            width: 100%;
+        }
+    }
+}

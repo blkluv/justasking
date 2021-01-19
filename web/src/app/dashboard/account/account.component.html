@@ -1,0 +1,25 @@
+<div *ngIf="userService.user">
+  <div *ngIf="userService.user.RolePermissions.AccessAccountDetails; else noAccessTemplate">
+    <div class="header">
+      <div class="header-details">
+        <div>
+          <h2 class="account-name">{{userService.user.Account.Name}}</h2>
+        </div>
+        <p class="account-role">{{userService.user.RolePermissions.RoleName}}</p>
+        <br>
+      </div>
+    </div>
+    <div class="account-container">
+      <div class="account-section col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <app-account-user-profile [user]="userService.user"></app-account-user-profile>
+        <app-account-details [user]="userService.user"></app-account-details>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <app-account-users-list></app-account-users-list>
+      </div>
+    </div>
+  </div>
+  <ng-template #noAccessTemplate>
+    <app-no-access pageTitle="No access to this account's details"></app-no-access>
+  </ng-template>
+</div>

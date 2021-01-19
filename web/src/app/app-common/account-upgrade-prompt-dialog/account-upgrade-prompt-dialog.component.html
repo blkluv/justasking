@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Active polls limit reached!</h1>
+<div *ngIf="userService.user && userService.user.MembershipDetails.Price < 1; else customPlan">
+  <mat-dialog-content> 
+    <p>Consider upgrading to PREMIUM to unlock these features:</p>
+    <app-features-list [featureSections]="featureSections"></app-features-list> 
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button 
+      mat-button 
+      (click)="notNow()">
+      Not now
+    </button>
+    <button 
+      mat-raised-button
+      color="primary"
+      (click)="upgrade()">
+      Upgrade to create more polls
+    </button>
+  </mat-dialog-actions>
+</div> 
+<ng-template #customPlan>
+  <mat-dialog-content> 
+      <p>This account may have have up to <b>{{userService.user && userService.user.MembershipDetails.ActiveBoxesLimit}}</b> open polls among all users.</p>
+      <h3>If you need more please contact us.</h3>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button 
+      mat-button 
+      (click)="notNow()">
+      Not now
+    </button>
+    <a 
+      class="contact-us"
+      mat-raised-button
+      color="primary"
+      (click)="closeDialog()"
+      href="mailto:contact@justasking.io">Contact us to create more polls</a> 
+  </mat-dialog-actions>
+</ng-template>

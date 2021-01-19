@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS `justasking`.`phone_numbers` (
+  `id`            CHAR(36)     NOT NULL,
+  `sid`           VARCHAR(100) NOT NULL,
+  `friendly_name` VARCHAR(50)  NOT NULL,
+  `phone_number`  VARCHAR(50)  NOT NULL UNIQUE,
+  `region`        VARCHAR(50)  NULL,
+  `iso_country`   VARCHAR(50)  NULL,
+  `voice`         bit          NULL,
+  `sms`           bit          NULL,
+  `mms`           bit          NULL,
+  `is_active`     TINYINT      NOT NULL DEFAULT 0,
+  `created_at`    TIMESTAMP    NOT NULL,
+  `updated_at`    TIMESTAMP    NULL,
+  `deleted_at`    TIMESTAMP    NULL,
+  PRIMARY KEY (`id`));

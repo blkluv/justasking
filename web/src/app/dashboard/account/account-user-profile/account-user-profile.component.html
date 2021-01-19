@@ -1,0 +1,18 @@
+<mat-card class="account-card profile-card">
+  <mat-card-title>
+    Profile
+  </mat-card-title>
+  <mat-card-content>
+    <div class="profile-card-content">
+      <div class="profile-image hidden-xs">
+        <img src="{{user.ImageUrl}}" alt="avatar" (error)="setDefaultAvatar($event)">
+      </div>
+      <div class="profile-details">
+        <p class="user-full-name">{{user.FirstName}} {{user.LastName}}</p>
+        <hr>
+        <p class="email">{{user.Email}}</p>
+        <p>Member since: {{user.CreatedAt|date:'mediumDate'}}.</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

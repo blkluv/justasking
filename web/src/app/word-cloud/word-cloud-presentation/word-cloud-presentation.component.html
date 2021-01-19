@@ -1,0 +1,15 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <div class="box-header">
+    <h1>
+      {{box.Header}}
+    </h1>
+  </div>
+  <app-word-cloud [defaultWord]="box.DefaultWord" [data]="list">
+  </app-word-cloud>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

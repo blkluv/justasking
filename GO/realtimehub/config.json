@@ -1,0 +1,12 @@
+{
+"Server": {
+		"Hostname": "",
+		"UseHTTP": true,
+		"UseHTTPS": false,
+		"RedirectToHTTPS": false,
+		"HTTPPort": 4202,
+		"HTTPSPort": 443,
+		"CertFile": "tls/server.crt",
+		"KeyFile": "tls/server.key"
+	}
+}

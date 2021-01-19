@@ -1,0 +1,52 @@
+<div>
+  <p class="sub-title">Sign in or create your account to continue</p>
+  <div class="login-ips">
+    <button mat-raised-button id="google-login" class="google" type="button" data-onsuccess="onSignIn" [disabled]="processingService.processingAnimationIsActive"
+      color="accent">
+      <img src="../../assets/logos/google-color.png" alt="Continue with Google"> 
+      <span>Sign in with Google</span>
+    </button>
+  </div>
+  <div class="or-separator">
+    <span>OR</span>
+  </div>
+  <div class="login-by-email-psw">
+    <form #loginForm="ngForm" novalidate>
+      <mat-form-field class="login-field">
+        <input 
+          matInput 
+          maxlength="128"
+          type="email" 
+          placeholder="Email address"
+          name="loginFormEmail"
+          [(ngModel)]="loginFormData.Email"> 
+      </mat-form-field>
+      <mat-form-field class="login-field">
+        <input type="password" matInput name="loginFormPassword" [(ngModel)]="loginFormData.Password" placeholder="Password">
+      </mat-form-field>
+      <button class="sign-in-button" color="primary" [disabled]="!(loginFormData.Email && loginFormData.Password) || processingService.processingAnimationIsActive" mat-raised-button (click)="login()">
+        <span>Sign me in</span>
+        <mat-icon class="arrow-right">keyboard_arrow_right</mat-icon>
+        <mat-icon class="arrow-right">keyboard_arrow_right</mat-icon>
+      </button>
+      <div class="register-forgot-password">
+          <a class="forgot-password-link" routerLink="forgot-password">
+            Forgot password?
+          </a>
+          <span class="account-actions-separator"></span>
+          <a class="sign-up-link hidden-xs" (click)="goToCreateYourAccount()">
+            Create your account
+          </a> 
+          <a class="sign-up-link hidden-lg hidden-md hidden-sm" (click)="goToCreateYourAccount()">
+            Register
+          </a> 
+      </div>
+    </form>
+  </div>
+  <br>
+  <div class="terms">
+    <span>By continuing, you agree to our
+      <a (click)="showTermsAndConditions()">terms and conditions.</a>
+    </span>
+  </div>
+</div>

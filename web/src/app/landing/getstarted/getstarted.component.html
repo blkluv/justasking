@@ -1,0 +1,140 @@
+<section class="statement">
+  <div class="container video-details-container">
+    <div class="details">
+      <h1>
+        Live Event Polling
+      </h1>
+      <h4>
+        Free Live Polls, Q&amp;As, and Wordclouds for your Events
+      </h4>
+      <div class="actions">
+        <a mat-raised-button class="get-started" color="accent" type="button" routerLink="pricing">
+          <mat-icon>add</mat-icon> CREATE A POLL
+        </a>
+        <br/>
+      </div>
+    </div>
+    <div class="video-container animated fadeIn">
+      <div class="video">
+        <!-- controlsList="nofullscreen" autoplay="true"  -->
+        <video class="video-js vjs-default-skin vjs-big-play-centered" controls="true" preload="auto" poster="https://storage.googleapis.com/justasking-web.appspot.com/assets/logo-indigo-background.PNG"
+          data-setup="{}">
+          <source src="https://storage.googleapis.com/justasking-web.appspot.com/videos/promo.mp4" type='video/mp4'>
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_noopener">supports HTML5 video</a>
+          </p>
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-preview container">
+  <h4 class="section-subheader">Features</h4>
+  <h1 class="section-header">
+    Advanced features for your needs
+  </h1>
+  <div class="features-container">
+    <div class="row">
+      <div class="feature col-md-4 col-sm-6 col-xs-12">
+        <div class="feature-img">
+          <img src="../../assets/graphics/unlimited.png" alt="Unlimited polling">
+        </div>
+        <div class="feature-details">
+          <h2 class="feature-title">Unlimited responses</h2>
+          <p>You get unlimited number of polls and responses, starting with our free plan.
+        </div>
+      </div>
+      <div class="feature col-md-4 col-sm-6 col-xs-12">
+        <div class="feature-img">
+          <img src="../../assets/graphics/real-time.png" alt="Real time feedback">
+        </div>
+        <div class="feature-details">
+          <h2 class="feature-title">Live feedback</h2>
+          <p>Watch your polls come to life as participants enter responses.</p>
+        </div>
+      </div>
+      <!-- <div class="feature col-md-3">
+      <div class="feature-img">
+        <img src="../../assets/graphics/simply-poll.png" alt="Affordable pricing">
+      </div>
+      <div class="feature-details">
+        <h2 class="feature-title">Simply poll</h2>
+        <p>Real-time previews and dedicated phone numbers for your polls make it easy for you and your audience. </p>
+      </div>
+    </div> -->
+      <div class="feature col-md-4 col-sm-6 col-xs-12">
+        <div class="feature-img">
+          <img src="../../assets/graphics/choices.png" alt="Choices">
+        </div>
+        <div class="feature-details">
+          <h2 class="feature-title">Choices</h2>
+          <p>Q&A's, Traditional polls, and Word Clouds. We have the right poll for your presentation.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 
+<section class="how-it-works">
+  <h1>
+    How it Works
+  </h1>
+  <div class="steps-container">
+    <div class="step step-1">
+      <img src="../assets/graphics/how-it-works-1.png" alt="Create a poll">
+      <h1 class="step-title">1. Create a poll</h1>
+      <div class="details">
+        <p>Select the type of poll you want, type your custom access code and create your poll.
+          <br/> A live preview helps you setup your poll.</p>
+      </div>
+    </div>
+    <div class="step step-2">
+      <img src="../assets/graphics/how-it-works-2.png" alt="Open your poll">
+      <h1 class="step-title">2. Open your poll</h1>
+      <div class="details">
+        <p>When you're ready to receive entries, simply open your poll.</p>
+      </div>
+    </div>
+    <div class="step step-3">
+      <img src="../assets/graphics/how-it-works-3.png" alt="Share the poll">
+      <h1 class="step-title">3. Share the poll</h1>
+      <div class="details">
+        <p>Share the link or SMS number of your poll with your participants and watch as the entries come through.</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div class="section-separation"></div>
+
+<section class="faqs">
+  <h4 class="section-subheader">FAQs</h4>
+  <h1 class="section-header">Got questions?</h1>
+  <div class="faq-container">
+    <div class="faq" [class.top-faq]="i==0" [class.bottom-faq]="i==faqs.length-1" *ngFor="let faq of faqs; let i = index;" (click)="faq.expanded = !faq.expanded">
+      <div class="question">{{faq.question}}</div>
+      <i class="material-icons" *ngIf="faq.expanded">keyboard_arrow_up</i>
+      <i class="material-icons" *ngIf="!faq.expanded">keyboard_arrow_down</i>
+      <div class="answer" *ngIf="faq.expanded">{{faq.answer}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="statement-closing animated fadeIn">
+  <div class="details">
+    <h1>
+      Empower your audience,
+    </h1>
+    <h3>
+      one poll at a time.
+    </h3>
+  </div>
+  <div class="actions">
+    <a class="get-started" mat-raised-button color="accent" disableRipple type="button" routerLink="pricing">
+      Get Started
+    </a>
+  </div>
+</section>

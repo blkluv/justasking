@@ -1,0 +1,83 @@
+<mat-card class="plan" *ngIf="pricingPlanCardModel.PlanType == planTypes.BASIC">
+  <div class="plan-meta">
+    <div class="plan-image">
+      <img src="../assets/graphics/starter.png" alt="BASIC">
+    </div>
+    <div class="plan-name">BASIC</div>
+    <div class="plan-price">
+      <span class="price">FREE</span>
+    </div>
+  </div>
+  <hr class="big-bottom-margin">
+  <div class="plan-features">
+    <div class="duration">
+    </div>
+    <app-features-list [featureSections]="pricingPlanCardModel.FeatureSections"></app-features-list>
+    <br>
+    <div class="plan-actions">
+      <button mat-button color="primary" (click)="confirm()">
+        {{pricingPlanCardModel.ConfirmText || 'Start now'}}
+      </button>
+    </div>
+  </div>
+</mat-card>
+
+
+<mat-card class="plan" *ngIf="pricingPlanCardModel.PlanType == planTypes.PREMIUM">
+  <div class="plan-meta">
+    <div class="plan-image">
+      <img src="../assets/graphics/premium.png" alt="PREMIUM">
+    </div>
+    <div class="plan-name">PREMIUM</div>
+    <div class="plan-price">
+      <span class="price">${{pricingPlanCardModel.SelectetdDuration.Price}}</span>
+    </div>
+  </div>
+  <hr class="big-bottom-margin">
+  <div class="plan-features">
+    <div class="duration">
+      <div>
+        <mat-button-toggle-group [(ngModel)]="pricingPlanCardModel.SelectetdDuration">
+          <mat-button-toggle *ngFor="let premiumDuration of pricingPlanCardModel.PremiumDurations" [value]="premiumDuration">
+            {{premiumDuration.Duration}}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <app-features-list [featureSections]="pricingPlanCardModel.FeatureSections"></app-features-list>
+    <br>
+    <div class="plan-actions">
+      <button mat-button color="primary" (click)="confirm()">
+        {{pricingPlanCardModel.ConfirmText || 'Start now'}}
+      </button>
+    </div>
+  </div>
+</mat-card>
+
+
+<mat-card class="plan" *ngIf="pricingPlanCardModel.PlanType == planTypes.CUSTOM">
+  <div class="plan-meta">
+    <div class="plan-image">
+      <img [src]="pricingPlanCardModel.CustomPlan.ImagePath" [alt]="pricingPlanCardModel.CustomPlan.DisplayName">
+    </div>
+    <div class="plan-name">{{pricingPlanCardModel.CustomPlan.DisplayName}}</div>
+    <div class="plan-price">
+      <span class="price">${{pricingPlanCardModel.CustomPlan.Price}}</span>
+    </div>
+  </div>
+  <hr class="big-bottom-margin">
+  <div class="plan-features">
+    <div class="duration">
+      <div>
+        Plan expires <b>{{pricingPlanCardModel.CustomPlan.ExpiresInDays}}</b> days after activation.
+      </div>
+    </div>
+    <app-features-list [featureSections]="pricingPlanCardModel.FeatureSections"></app-features-list>
+    <br>
+    <div class="plan-actions">
+      <button mat-button color="primary" (click)="confirm()">
+        {{pricingPlanCardModel.ConfirmText || 'Start now'}}
+      </button>
+    </div>
+  </div>
+</mat-card>

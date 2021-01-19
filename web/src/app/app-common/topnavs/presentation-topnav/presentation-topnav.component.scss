@@ -1,0 +1,80 @@
+@import '../../../core/core.theme.sass';
+
+.header{
+    z-index: 10;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:white;
+    .logo{
+        padding-left: 15px;
+        padding-top: 15px;
+        text-align: center;
+        width: 100%; 
+        img{
+            cursor: pointer;
+            width: 35px;
+            display: inline-block;
+            @media #{$screen-size-xs}{
+                width: 15px;
+                margin-top: 5px;
+            }
+        }
+        h1{
+            font-family: 'Lora', serif;
+            font-weight: 100;
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px 10px;
+            font-size: 18pt;
+            @media #{$screen-size-xs}{
+                margin: 5px 10px 5px 0px;
+                font-size: 12pt;
+            }
+        }
+        small{
+            color: white;
+            span{
+                font-family: 'Lora', serif; 
+            }
+        }
+    }
+    .mobile{
+        h1{
+            cursor: pointer;
+            font-family: 'Lora', serif;
+        }
+    }
+    .navigation-container{
+        position: absolute;
+        right: 0px;
+    }
+    .navigation{
+        margin-top: 9px;
+        padding-right: 15px;
+        text-align: right;
+        a{
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }      
+    }
+}
+
+.box-phone{
+    cursor: default;
+    font-size: 20pt;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    span{
+        cursor: default;
+        font-size: 15pt;
+        font-family: 'Lora', serif;
+        font-style: italic;
+    }
+}

@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS `justasking`.`idp_google` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sub` VARCHAR(256) NOT NULL,
+  `name` VARCHAR(256)  NULL,
+  `email` VARCHAR(128)  NULL,
+  `image_url` VARCHAR(512)  NULL,
+  `given_name` VARCHAR(128)  NULL,
+  `family_name` VARCHAR(128)  NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
+  

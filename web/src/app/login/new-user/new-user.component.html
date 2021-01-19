@@ -1,0 +1,72 @@
+<div class="animated fadeIn">
+    <p class="sub-title">Please fill out these last details before continuing</p>
+    <div class="details" *ngIf="userService.user">
+        <div class="user-full-name">
+            <mat-input-container>
+                <input 
+                    matInput 
+                    placeholder="First Name" 
+                    disabled
+                    [value]="userService.user.FirstName">
+            </mat-input-container> 
+            <div class="horiz-spacer"></div>
+            <mat-input-container>
+                <input 
+                    matInput 
+                    placeholder="Last Name" 
+                    disabled
+                    [value]="userService.user.LastName">
+            </mat-input-container>
+        </div>
+        <div class="user-email">
+            <mat-input-container>
+                <input 
+                    matInput 
+                    placeholder="Email" 
+                    disabled 
+                    [value]="userService.user.Email">
+            </mat-input-container>
+        </div>
+        <div class="user-company">
+            <mat-input-container>
+                <input 
+                    matInput 
+                    placeholder="Account Name" 
+                    [(ngModel)]="userService.user.Account.Name"
+                    [value]="userService.user.FirstName">
+            </mat-input-container>
+        </div>
+        <div class="account-plan">
+            <mat-form-field class="plan-select">
+                <mat-select placeholder="Plan" [(ngModel)]="plan" (change)="planChange($event)">
+                    <mat-option *ngFor="let plan of plans" [value]="plan">
+                        <img class="select-plan-image" [src]="plan.ImagePath" [alt]="plan.Name">
+                        <span>{{plan.Name}}</span>
+                        <span>({{plan.PriceDescription}})</span>
+                    </mat-option>
+                </mat-select>    
+            </mat-form-field>
+        </div>
+        <div class="plan-description">{{plan.Description}}</div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    <div class="actions">
+        <button
+            class="continue-button"
+            mat-raised-button
+            (click)="continueWithPlan()"
+            color="primary">
+                Continue with {{plan.DisplayName}} plan
+        </button>
+        <br/>
+        <br/>
+        <div>
+            <a  class="skip" 
+                routerLink="/dashboard">skip this step</a>
+        </div>
+    </div>
+</div>

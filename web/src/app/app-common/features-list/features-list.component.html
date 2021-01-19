@@ -1,0 +1,6 @@
+<div class="features">
+  <mat-list *ngFor="let featureSection of featureSections">
+    <mat-list-item [ngClass]="{'yes': feature.Active, 'no': !feature.Active}" *ngFor="let feature of featureSection.Features">
+      <mat-icon>{{feature.Active?'check_circle':'close'}}</mat-icon> {{feature.Name}}</mat-list-item>
+  </mat-list>
+</div>

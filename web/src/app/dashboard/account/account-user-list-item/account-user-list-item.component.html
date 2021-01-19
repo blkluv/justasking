@@ -1,0 +1,45 @@
+<div class="user">
+  <div class="field-container email">
+    <span>{{accountUser.Email}}</span>
+  </div>
+  <div class="field-container" *ngIf="canManageUserAccount; else cannotManageAccountTemplate">
+    <mat-form-field>
+      <mat-select [(ngModel)]="accountUserRole" (selectionChange)="confirmUpdateAccountUserRole(accountUser)">
+        <mat-option *ngFor="let role of assignableRoles" [value]="role">
+          {{ role.RoleName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <ng-template #cannotManageAccountTemplate>
+    <div class="cannot-manage field-container">
+      <div class="cannot-manage-details">
+        <span>{{ accountUser.RoleName }}</span>
+        <span *ngIf="accountUser.IsPending">(Invited)</span>
+      </div>
+    </div>
+  </ng-template>
+  <div class="field-container" *ngIf="canManageUserAccount || accountUser.IsPending">
+    <button class="account-user-actions" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="accountUser.IsActive" (click)="confirmTransferAccountOwnership(accountUser)" >
+        <mat-icon>swap_horiz</mat-icon>
+        <span>Transfer account ownership</span>
+      </button>
+      <button mat-menu-item *ngIf="accountUser.IsActive" (click)="confirmRemoveUserFromAccount(accountUser)">
+        <mat-icon>delete</mat-icon>
+        <span>Remove user</span>
+      </button>
+      <button mat-menu-item *ngIf="accountUser.IsPending" (click)="resendUserAccountInvitation(accountUser)">
+        <mat-icon>email</mat-icon>
+        <span>Resend invitation</span>
+      </button>
+      <button mat-menu-item *ngIf="accountUser.IsPending" (click)="confirmCancelAccountInvitation(accountUser)">
+        <mat-icon>delete</mat-icon>
+        <span>Cancel invitation</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>

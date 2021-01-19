@@ -1,0 +1,53 @@
+<div *ngIf="!loading; else loadingTemplate">
+  <form #submitQuestionForm="ngForm" novalidate (ngSubmit)="onSubmit()" class="user-question" *ngIf="!formSubmitted && visibleQuestionsCount>0">
+    <div *ngFor="let question of box.Questions; let i = index;">
+      <div *ngIf="question.IsActive">
+        <div class="box-header">
+          <h1>
+            {{ question.Question }}
+          </h1>
+        </div>
+        <mat-card class="question-card">
+          <div class="question-container">
+            <textarea [name]="question.QuestionId" [(ngModel)]="box.Questions[i].Entry" matTextareaAutosize matAutosizeMinRows="1" autocomplete="off"
+              rows="1" [appAutofocus]="!box.IsPreview && i == 0" maxlength="128" required>
+              </textarea>
+            <div class="counter" *ngIf="question.Entry">
+              <span [class.hidden]="question.Entry.length < 50">{{question.Entry.length}}/128</span>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" mat-raised-button class="submit-entry-button" [disabled]="submitQuestionForm.invalid" color="accent">
+        <span>Submit</span>
+      </button>
+    </div>
+
+  </form>
+
+  <div class="confirmation" *ngIf="formSubmitted">
+    <div class="box-header">
+      <h1>
+        Thank you for your submission!
+      </h1>
+      <button mat-button class="submit-again" (click)="allowSubmitAgain()">Submit another entry ...</button>
+    </div>
+  </div>
+
+  <div *ngIf="visibleQuestionsCount==0">
+    <div class="box-header">
+      <h1>
+        No questions at this moment, stay tuned!
+      </h1>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

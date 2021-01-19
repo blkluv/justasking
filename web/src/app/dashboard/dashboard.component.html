@@ -1,0 +1,45 @@
+<mat-sidenav-container fullscreen (backdropClick)="toggleSidenav()"> 
+    <mat-sidenav class="justasking-sidenav" #dashboardSidenav mode="over">
+        <mat-toolbar class="sidenav">
+            <mat-toolbar-row class="sidenav-logo">
+                <img src="../../assets/logos/logo-teal.png" alt="justasking.io">
+                <h1 routerLink=".">justasking.io</h1>
+            </mat-toolbar-row>
+            <mat-toolbar-row routerLink="boxes">
+                <mat-icon>inbox</mat-icon>
+                <span>Polls</span>
+            </mat-toolbar-row>
+            <mat-toolbar-row routerLink="account">
+                <mat-icon>account_circle</mat-icon>
+                <span>Account</span>
+            </mat-toolbar-row> 
+            <mat-toolbar-row routerLink="releases">
+                <mat-icon>new_releases</mat-icon>
+                <span>What's new?</span>
+            </mat-toolbar-row>
+            <mat-toolbar-row (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <div class="sidenav-footer"> 
+            <p>
+                <span (click)="showTermsAndConditions()">Terms and Conditions </span> | <span routerLink="releases"> {{latestRelease.Name}}</span>
+            </p> 
+        </div>
+    </mat-sidenav>
+ 
+    <app-dashboard-top-nav class="topnav-wrapper">
+    </app-dashboard-top-nav>
+
+    <div id="main">
+        <div class="container">  
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <div class="support-widget-container">
+        <app-support-widget></app-support-widget>
+    </div>
+
+</mat-sidenav-container>
