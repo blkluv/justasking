@@ -1,8 +1,8 @@
 package applogsrepo
 
 import (
-	"justasking/GO/core/model/applogs"
-	"justasking/GO/core/startup/flight"
+	applogsmodel "github.com/chande/justasking/core/model/applogs"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // InsertLog creates a record in the log table

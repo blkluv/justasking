@@ -2,10 +2,11 @@ package themecontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/theme"
-	"justasking/GO/core/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	themedomain "github.com/chande/justasking/core/domain/theme"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"strconv"
 

@@ -1,13 +1,14 @@
 package questionboxrepo
 
 import (
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/model/boxes/questionbox"
-	"justasking/GO/core/model/questionboxentry"
-	"justasking/GO/core/model/questionboxentryvote"
-	"justasking/GO/core/repo/boxes/basebox"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	questionboxmodel "github.com/chande/justasking/core/model/boxes/questionbox"
+	questionboxentrymodel "github.com/chande/justasking/core/model/questionboxentry"
+	questionboxentryvotemodel "github.com/chande/justasking/core/model/questionboxentryvote"
+	baseboxrepo "github.com/chande/justasking/core/repo/boxes/basebox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )

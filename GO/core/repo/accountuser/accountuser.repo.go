@@ -1,14 +1,15 @@
 package accountuserrepo
 
 import (
-	"justasking/GO/common/constants/role"
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountinvitation"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/repo/account"
-	"justasking/GO/core/repo/userstripe"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	roleconstants "github.com/chande/justasking/common/constants/role"
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountinvitationmodel "github.com/chande/justasking/core/model/accountinvitation"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	accountrepo "github.com/chande/justasking/core/repo/account"
+	userstriperepo "github.com/chande/justasking/core/repo/userstripe"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"
@@ -39,7 +40,7 @@ func GetUserAccounts(userId uuid.UUID) ([]accountusermodel.AccountUser, error) {
 func UpdateAccountUserRole(accountUser accountusermodel.AccountUser, updatedBy uuid.UUID) error {
 	db := flight.Context(nil, nil).DB
 
-	newTokenVersion, _ := uuid.NewV4()
+	newTokenVersion := uuid.NewV4()
 	err := db.Exec(`UPDATE account_users SET role_id = ?, token_version = ?, updated_at = ?, updated_by = ? WHERE account_id = ? AND user_id = ?`,
 		accountUser.RoleId, newTokenVersion, time.Now().UTC(), updatedBy, accountUser.AccountId, accountUser.UserId).Error
 
@@ -50,7 +51,7 @@ func UpdateAccountUserRole(accountUser accountusermodel.AccountUser, updatedBy u
 func UpdateAccountUserToken(userId uuid.UUID, accountId uuid.UUID) error {
 	db := flight.Context(nil, nil).DB
 
-	newTokenVersion, _ := uuid.NewV4()
+	newTokenVersion := uuid.NewV4()
 	err := db.Exec(`UPDATE account_users SET token_version = ?, updated_at = ?, updated_by = ? WHERE account_id = ? AND user_id = ?`,
 		newTokenVersion, time.Now().UTC(), userId, accountId, userId).Error
 
@@ -78,14 +79,14 @@ func TransferOwnership(oldOwnerId uuid.UUID, newOwnerId uuid.UUID, accountId uui
 	tx := db.Begin()
 
 	//set old owner to admin
-	oldOwnerTokenVersion, _ := uuid.NewV4()
+	oldOwnerTokenVersion := uuid.NewV4()
 	if err := tx.Exec(`UPDATE account_users SET role_id = ?, token_version = ?, updated_at = ?, updated_by = ? WHERE account_id = ? AND user_id = ?`, roleconstants.ADMIN, oldOwnerTokenVersion, time.Now().UTC(), oldOwnerId, accountId, oldOwnerId).Error; err != nil {
 		tx.Rollback()
 		return err
 	}
 
 	//set new owner to owner
-	newOwnerTokenVersion, _ := uuid.NewV4()
+	newOwnerTokenVersion := uuid.NewV4()
 	if err := tx.Exec(`UPDATE account_users SET role_id = ?, token_version = ?, updated_at = ?, updated_by = ? WHERE account_id = ? AND user_id = ?`, roleconstants.OWNER, newOwnerTokenVersion, time.Now().UTC(), oldOwnerId, accountId, newOwnerId).Error; err != nil {
 		tx.Rollback()
 		return err
@@ -106,7 +107,7 @@ func TransferOwnership(oldOwnerId uuid.UUID, newOwnerId uuid.UUID, accountId uui
 	if needsNewAccount {
 		//create new account for oldOwner
 		var account accountmodel.Account
-		account.Id, _ = uuid.NewV4()
+		account.Id = uuid.NewV4()
 		account.OwnerId = oldOwnerId
 		account.Name = newAccountName
 		account.IsActive = true
@@ -156,7 +157,7 @@ func RemoveUserFromAccount(userId uuid.UUID, accountId uuid.UUID, updatedBy uuid
 
 	tx := db.Begin()
 
-	newToken, _ := uuid.NewV4()
+	newToken := uuid.NewV4()
 	if err := tx.Exec(`UPDATE account_users SET is_active = 0, current_account = 0, token_version = ?, updated_at = ?, updated_by = ? WHERE user_id = ? AND account_id = ?`, newToken, time.Now().UTC(), updatedBy, userId, accountId).Error; err != nil {
 		tx.Rollback()
 		return err
@@ -183,7 +184,7 @@ func UpdateUserForPlanExpiration(userId uuid.UUID, accountId uuid.UUID, needsCur
 
 	tx := db.Begin()
 
-	newToken, _ := uuid.NewV4()
+	newToken := uuid.NewV4()
 	if err := tx.Exec(`UPDATE account_users SET current_account = 0, token_version = ?, updated_at = ?, updated_by = ? WHERE user_id = ? AND account_id = ?`, newToken, time.Now().UTC(), "SyncDomain", userId, accountId).Error; err != nil {
 		tx.Rollback()
 		return err
@@ -274,7 +275,7 @@ func RedeemAccountInvitation(invitation accountinvitationmodel.AccountInvitation
 		accountUser.CurrentAccount = true
 		accountUser.CreatedAt = time.Now()
 		accountUser.CreatedBy = userId.String()
-		accountUser.TokenVersion, _ = uuid.NewV4()
+		accountUser.TokenVersion = uuid.NewV4()
 
 		if err := InsertAccountUser(accountUser, tx); err != nil {
 			tx.Rollback()

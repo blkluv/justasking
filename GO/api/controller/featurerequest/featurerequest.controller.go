@@ -2,11 +2,12 @@ package featurerequestcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/featurerequest"
-	"justasking/GO/core/model/featurerequest"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	featurerequestdomain "github.com/chande/justasking/core/domain/featurerequest"
+	featurerequestmodel "github.com/chande/justasking/core/model/featurerequest"
 
 	"github.com/blue-jay/core/router"
 )

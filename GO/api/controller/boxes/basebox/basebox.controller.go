@@ -2,13 +2,14 @@ package baseboxcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/common/utility"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/common/utility"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"
@@ -152,7 +153,7 @@ func GetRandomAccessCode(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//GetBaseBoxByCodeForDetailsPage gets a base box for the box details page
+// GetBaseBoxByCodeForDetailsPage gets a base box for the box details page
 func GetBaseBoxByCodeAuthorized(w http.ResponseWriter, r *http.Request) {
 	context := flight.Context(w, r)
 	code := context.Param("code")
@@ -176,7 +177,7 @@ func GetBaseBoxByCodeAuthorized(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//DeletePoll deletes a poll from an account
+// DeletePoll deletes a poll from an account
 func DeletePoll(w http.ResponseWriter, r *http.Request) {
 	var baseBox baseboxmodel.BaseBox
 	decoder := json.NewDecoder(r.Body)

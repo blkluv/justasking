@@ -2,11 +2,12 @@ package supportcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/support"
-	"justasking/GO/core/model/supportissue"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	supportdomain "github.com/chande/justasking/core/domain/support"
+	supportissuemodel "github.com/chande/justasking/core/model/supportissue"
 
 	"github.com/blue-jay/core/router"
 )

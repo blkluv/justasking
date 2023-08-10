@@ -1,16 +1,17 @@
 package questionboxcontroller
 
 import (
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/startup/flight"
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/boxes/questionbox"
-	"justasking/GO/core/model/boxes/questionbox"
-	"justasking/GO/core/model/questionboxentry"
-	"justasking/GO/core/model/questionboxentryvote"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	questionboxdomain "github.com/chande/justasking/core/domain/boxes/questionbox"
+	questionboxmodel "github.com/chande/justasking/core/model/boxes/questionbox"
+	questionboxentrymodel "github.com/chande/justasking/core/model/questionboxentry"
+	questionboxentryvotemodel "github.com/chande/justasking/core/model/questionboxentryvote"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"

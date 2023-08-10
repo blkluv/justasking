@@ -7,9 +7,9 @@ import (
 	"github.com/blue-jay/core/server"
 	"github.com/rs/cors"
 
-	"justasking/GO/realtimehub/startup/boot"
-	"justasking/GO/realtimehub/startup/env"
-	"justasking/GO/realtimehub/startup/middleware"
+	"github.com/chande/justasking/realtimehub/startup/boot"
+	"github.com/chande/justasking/realtimehub/startup/env"
+	"github.com/chande/justasking/realtimehub/startup/middleware"
 )
 
 func main() {

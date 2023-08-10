@@ -1,10 +1,11 @@
 package emaildomain
 
 import (
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/model/emailtemplate"
-	"justasking/GO/core/startup/flight"
 	"strings"
+
+	"github.com/chande/justasking/common/operationresult"
+	emailtemplatemodel "github.com/chande/justasking/core/model/emailtemplate"
+	"github.com/chande/justasking/core/startup/flight"
 
 	gomail "gopkg.in/gomail.v2"
 )

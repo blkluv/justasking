@@ -1,8 +1,8 @@
 package emailtemplaterepo
 
 import (
-	"justasking/GO/core/model/emailtemplate"
-	"justasking/GO/core/startup/flight"
+	emailtemplatemodel "github.com/chande/justasking/core/model/emailtemplate"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // GetEmailTemplateByName gets email template for a given name

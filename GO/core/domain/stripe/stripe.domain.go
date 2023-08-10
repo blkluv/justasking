@@ -2,19 +2,20 @@ package stripedomain
 
 import (
 	"fmt"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/constants/priceplan"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/model/emailtemplate"
-	"justasking/GO/core/model/userstripe"
-	"justasking/GO/core/repo/emailtemplate"
-	"justasking/GO/core/repo/stripe"
-	"justasking/GO/core/repo/userstripe"
 	"time"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	priceplanconstants "github.com/chande/justasking/common/constants/priceplan"
+	"github.com/chande/justasking/common/operationresult"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	emailtemplatemodel "github.com/chande/justasking/core/model/emailtemplate"
+	userstripemodel "github.com/chande/justasking/core/model/userstripe"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
+	striperepo "github.com/chande/justasking/core/repo/stripe"
+	userstriperepo "github.com/chande/justasking/core/repo/userstripe"
 
 	"github.com/stripe/stripe-go"
 
@@ -230,7 +231,7 @@ func UpdateCreditCard(stripeToken stripe.Token, userId uuid.UUID, accountId uuid
 	if stripeCustomerResult.IsSuccess() {
 		stripeKey, configsResult := appconfigsdomain.GetAppConfig("stripe", "StripeSecretKey")
 		if configsResult.IsSuccess() {
-			updatedStripeCustomer, err = striperepo.UpdateCreditCard(stripeCustomer, stripeToken.ID, stripeToken.Card.LastFour, stripeKey.ConfigValue)
+			updatedStripeCustomer, err = striperepo.UpdateCreditCard(stripeCustomer, stripeToken.ID, stripeToken.Card.Last4, stripeKey.ConfigValue)
 			if err != nil {
 				msg := fmt.Sprintf("Error updating card for user [%v] with stripe customer ID [%v]. Error: [%v]. Check that the Stripe card data matches with our database.",
 					userId, stripeCustomer.StripeUserId, err.Error())

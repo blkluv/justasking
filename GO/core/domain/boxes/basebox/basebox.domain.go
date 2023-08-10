@@ -2,14 +2,15 @@ package baseboxdomain
 
 import (
 	"fmt"
-	authenticationclaim "justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/account"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/model/phonenumber"
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/repo/boxes/basebox"
+
+	authenticationclaim "github.com/chande/justasking/common/authenticationclaim"
+	"github.com/chande/justasking/common/operationresult"
+	accountdomain "github.com/chande/justasking/core/domain/account"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	phonenumbermodel "github.com/chande/justasking/core/model/phonenumber"
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	baseboxrepo "github.com/chande/justasking/core/repo/boxes/basebox"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"

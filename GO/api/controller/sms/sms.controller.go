@@ -3,9 +3,9 @@ package smscontroller
 import (
 	"net/http"
 
-	"justasking/GO/core/model/twilio/sms"
+	smsmodel "github.com/chande/justasking/core/model/twilio/sms"
 
-	"justasking/GO/core/domain/sms"
+	smsdomain "github.com/chande/justasking/core/domain/sms"
 
 	"github.com/blue-jay/core/router"
 	"github.com/gorilla/schema"

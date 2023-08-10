@@ -1,13 +1,14 @@
 package authenticationclaim
 
 import (
-	"justasking/GO/core/model/role"
 	"strconv"
 	"time"
 
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/startup/flight"
+	rolemodel "github.com/chande/justasking/core/model/role"
+
+	accountmodel "github.com/chande/justasking/core/model/account"
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	"github.com/chande/justasking/core/startup/flight"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	uuid "github.com/satori/go.uuid"

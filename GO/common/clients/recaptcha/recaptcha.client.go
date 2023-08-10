@@ -4,13 +4,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/common/recaptcha"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/domain/applogs"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/common/recaptcha"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
 )
 
 var clientName = "ReCaptchaClient"

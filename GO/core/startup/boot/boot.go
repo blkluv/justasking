@@ -7,8 +7,9 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	"fmt"
-	"justasking/GO/core/startup/env"
-	"justasking/GO/core/startup/flight"
+
+	"github.com/chande/justasking/core/startup/env"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // RegisterServices sets up all the web components.

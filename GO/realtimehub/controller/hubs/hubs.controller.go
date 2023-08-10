@@ -2,12 +2,13 @@ package hubscontroller
 
 import (
 	"io/ioutil"
-	"justasking/GO/realtimehub/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/realtimehub/startup/flight"
 
 	"github.com/blue-jay/core/router"
 
-	"justasking/GO/realtimehub/domain/hub"
+	hubdomain "github.com/chande/justasking/realtimehub/domain/hub"
 )
 
 // Load the routes.

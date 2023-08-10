@@ -1,9 +1,10 @@
 package featurerequestrepo
 
 import (
-	"justasking/GO/core/model/featurerequest"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	featurerequestmodel "github.com/chande/justasking/core/model/featurerequest"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // InsertFeatureRequest inserts a new feature request

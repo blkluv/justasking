@@ -1,9 +1,9 @@
 package priceplanrepo
 
 import (
-	"justasking/GO/core/model/customplanlicense"
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/startup/flight"
+	customplanlicensemodel "github.com/chande/justasking/core/model/customplanlicense"
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )

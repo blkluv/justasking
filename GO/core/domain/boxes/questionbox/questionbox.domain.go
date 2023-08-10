@@ -2,13 +2,14 @@ package questionboxdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/model/boxes/questionbox"
-	"justasking/GO/core/model/questionboxentry"
-	"justasking/GO/core/model/questionboxentryvote"
-	"justasking/GO/core/repo/boxes/questionbox"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	questionboxmodel "github.com/chande/justasking/core/model/boxes/questionbox"
+	questionboxentrymodel "github.com/chande/justasking/core/model/questionboxentry"
+	questionboxentryvotemodel "github.com/chande/justasking/core/model/questionboxentryvote"
+	questionboxrepo "github.com/chande/justasking/core/repo/boxes/questionbox"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -21,7 +22,7 @@ func CreateQuestionBox(questionBox questionboxmodel.QuestionBox) (uuid.UUID, *op
 	result := operationresult.New()
 
 	// Create ID that will be used for both basebox and QuestionBox
-	boxID, _ := uuid.NewV4()
+	boxID := uuid.NewV4()
 	questionBox.BoxId = boxID
 	questionBox.BaseBox.CreatedBy = questionBox.CreatedBy
 
@@ -73,7 +74,7 @@ func InsertQuestionBoxEntry(entry questionboxentrymodel.QuestionBoxEntry) (quest
 	functionName := "InsertQuestionBoxEntry"
 	result := operationresult.New()
 
-	entryID, _ := uuid.NewV4()
+	entryID := uuid.NewV4()
 	entry.EntryId = entryID
 
 	err := questionboxrepo.InsertQuestionBoxEntry(entry)

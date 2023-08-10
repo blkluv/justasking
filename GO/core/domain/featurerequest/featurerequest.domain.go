@@ -2,15 +2,16 @@ package featurerequestdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/model/emailtemplate"
-	"justasking/GO/core/model/featurerequest"
-	"justasking/GO/core/repo/emailtemplate"
-	"justasking/GO/core/repo/featurerequest"
 	"strings"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	emailtemplatemodel "github.com/chande/justasking/core/model/emailtemplate"
+	featurerequestmodel "github.com/chande/justasking/core/model/featurerequest"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
+	featurerequestrepo "github.com/chande/justasking/core/repo/featurerequest"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -22,7 +23,7 @@ func CreateFeatureRequest(featureRequest featurerequestmodel.FeatureRequest, tok
 	functionName := "CreateFeatureRequest"
 	result := operationresult.New()
 
-	featureRequestID, _ := uuid.NewV4()
+	featureRequestID := uuid.NewV4()
 	featureRequest.FeatureRequestId = featureRequestID
 
 	err := featurerequestrepo.InsertFeatureRequest(featureRequest)

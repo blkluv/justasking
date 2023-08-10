@@ -4,22 +4,23 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
-	"justasking/GO/common/clients/realtimehub"
-	"justasking/GO/common/enum/boxtype"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/boxes/answerbox"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/domain/boxes/questionbox"
-	"justasking/GO/core/domain/boxes/votesbox"
-	"justasking/GO/core/domain/boxes/wordcloud"
-	"justasking/GO/core/model/answerboxentry"
-	"justasking/GO/core/model/questionboxentry"
-	"justasking/GO/core/model/twilio/sms"
-	"justasking/GO/core/model/votesboxquestionanswer"
-	"justasking/GO/core/model/wordcloudresponse"
-	"justasking/GO/core/repo/sms"
 	"strconv"
+
+	realtimehubclient "github.com/chande/justasking/common/clients/realtimehub"
+	boxtypeenum "github.com/chande/justasking/common/enum/boxtype"
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	answerboxdomain "github.com/chande/justasking/core/domain/boxes/answerbox"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	questionboxdomain "github.com/chande/justasking/core/domain/boxes/questionbox"
+	votesboxdomain "github.com/chande/justasking/core/domain/boxes/votesbox"
+	wordclouddomain "github.com/chande/justasking/core/domain/boxes/wordcloud"
+	answerboxentrymodel "github.com/chande/justasking/core/model/answerboxentry"
+	questionboxentrymodel "github.com/chande/justasking/core/model/questionboxentry"
+	smsmodel "github.com/chande/justasking/core/model/twilio/sms"
+	votesboxquestionanswermodel "github.com/chande/justasking/core/model/votesboxquestionanswer"
+	wordcloudresponsemodel "github.com/chande/justasking/core/model/wordcloudresponse"
+	smsrepo "github.com/chande/justasking/core/repo/sms"
 )
 
 var domainName = "SmsDomain"
@@ -32,7 +33,7 @@ func HandleSms(smsMessage smsmodel.Sms) *operationresult.OperationResult {
 	// 1. Log Sms data with Box Id (if it exists)
 	logResult := InsertSmsLog(smsMessage)
 
-	if(len(smsMessage.Body)> 0){
+	if len(smsMessage.Body) > 0 {
 		if logResult.IsSuccess() {
 			// 2. Look up box associated with this number
 			baseBox, result := baseboxdomain.GetBaseBoxByPhoneNumber(smsMessage.To)
@@ -190,9 +191,9 @@ func HandleSms(smsMessage smsmodel.Sms) *operationresult.OperationResult {
 			applogsdomain.LogError(domainName, functionName, fmt.Sprintf("Error creating log for SMS message. Error: [%v]", msg), false)
 		}
 	} else {
-		msg := "smsMessage.Body was null.";
-		result.Message = msg;
-		result.Status = operationresult.UnprocessableEntity;
+		msg := "smsMessage.Body was null."
+		result.Message = msg
+		result.Status = operationresult.UnprocessableEntity
 		applogsdomain.LogError(domainName, functionName, fmt.Sprintf("SMS message cannot be null. Error: [%v]", msg), false)
 	}
 

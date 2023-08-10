@@ -1,14 +1,15 @@
 package votesboxrepo
 
 import (
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/model/boxes/votesbox"
-	"justasking/GO/core/model/votesboxquestion"
-	"justasking/GO/core/model/votesboxquestionanswer"
-	"justasking/GO/core/model/votesboxquestionanswervote"
-	"justasking/GO/core/repo/boxes/basebox"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	votesboxmodel "github.com/chande/justasking/core/model/boxes/votesbox"
+	votesboxquestionmodel "github.com/chande/justasking/core/model/votesboxquestion"
+	votesboxquestionanswermodel "github.com/chande/justasking/core/model/votesboxquestionanswer"
+	votesboxquestionanswervotemodel "github.com/chande/justasking/core/model/votesboxquestionanswervote"
+	baseboxrepo "github.com/chande/justasking/core/repo/boxes/basebox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -37,13 +38,13 @@ func InsertVotesBox(votesBox votesboxmodel.VotesBox) error {
 	var err error
 	for _, question := range votesBox.Questions {
 		question.BoxId = votesBox.BaseBox.ID
-		question.QuestionId, _ = uuid.NewV4()
+		question.QuestionId = uuid.NewV4()
 		err = tx.Create(&question).Error
 		if err != nil {
 			break
 		}
 		for _, answer := range question.Answers {
-			answer.AnswerId, _ = uuid.NewV4()
+			answer.AnswerId = uuid.NewV4()
 			answer.QuestionId = question.QuestionId
 			err = tx.Create(&answer).Error
 			if err != nil {

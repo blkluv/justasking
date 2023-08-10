@@ -2,15 +2,16 @@ package accountuserdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/constants/role"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/account"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/repo/accountuser"
-	"justasking/GO/core/repo/userstripe"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	roleconstants "github.com/chande/justasking/common/constants/role"
+	"github.com/chande/justasking/common/operationresult"
+	accountdomain "github.com/chande/justasking/core/domain/account"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	accountuserrepo "github.com/chande/justasking/core/repo/accountuser"
+	userstriperepo "github.com/chande/justasking/core/repo/userstripe"
 
 	uuid "github.com/satori/go.uuid"
 )

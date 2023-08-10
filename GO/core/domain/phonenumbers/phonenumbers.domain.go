@@ -2,15 +2,16 @@ package phonenumbersdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/clients/twilio"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/phonenumber"
-	"justasking/GO/core/model/twilio/availablephonenumbers"
-	"justasking/GO/core/model/twilio/incomingphonenumbers"
-	"justasking/GO/core/model/twilio/phonenumber"
-	"justasking/GO/core/repo/phonenumber"
+
+	twilioclient "github.com/chande/justasking/common/clients/twilio"
+	"github.com/chande/justasking/common/operationresult"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	phonenumbermodel "github.com/chande/justasking/core/model/phonenumber"
+	availablephonenumbersmodel "github.com/chande/justasking/core/model/twilio/availablephonenumbers"
+	incomingphonenumbersmodel "github.com/chande/justasking/core/model/twilio/incomingphonenumbers"
+	twiliophonenumbermodel "github.com/chande/justasking/core/model/twilio/phonenumber"
+	phonenumberrepo "github.com/chande/justasking/core/repo/phonenumber"
 )
 
 var domainName = "PhoneNumbersDomain"

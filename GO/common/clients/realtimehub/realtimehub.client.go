@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/model/websocketmessage"
 	"net/http"
 	"time"
+
+	"github.com/chande/justasking/common/operationresult"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	websocketmessagemodel "github.com/chande/justasking/core/model/websocketmessage"
 )
 
 // BroadcastSmsMessage calls the realtimehub api to broadcast an sms message

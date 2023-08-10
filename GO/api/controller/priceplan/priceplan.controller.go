@@ -2,11 +2,12 @@ package priceplancontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"

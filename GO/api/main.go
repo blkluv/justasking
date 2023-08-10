@@ -1,16 +1,17 @@
 package main
 
 import (
-	"justasking/GO/api/controller"
 	"log"
+
+	"github.com/chande/justasking/api/controller"
 
 	"github.com/blue-jay/core/router"
 	"github.com/blue-jay/core/server"
 	"github.com/rs/cors"
 
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/startup/boot"
-	"justasking/GO/core/startup/env"
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/core/startup/boot"
+	"github.com/chande/justasking/core/startup/env"
 )
 
 func main() {

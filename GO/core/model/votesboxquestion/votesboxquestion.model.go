@@ -1,8 +1,9 @@
 package votesboxquestionmodel
 
 import (
-	"justasking/GO/core/model/votesboxquestionanswer"
 	"time"
+
+	votesboxquestionanswermodel "github.com/chande/justasking/core/model/votesboxquestionanswer"
 
 	uuid "github.com/satori/go.uuid"
 )

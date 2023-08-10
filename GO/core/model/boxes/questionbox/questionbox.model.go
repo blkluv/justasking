@@ -3,7 +3,7 @@ package questionboxmodel
 import (
 	"time"
 
-	"justasking/GO/core/model/boxes/basebox"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
 
 	uuid "github.com/satori/go.uuid"
 )

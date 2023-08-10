@@ -1,18 +1,19 @@
 package authenticationrepo
 
 import (
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/model/authentication"
-	"justasking/GO/core/model/idpjustasking"
-	"justasking/GO/core/model/idpmapping"
-	"justasking/GO/core/model/user"
-	"justasking/GO/core/repo/account"
-	"justasking/GO/core/repo/accountuser"
-	"justasking/GO/core/repo/stripe"
-	"justasking/GO/core/repo/userstripe"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	authenticationmodel "github.com/chande/justasking/core/model/authentication"
+	idpjustaskingmodel "github.com/chande/justasking/core/model/idpjustasking"
+	idpmappingmodel "github.com/chande/justasking/core/model/idpmapping"
+	usermodel "github.com/chande/justasking/core/model/user"
+	accountrepo "github.com/chande/justasking/core/repo/account"
+	accountuserrepo "github.com/chande/justasking/core/repo/accountuser"
+	striperepo "github.com/chande/justasking/core/repo/stripe"
+	userstriperepo "github.com/chande/justasking/core/repo/userstripe"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // GetGoogleUserBySub gets a user from the idp_google table

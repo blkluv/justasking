@@ -1,12 +1,13 @@
 package accountrepo
 
 import (
-	"justasking/GO/common/constants/priceplan"
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountinvitation"
-	"justasking/GO/core/model/userstripe"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	priceplanconstants "github.com/chande/justasking/common/constants/priceplan"
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountinvitationmodel "github.com/chande/justasking/core/model/accountinvitation"
+	userstripemodel "github.com/chande/justasking/core/model/userstripe"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"
@@ -35,7 +36,7 @@ func InsertAccount(account accountmodel.Account, tx *gorm.DB) error {
 // InsertDefaultAccountPricePlan is assigns the starter price plan when an account is created
 func InsertDefaultAccountPricePlan(accountId uuid.UUID, tx *gorm.DB) error {
 
-	newId, _ := uuid.NewV4()
+	newId := uuid.NewV4()
 	err := tx.Exec(`INSERT INTO account_price_plans (id, account_id, plan_id, is_active, created_at) VALUES (?, ?, ?, 1, CURRENT_TIMESTAMP)`, newId, accountId, priceplanconstants.BASIC).Error
 
 	return err
@@ -47,7 +48,7 @@ func UpdateAccountPricePlanTx(accountId uuid.UUID, priceplanId uuid.UUID, endDat
 	err := tx.Exec(`UPDATE account_price_plans SET is_active = 0, updated_at = CURRENT_TIMESTAMP WHERE account_id = ? AND is_active = 1`, accountId).Error
 
 	// insert new plan
-	newId, _ := uuid.NewV4()
+	newId := uuid.NewV4()
 	err = tx.Exec(`INSERT INTO account_price_plans (id, account_id, plan_id, is_active, period_end, created_at) VALUES (?, ?, ?, 1, ?, CURRENT_TIMESTAMP)`, newId, accountId, priceplanId, endDate).Error
 
 	return err
@@ -67,7 +68,7 @@ func UpdateAccountPricePlan(accountId uuid.UUID, priceplanId uuid.UUID) error {
 	}
 
 	//insert new plan
-	newId, _ := uuid.NewV4()
+	newId := uuid.NewV4()
 	if err := tx.Exec(`INSERT INTO account_price_plans (id, account_id, plan_id, is_active, created_at) VALUES (?, ?, ?, 1, CURRENT_TIMESTAMP)`, newId, accountId, priceplanId).Error; err != nil {
 		tx.Rollback()
 		return err
@@ -200,7 +201,7 @@ func UpdateSubscriptionForCancellation(userStripe userstripemodel.UserStripe) er
 	return err
 }
 
-//GetActiveNonBasicAccounts gets all active accounts which are not on the BASIC plan
+// GetActiveNonBasicAccounts gets all active accounts which are not on the BASIC plan
 func GetActiveNonBasicAccounts() ([]accountmodel.Account, error) {
 	db := flight.Context(nil, nil).DB
 
@@ -217,7 +218,7 @@ func GetActiveNonBasicAccounts() ([]accountmodel.Account, error) {
 func CreateAccountInvite(accountInvitation accountinvitationmodel.AccountInvitation, invitationCode string, accountId uuid.UUID, createdBy uuid.UUID) error {
 	db := flight.Context(nil, nil).DB
 
-	newId, _ := uuid.NewV4()
+	newId := uuid.NewV4()
 	err := db.Exec(`INSERT INTO account_invitations (id, account_id, role_id, email, invitation_code, is_active, created_at, created_by) VALUES (?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP, ?)`,
 		newId, accountId, accountInvitation.RoleId, accountInvitation.Email, invitationCode, createdBy).Error
 

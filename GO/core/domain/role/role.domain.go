@@ -2,11 +2,12 @@ package roledomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/role"
-	"justasking/GO/core/repo/role"
 	"strconv"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	rolemodel "github.com/chande/justasking/core/model/role"
+	rolerepo "github.com/chande/justasking/core/repo/role"
 
 	uuid "github.com/satori/go.uuid"
 )

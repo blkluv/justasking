@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"justasking/GO/core/domain/appconfigs"
 	"log"
 	"strconv"
 	"time"
 
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/sync"
-	"justasking/GO/core/startup/boot"
-	"justasking/GO/core/startup/env"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	syncdomain "github.com/chande/justasking/core/domain/sync"
+	"github.com/chande/justasking/core/startup/boot"
+	"github.com/chande/justasking/core/startup/env"
 )
 
 var serviceName = "SyncService"

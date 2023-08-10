@@ -2,8 +2,8 @@
 package boot
 
 import (
-	"justasking/GO/realtimehub/controller"
-	"justasking/GO/realtimehub/startup/flight"
+	"github.com/chande/justasking/realtimehub/controller"
+	"github.com/chande/justasking/realtimehub/startup/flight"
 )
 
 // RegisterServices sets up all the web components.

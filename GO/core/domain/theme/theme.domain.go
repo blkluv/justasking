@@ -2,10 +2,11 @@ package themedomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/theme"
-	"justasking/GO/core/repo/theme"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	thememodel "github.com/chande/justasking/core/model/theme"
+	themerepo "github.com/chande/justasking/core/repo/theme"
 )
 
 var domainName = "ThemeDomain"

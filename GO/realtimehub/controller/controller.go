@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"justasking/GO/realtimehub/controller/hubs"
+	hubscontroller "github.com/chande/justasking/realtimehub/controller/hubs"
 )
 
 // LoadRoutes loads the routes for the controllers

@@ -2,30 +2,31 @@ package authenticationdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/authcontainer"
-	"justasking/GO/common/clients/recaptcha"
-	"justasking/GO/common/constants/role"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/domain/role"
-	"justasking/GO/core/domain/token"
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/model/authentication"
-	"justasking/GO/core/model/idpjustasking"
-	"justasking/GO/core/model/idpmapping"
-	"justasking/GO/core/model/user"
-	"justasking/GO/core/repo/authentication"
-	"justasking/GO/core/repo/emailtemplate"
-	"justasking/GO/core/repo/user"
 	"net/http"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/chande/justasking/common/authcontainer"
+	recaptchaclient "github.com/chande/justasking/common/clients/recaptcha"
+	roleconstants "github.com/chande/justasking/common/constants/role"
+	"github.com/chande/justasking/common/operationresult"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	roledomain "github.com/chande/justasking/core/domain/role"
+	tokendomain "github.com/chande/justasking/core/domain/token"
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	authenticationmodel "github.com/chande/justasking/core/model/authentication"
+	idpjustaskingmodel "github.com/chande/justasking/core/model/idpjustasking"
+	idpmappingmodel "github.com/chande/justasking/core/model/idpmapping"
+	usermodel "github.com/chande/justasking/core/model/user"
+	authenticationrepo "github.com/chande/justasking/core/repo/authentication"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
+	userrepo "github.com/chande/justasking/core/repo/user"
 
 	"golang.org/x/crypto/bcrypt"
 
@@ -84,7 +85,7 @@ func createGoogleUser(container authcontainer.AuthContainer, googleSub string) (
 	var err error
 	var user *usermodel.User
 	functionName := "createGoogleUser"
-	userIdguid, _ := uuid.NewV4()
+	userIdguid := uuid.NewV4()
 
 	stripeKey, configsResult := appconfigsdomain.GetAppConfig("stripe", "StripeSecretKey")
 	if configsResult.IsSuccess() {
@@ -115,7 +116,7 @@ func createGoogleUser(container authcontainer.AuthContainer, googleSub string) (
 		idpMapping.Sub = googleSub
 
 		var account accountmodel.Account
-		account.Id, _ = uuid.NewV4()
+		account.Id = uuid.NewV4()
 		account.OwnerId = justAskingUser.ID
 		account.Name = fmt.Sprintf("%v %v", firstName, lastName)
 		account.CreatedBy = justAskingUser.ID.String()
@@ -128,7 +129,7 @@ func createGoogleUser(container authcontainer.AuthContainer, googleSub string) (
 		accountUser.RoleId, _ = uuid.FromString(roleconstants.OWNER)
 		accountUser.CreatedBy = justAskingUser.ID.String()
 		accountUser.CurrentAccount = true
-		accountUser.TokenVersion, _ = uuid.NewV4()
+		accountUser.TokenVersion = uuid.NewV4()
 
 		user, err = authenticationrepo.CreateGoogleUser(googleUser, justAskingUser, idpMapping, account, accountUser, stripeKey.ConfigValue)
 
@@ -334,7 +335,7 @@ func CreateJustAskingUser(idpJustAskingUser idpjustaskingmodel.IdpJustAsking) (s
 						result = operationresult.CreateErrorResult(msg, configsResult.Error)
 						applogsdomain.LogError(domainName, functionName, fmt.Sprintf("Error hashing password [%v]. Error: [%v]", idpJustAskingUser.Password, msg), false)
 					} else {
-						userId, _ := uuid.NewV4()
+						userId := uuid.NewV4()
 						idpJustAskingUser.Sub = userId
 						idpJustAskingUser.Password = string(passwordHash)
 
@@ -354,7 +355,7 @@ func CreateJustAskingUser(idpJustAskingUser idpjustaskingmodel.IdpJustAsking) (s
 							idpMapping.Sub = userId.String()
 
 							var account accountmodel.Account
-							account.Id, _ = uuid.NewV4()
+							account.Id = uuid.NewV4()
 							account.OwnerId = justAskingUser.ID
 							account.Name = fmt.Sprintf("%v %v", idpJustAskingUser.GivenName, idpJustAskingUser.FamilyName)
 							account.CreatedBy = justAskingUser.ID.String()
@@ -367,7 +368,7 @@ func CreateJustAskingUser(idpJustAskingUser idpjustaskingmodel.IdpJustAsking) (s
 							accountUser.RoleId, _ = uuid.FromString(roleconstants.OWNER)
 							accountUser.CreatedBy = justAskingUser.ID.String()
 							accountUser.CurrentAccount = true
-							accountUser.TokenVersion, _ = uuid.NewV4()
+							accountUser.TokenVersion = uuid.NewV4()
 
 							user, err = authenticationrepo.CreateIdpJustAskingUser(idpJustAskingUser, justAskingUser, idpMapping, account, accountUser, stripeKey.ConfigValue)
 							if err != nil {

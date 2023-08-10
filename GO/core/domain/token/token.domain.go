@@ -3,14 +3,15 @@ package tokendomain
 import (
 	"fmt"
 	"io/ioutil"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/domain/role"
-	"justasking/GO/core/domain/user"
-	"justasking/GO/core/model/user"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	"github.com/chande/justasking/common/operationresult"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	roledomain "github.com/chande/justasking/core/domain/role"
+	userdomain "github.com/chande/justasking/core/domain/user"
+	usermodel "github.com/chande/justasking/core/model/user"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	uuid "github.com/satori/go.uuid"

@@ -1,17 +1,19 @@
 package tokencontroller
 
 import (
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/token"
 	"net/http"
+
+	"github.com/chande/justasking/common/operationresult"
+	tokendomain "github.com/chande/justasking/core/domain/token"
 
 	"github.com/blue-jay/core/router"
 
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/authcontainer"
-	"justasking/GO/common/token"
-	"justasking/GO/core/domain/authentication"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/authcontainer"
+	"github.com/chande/justasking/common/token"
+	authenticationdomain "github.com/chande/justasking/core/domain/authentication"
 )
 
 // Load the routes.

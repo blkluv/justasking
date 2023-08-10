@@ -2,18 +2,19 @@ package usercontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/common/token"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/token"
-	"justasking/GO/core/model/passwordresetrequest"
-	"justasking/GO/core/model/user"
 	"net/http"
+
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/common/token"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	tokendomain "github.com/chande/justasking/core/domain/token"
+	passwordresetrequestmodel "github.com/chande/justasking/core/model/passwordresetrequest"
+	usermodel "github.com/chande/justasking/core/model/user"
 
 	"github.com/blue-jay/core/router"
 
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/user"
+	"github.com/chande/justasking/api/startup/middleware"
+	userdomain "github.com/chande/justasking/core/domain/user"
 )
 
 // Load the routes.

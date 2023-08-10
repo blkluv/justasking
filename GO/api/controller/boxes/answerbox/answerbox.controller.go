@@ -2,14 +2,15 @@ package answerboxcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/boxes/answerbox"
-	"justasking/GO/core/model/answerboxentry"
-	"justasking/GO/core/model/answerboxquestion"
-	"justasking/GO/core/model/boxes/answerbox"
-	"justasking/GO/core/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	answerboxdomain "github.com/chande/justasking/core/domain/boxes/answerbox"
+	answerboxentrymodel "github.com/chande/justasking/core/model/answerboxentry"
+	answerboxquestionmodel "github.com/chande/justasking/core/model/answerboxquestion"
+	answerboxmodel "github.com/chande/justasking/core/model/boxes/answerbox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"

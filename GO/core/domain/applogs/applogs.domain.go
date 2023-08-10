@@ -2,12 +2,13 @@ package applogsdomain
 
 import (
 	"bytes"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/model/applogs"
-	"justasking/GO/core/repo/applogs"
-	"justasking/GO/core/repo/emailtemplate"
 	"os"
 	"strings"
+
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	applogsmodel "github.com/chande/justasking/core/model/applogs"
+	applogsrepo "github.com/chande/justasking/core/repo/applogs"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
 )
 
 // LogInfo creates a record in the log table

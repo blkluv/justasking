@@ -2,11 +2,12 @@ package stripecontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/stripe"
-	"justasking/GO/core/domain/token"
-	"justasking/GO/core/model/customplanlicense"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	stripedomain "github.com/chande/justasking/core/domain/stripe"
+	tokendomain "github.com/chande/justasking/core/domain/token"
+	customplanlicensemodel "github.com/chande/justasking/core/model/customplanlicense"
 
 	"github.com/stripe/stripe-go"
 

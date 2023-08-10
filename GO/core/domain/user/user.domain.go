@@ -2,20 +2,21 @@ package userdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/common/utility"
-	"justasking/GO/core/domain/appconfigs"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/domain/role"
-	"justasking/GO/core/model/passwordresetrequest"
-	"justasking/GO/core/model/user"
-	"justasking/GO/core/repo/emailtemplate"
-	"justasking/GO/core/repo/user"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/common/utility"
+	appconfigsdomain "github.com/chande/justasking/core/domain/appconfigs"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	roledomain "github.com/chande/justasking/core/domain/role"
+	passwordresetrequestmodel "github.com/chande/justasking/core/model/passwordresetrequest"
+	usermodel "github.com/chande/justasking/core/model/user"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
+	userrepo "github.com/chande/justasking/core/repo/user"
 
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
@@ -86,7 +87,7 @@ func RequestPasswordReset(email string) *operationresult.OperationResult {
 		applogsdomain.LogError(domainName, functionName, fmt.Sprintf("Could not create password reset request. Unable to find user by email. Error: [%v]", msg), false)
 	} else {
 		var resetRequest passwordresetrequestmodel.PasswordResetRequest
-		resetRequest.Id, _ = uuid.NewV4()
+		resetRequest.Id = uuid.NewV4()
 		resetRequest.UserId = user.ID
 		resetRequest.ResetCode = utility.RandSeq(256)
 		resetRequest.IsActive = true

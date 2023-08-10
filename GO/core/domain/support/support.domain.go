@@ -2,15 +2,16 @@ package supportdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/model/emailtemplate"
-	"justasking/GO/core/model/supportissue"
-	"justasking/GO/core/repo/emailtemplate"
-	"justasking/GO/core/repo/support"
 	"strings"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	emailtemplatemodel "github.com/chande/justasking/core/model/emailtemplate"
+	supportissuemodel "github.com/chande/justasking/core/model/supportissue"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
+	supportrepo "github.com/chande/justasking/core/repo/support"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -22,7 +23,7 @@ func CreateSupportIssue(supportIssue supportissuemodel.SupportIssue, tokenClaims
 	functionName := "CreateSupportIssue"
 	result := operationresult.New()
 
-	supportIssueID, _ := uuid.NewV4()
+	supportIssueID := uuid.NewV4()
 	supportIssue.IssueId = supportIssueID
 
 	err := supportrepo.InsertSupportIssue(supportIssue)

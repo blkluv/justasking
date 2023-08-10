@@ -2,17 +2,18 @@ package accountcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/startup/flight"
 	"net/http"
 
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/account"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/token"
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountinvitation"
+	"github.com/chande/justasking/common/operationresult"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	"github.com/chande/justasking/core/startup/flight"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	accountdomain "github.com/chande/justasking/core/domain/account"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	tokendomain "github.com/chande/justasking/core/domain/token"
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountinvitationmodel "github.com/chande/justasking/core/model/accountinvitation"
 
 	"github.com/blue-jay/core/router"
 )

@@ -3,10 +3,10 @@ package tests
 import (
 	"log"
 
-	"justasking/GO/api/domain/authentication"
-	"justasking/GO/api/startup/boot"
-	"justasking/GO/api/startup/env"
 	"testing"
+
+	"github.com/chande/justasking/core/startup/boot"
+	"github.com/chande/justasking/core/startup/env"
 )
 
 func init() {

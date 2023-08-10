@@ -1,15 +1,15 @@
 package wordcloudrepo
 
 import (
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/model/boxes/wordcloud"
-	"justasking/GO/core/model/wordcloudresponse"
-	"justasking/GO/core/repo/boxes/basebox"
-	"justasking/GO/core/startup/flight"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	wordcloudmodel "github.com/chande/justasking/core/model/boxes/wordcloud"
+	wordcloudresponsemodel "github.com/chande/justasking/core/model/wordcloudresponse"
+	baseboxrepo "github.com/chande/justasking/core/repo/boxes/basebox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"time"
 
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 )
 
 // GetWordCloudByBoxId returns wordcloud

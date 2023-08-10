@@ -1,9 +1,10 @@
 package supportrepo
 
 import (
-	"justasking/GO/core/model/supportissue"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	supportissuemodel "github.com/chande/justasking/core/model/supportissue"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // InsertSupportIssue inserts a new support issue on the system

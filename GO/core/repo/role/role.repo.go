@@ -1,8 +1,8 @@
 package rolerepo
 
 import (
-	"justasking/GO/core/model/role"
-	"justasking/GO/core/startup/flight"
+	rolemodel "github.com/chande/justasking/core/model/role"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )

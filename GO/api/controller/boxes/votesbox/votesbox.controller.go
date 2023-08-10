@@ -2,14 +2,15 @@ package votesboxcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/boxes/votesbox"
-	"justasking/GO/core/model/boxes/votesbox"
-	"justasking/GO/core/model/votesboxquestion"
-	"justasking/GO/core/model/votesboxquestionanswer"
-	"justasking/GO/core/startup/flight"
 	"net/http"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	"github.com/chande/justasking/common/operationresult"
+	votesboxdomain "github.com/chande/justasking/core/domain/boxes/votesbox"
+	votesboxmodel "github.com/chande/justasking/core/model/boxes/votesbox"
+	votesboxquestionmodel "github.com/chande/justasking/core/model/votesboxquestion"
+	votesboxquestionanswermodel "github.com/chande/justasking/core/model/votesboxquestionanswer"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"

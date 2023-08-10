@@ -1,7 +1,7 @@
 package incomingphonenumbersmodel
 
 import (
-	"justasking/GO/core/model/twilio/phonenumber"
+	twiliophonenumbermodel "github.com/chande/justasking/core/model/twilio/phonenumber"
 )
 
 // IncomingPhoneNumbers models the twilio response for incoming phone numbers

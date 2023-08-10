@@ -2,12 +2,13 @@ package middleware
 
 import (
 	"fmt"
-	"justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/constants/priceplan"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/token"
 	"net/http"
 	"time"
+
+	"github.com/chande/justasking/common/authenticationclaim"
+	priceplanconstants "github.com/chande/justasking/common/constants/priceplan"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	tokendomain "github.com/chande/justasking/core/domain/token"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"

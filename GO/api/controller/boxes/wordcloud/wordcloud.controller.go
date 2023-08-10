@@ -2,14 +2,15 @@ package wordcloudcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/common/operationresult"
 	"net/http"
 
-	"justasking/GO/api/startup/middleware"
-	"justasking/GO/core/domain/boxes/wordcloud"
-	"justasking/GO/core/model/boxes/wordcloud"
-	"justasking/GO/core/model/wordcloudresponse"
-	"justasking/GO/core/startup/flight"
+	"github.com/chande/justasking/common/operationresult"
+
+	"github.com/chande/justasking/api/startup/middleware"
+	wordclouddomain "github.com/chande/justasking/core/domain/boxes/wordcloud"
+	wordcloudmodel "github.com/chande/justasking/core/model/boxes/wordcloud"
+	wordcloudresponsemodel "github.com/chande/justasking/core/model/wordcloudresponse"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/blue-jay/core/router"
 	uuid "github.com/satori/go.uuid"

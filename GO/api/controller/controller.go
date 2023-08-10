@@ -1,22 +1,22 @@
 package controller
 
 import (
-	"justasking/GO/api/controller/account"
-	"justasking/GO/api/controller/boxes/answerbox"
-	"justasking/GO/api/controller/boxes/basebox"
-	"justasking/GO/api/controller/boxes/questionbox"
-	"justasking/GO/api/controller/boxes/votesbox"
-	"justasking/GO/api/controller/boxes/wordcloud"
-	"justasking/GO/api/controller/featurerequest"
-	"justasking/GO/api/controller/idpjustasking"
-	"justasking/GO/api/controller/priceplan"
-	"justasking/GO/api/controller/sms"
-	"justasking/GO/api/controller/stripe"
-	"justasking/GO/api/controller/support"
-	"justasking/GO/api/controller/theme"
-	"justasking/GO/api/controller/token"
-	"justasking/GO/api/controller/twilio"
-	"justasking/GO/api/controller/user"
+	accountcontroller "github.com/chande/justasking/api/controller/account"
+	answerboxcontroller "github.com/chande/justasking/api/controller/boxes/answerbox"
+	baseboxcontroller "github.com/chande/justasking/api/controller/boxes/basebox"
+	questionboxcontroller "github.com/chande/justasking/api/controller/boxes/questionbox"
+	votesboxcontroller "github.com/chande/justasking/api/controller/boxes/votesbox"
+	wordcloudcontroller "github.com/chande/justasking/api/controller/boxes/wordcloud"
+	featurerequestcontroller "github.com/chande/justasking/api/controller/featurerequest"
+	idpjustaskingcontroller "github.com/chande/justasking/api/controller/idpjustasking"
+	priceplancontroller "github.com/chande/justasking/api/controller/priceplan"
+	smscontroller "github.com/chande/justasking/api/controller/sms"
+	stripecontroller "github.com/chande/justasking/api/controller/stripe"
+	supportcontroller "github.com/chande/justasking/api/controller/support"
+	themecontroller "github.com/chande/justasking/api/controller/theme"
+	tokencontroller "github.com/chande/justasking/api/controller/token"
+	twiliocontroller "github.com/chande/justasking/api/controller/twilio"
+	usercontroller "github.com/chande/justasking/api/controller/user"
 )
 
 // LoadRoutes loads the routes for the controllers

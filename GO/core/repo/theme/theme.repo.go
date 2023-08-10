@@ -1,8 +1,8 @@
 package themerepo
 
 import (
-	"justasking/GO/core/model/theme"
-	"justasking/GO/core/startup/flight"
+	thememodel "github.com/chande/justasking/core/model/theme"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // GetTheme gets all boxes for a specific user

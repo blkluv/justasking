@@ -1,12 +1,13 @@
 package striperepo
 
 import (
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/model/userstripe"
-	"justasking/GO/core/repo/account"
-	"justasking/GO/core/repo/userstripe"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	userstripemodel "github.com/chande/justasking/core/model/userstripe"
+	accountrepo "github.com/chande/justasking/core/repo/account"
+	userstriperepo "github.com/chande/justasking/core/repo/userstripe"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/jinzhu/gorm"
 	stripe "github.com/stripe/stripe-go"
@@ -18,7 +19,7 @@ import (
 func CreateStripeCustomer(userEmail string, stripeKey string, tx *gorm.DB) (*stripe.Customer, error) {
 	stripe.Key = stripeKey
 	params := &stripe.CustomerParams{
-		Email: userEmail,
+		Email: stripe.String(userEmail),
 	}
 	customer, err := customer.New(params)
 
@@ -31,11 +32,11 @@ func UpdateSubscription(planData priceplanmodel.PricePlan, stripeKey string, str
 	var err error
 
 	stripe.Key = stripeKey
-
+	amount := int64(planData.Price) * 100
 	chargeParams := &stripe.ChargeParams{
-		Amount:   uint64(planData.Price) * 100, //stripe takes the amount in cents
-		Currency: "usd",
-		Customer: stripeData.StripeUserId,
+		Amount:   stripe.Int64(amount), //stripe takes the amount in cents
+		Currency: stripe.String("usd"),
+		Customer: stripe.String(stripeData.StripeUserId),
 	}
 	_, err = charge.New(chargeParams)
 
@@ -92,7 +93,7 @@ func UpdateCreditCard(stripeData userstripemodel.UserStripe, cardString string, 
 		return nil, err
 	}
 	tokenParams := &stripe.SourceParams{
-		Token: cardString,
+		Token: stripe.String(cardString),
 	}
 	customerParams := &stripe.CustomerParams{
 		Source: tokenParams,

@@ -1,9 +1,10 @@
 package answerboxmodel
 
 import (
-	"justasking/GO/core/model/answerboxquestion"
-	"justasking/GO/core/model/boxes/basebox"
 	"time"
+
+	answerboxquestionmodel "github.com/chande/justasking/core/model/answerboxquestion"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
 
 	uuid "github.com/satori/go.uuid"
 )

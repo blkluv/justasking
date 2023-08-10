@@ -2,8 +2,9 @@
 package middleware
 
 import (
-	authenticationclaim "justasking/GO/common/authenticationclaim"
 	"net/http"
+
+	authenticationclaim "github.com/chande/justasking/common/authenticationclaim"
 
 	"github.com/blue-jay/core/router"
 	"github.com/gorilla/context"

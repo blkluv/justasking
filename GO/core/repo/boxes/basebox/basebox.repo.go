@@ -1,10 +1,11 @@
 package baseboxrepo
 
 import (
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/model/phonenumber"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	phonenumbermodel "github.com/chande/justasking/core/model/phonenumber"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"

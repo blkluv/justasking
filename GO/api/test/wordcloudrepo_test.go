@@ -2,15 +2,13 @@ package tests
 
 import (
 	"fmt"
-	"justasking/GO/api/model/boxes/basebox"
-	"justasking/GO/api/model/boxes/wordcloud"
-	"justasking/GO/api/repo/boxes/wordcloud"
-	"justasking/GO/api/startup/boot"
-	"justasking/GO/api/startup/env"
 	"log"
 	"math/rand"
 	"testing"
 	"time"
+
+	"github.com/chande/justasking/core/startup/boot"
+	"github.com/chande/justasking/core/startup/env"
 )
 
 func init() {

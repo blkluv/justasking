@@ -2,13 +2,14 @@ package wordclouddomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/model/boxes/wordcloud"
-	"justasking/GO/core/model/responses"
-	"justasking/GO/core/model/wordcloudresponse"
-	"justasking/GO/core/repo/boxes/wordcloud"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	wordcloudmodel "github.com/chande/justasking/core/model/boxes/wordcloud"
+	partialresponse "github.com/chande/justasking/core/model/responses"
+	wordcloudresponsemodel "github.com/chande/justasking/core/model/wordcloudresponse"
+	wordcloudrepo "github.com/chande/justasking/core/repo/boxes/wordcloud"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -21,7 +22,7 @@ func CreateWordCloud(wordCloud wordcloudmodel.WordCloud) (uuid.UUID, *operationr
 	result := operationresult.New()
 
 	// Create ID that will be used for both basebox and WordCloud
-	boxID, _ := uuid.NewV4()
+	boxID := uuid.NewV4()
 	wordCloud.BoxId = boxID
 	wordCloud.BaseBox.CreatedBy = wordCloud.CreatedBy
 

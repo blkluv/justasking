@@ -2,10 +2,11 @@ package appconfigsdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/appconfigs"
-	"justasking/GO/core/repo/appconfigs"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	appconfigsmodel "github.com/chande/justasking/core/model/appconfigs"
+	appconfigsrepo "github.com/chande/justasking/core/repo/appconfigs"
 )
 
 var domainName = "AppConfigsDomain"

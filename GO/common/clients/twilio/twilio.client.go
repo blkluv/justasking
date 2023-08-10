@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/twilio/availablephonenumbers"
-	"justasking/GO/core/model/twilio/incomingphonenumbers"
-	"justasking/GO/core/model/twilio/phonenumber"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	availablephonenumbersmodel "github.com/chande/justasking/core/model/twilio/availablephonenumbers"
+	incomingphonenumbersmodel "github.com/chande/justasking/core/model/twilio/incomingphonenumbers"
+	twiliophonenumbermodel "github.com/chande/justasking/core/model/twilio/phonenumber"
 )
 
 var clientName = "TwilioClient"

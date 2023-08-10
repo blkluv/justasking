@@ -1,15 +1,16 @@
 package userrepo
 
 import (
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/model/idpjustasking"
-	"justasking/GO/core/model/passwordresetrequest"
-	"justasking/GO/core/model/user"
-	"justasking/GO/core/repo/account"
-	"justasking/GO/core/repo/accountuser"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	idpjustaskingmodel "github.com/chande/justasking/core/model/idpjustasking"
+	passwordresetrequestmodel "github.com/chande/justasking/core/model/passwordresetrequest"
+	usermodel "github.com/chande/justasking/core/model/user"
+	accountrepo "github.com/chande/justasking/core/repo/account"
+	accountuserrepo "github.com/chande/justasking/core/repo/accountuser"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )

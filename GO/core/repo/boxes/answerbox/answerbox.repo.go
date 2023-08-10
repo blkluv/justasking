@@ -1,13 +1,14 @@
 package answerboxrepo
 
 import (
-	"justasking/GO/core/model/answerboxentry"
-	"justasking/GO/core/model/answerboxquestion"
-	"justasking/GO/core/model/boxes/answerbox"
-	"justasking/GO/core/model/boxes/basebox"
-	"justasking/GO/core/repo/boxes/basebox"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	answerboxentrymodel "github.com/chande/justasking/core/model/answerboxentry"
+	answerboxquestionmodel "github.com/chande/justasking/core/model/answerboxquestion"
+	answerboxmodel "github.com/chande/justasking/core/model/boxes/answerbox"
+	baseboxmodel "github.com/chande/justasking/core/model/boxes/basebox"
+	baseboxrepo "github.com/chande/justasking/core/repo/boxes/basebox"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -36,7 +37,7 @@ func InsertAnswerBox(answerBox answerboxmodel.AnswerBox) error {
 	var err error
 	for _, question := range answerBox.Questions {
 		question.BoxId = answerBox.BaseBox.ID
-		question.QuestionId, _ = uuid.NewV4()
+		question.QuestionId = uuid.NewV4()
 		question.CreatedBy = baseBox.CreatedBy
 		err = tx.Create(&question).Error
 		if err != nil {

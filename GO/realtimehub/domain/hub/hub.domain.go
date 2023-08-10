@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"justasking/GO/realtimehub/model/hubs"
-	"justasking/GO/realtimehub/model/websocketmessage"
 	"log"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/chande/justasking/realtimehub/model/hubs"
+	websocketmessagemodel "github.com/chande/justasking/realtimehub/model/websocketmessage"
 
 	"github.com/gorilla/websocket"
 )

@@ -8,7 +8,7 @@ import (
 	"github.com/blue-jay/core/router"
 	"github.com/jinzhu/gorm"
 
-	"justasking/GO/realtimehub/model/hubs"
+	"github.com/chande/justasking/realtimehub/model/hubs"
 )
 
 var (

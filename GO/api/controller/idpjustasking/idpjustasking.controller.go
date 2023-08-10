@@ -2,10 +2,11 @@ package idpjustaskingcontroller
 
 import (
 	"encoding/json"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/authentication"
-	"justasking/GO/core/model/idpjustasking"
 	"net/http"
+
+	"github.com/chande/justasking/common/operationresult"
+	authenticationdomain "github.com/chande/justasking/core/domain/authentication"
+	idpjustaskingmodel "github.com/chande/justasking/core/model/idpjustasking"
 
 	"github.com/blue-jay/core/router"
 )

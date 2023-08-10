@@ -8,7 +8,7 @@ import (
 	"github.com/blue-jay/core/router"
 	"github.com/jinzhu/gorm"
 
-	"justasking/GO/core/startup/env"
+	"github.com/chande/justasking/core/startup/env"
 )
 
 var (
@@ -18,7 +18,7 @@ var (
 )
 
 // StoreConfig stores the application settings so controller functions can
-//access them safely.
+// access them safely.
 func StoreConfig(ci env.Info) {
 	mutex.Lock()
 	configInfo = ci

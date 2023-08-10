@@ -1,7 +1,7 @@
 package availablephonenumbersmodel
 
 import (
-	"justasking/GO/core/model/twilio/phonenumber"
+	twiliophonenumbermodel "github.com/chande/justasking/core/model/twilio/phonenumber"
 )
 
 // AvailablePhoneNumbers models the twilio response for available phone numbers

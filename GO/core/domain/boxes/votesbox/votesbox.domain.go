@@ -3,13 +3,14 @@ package votesboxdomain
 import (
 	"errors"
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/model/boxes/votesbox"
-	"justasking/GO/core/model/votesboxquestion"
-	"justasking/GO/core/model/votesboxquestionanswer"
-	"justasking/GO/core/repo/boxes/votesbox"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	votesboxmodel "github.com/chande/justasking/core/model/boxes/votesbox"
+	votesboxquestionmodel "github.com/chande/justasking/core/model/votesboxquestion"
+	votesboxquestionanswermodel "github.com/chande/justasking/core/model/votesboxquestionanswer"
+	votesboxrepo "github.com/chande/justasking/core/repo/boxes/votesbox"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -22,7 +23,7 @@ func CreateVotesBox(votesBox votesboxmodel.VotesBox) (uuid.UUID, *operationresul
 	result := operationresult.New()
 
 	// Create ID that will be used for both basebox and QuestionBox
-	boxID, _ := uuid.NewV4()
+	boxID := uuid.NewV4()
 	votesBox.BoxId = boxID
 	votesBox.BaseBox.CreatedBy = votesBox.CreatedBy
 

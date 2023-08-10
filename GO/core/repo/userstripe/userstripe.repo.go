@@ -1,9 +1,10 @@
 package userstriperepo
 
 import (
-	"justasking/GO/core/model/userstripe"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	userstripemodel "github.com/chande/justasking/core/model/userstripe"
+	"github.com/chande/justasking/core/startup/flight"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"

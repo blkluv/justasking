@@ -1,11 +1,12 @@
 package phonenumberrepo
 
 import (
-	"justasking/GO/common/clients/twilio"
-	"justasking/GO/core/model/phonenumber"
-	"justasking/GO/core/model/twilio/phonenumber"
-	"justasking/GO/core/startup/flight"
 	"time"
+
+	twilioclient "github.com/chande/justasking/common/clients/twilio"
+	phonenumbermodel "github.com/chande/justasking/core/model/phonenumber"
+	twiliophonenumbermodel "github.com/chande/justasking/core/model/twilio/phonenumber"
+	"github.com/chande/justasking/core/startup/flight"
 
 	uuid "github.com/satori/go.uuid"
 )
@@ -14,7 +15,7 @@ import (
 func InsertPhoneNumber(phoneNumber twiliophonenumbermodel.TwilioPhoneNumber) error {
 	db := flight.Context(nil, nil).DB
 
-	newId, _ := uuid.NewV4()
+	newId := uuid.NewV4()
 	err := db.Exec(`INSERT INTO phone_numbers (id, sid, friendly_name, phone_number, region, iso_country, voice, sms, mms, is_active, created_at)
 		SELECT ? as id, ? as sid, ? as friendly_name, ? as phone_number, ? as region, ? as iso_country, ? as voice, ? as sms, ? as mms, ? as is_active, ? as created_at 
 		WHERE NOT EXISTS (SELECT id FROM phone_numbers WHERE sid = ?);`,

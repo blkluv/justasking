@@ -2,18 +2,19 @@ package syncdomain
 
 import (
 	"fmt"
-	"justasking/GO/common/constants/priceplan"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/account"
-	"justasking/GO/core/domain/accountuser"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/boxes/basebox"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/domain/phonenumbers"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/domain/user"
-	"justasking/GO/core/repo/emailtemplate"
 	"time"
+
+	priceplanconstants "github.com/chande/justasking/common/constants/priceplan"
+	"github.com/chande/justasking/common/operationresult"
+	accountdomain "github.com/chande/justasking/core/domain/account"
+	accountuserdomain "github.com/chande/justasking/core/domain/accountuser"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	baseboxdomain "github.com/chande/justasking/core/domain/boxes/basebox"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	phonenumbersdomain "github.com/chande/justasking/core/domain/phonenumbers"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	userdomain "github.com/chande/justasking/core/domain/user"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
 
 	uuid "github.com/satori/go.uuid"
 )

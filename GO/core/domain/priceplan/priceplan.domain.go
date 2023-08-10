@@ -2,12 +2,13 @@ package priceplandomain
 
 import (
 	"fmt"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/model/customplanlicense"
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/repo/priceplan"
 	"strconv"
+
+	"github.com/chande/justasking/common/operationresult"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	customplanlicensemodel "github.com/chande/justasking/core/model/customplanlicense"
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	priceplanrepo "github.com/chande/justasking/core/repo/priceplan"
 
 	"github.com/jinzhu/gorm"
 

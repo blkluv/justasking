@@ -1,8 +1,8 @@
 package appconfigsrepo
 
 import (
-	"justasking/GO/core/model/appconfigs"
-	"justasking/GO/core/startup/flight"
+	appconfigsmodel "github.com/chande/justasking/core/model/appconfigs"
+	"github.com/chande/justasking/core/startup/flight"
 )
 
 // GetAppConfig gets a single config value

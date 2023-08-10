@@ -3,22 +3,23 @@ package accountdomain
 import (
 	"bytes"
 	"fmt"
-	authenticationclaim "justasking/GO/common/authenticationclaim"
-	"justasking/GO/common/constants/role"
-	"justasking/GO/common/operationresult"
-	"justasking/GO/common/utility"
-	"justasking/GO/core/domain/applogs"
-	"justasking/GO/core/domain/email"
-	"justasking/GO/core/domain/priceplan"
-	"justasking/GO/core/domain/user"
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/accountinvitation"
-	"justasking/GO/core/model/accountuser"
-	"justasking/GO/core/repo/account"
-	"justasking/GO/core/repo/accountuser"
-	"justasking/GO/core/repo/emailtemplate"
 	"regexp"
 	"strings"
+
+	authenticationclaim "github.com/chande/justasking/common/authenticationclaim"
+	roleconstants "github.com/chande/justasking/common/constants/role"
+	"github.com/chande/justasking/common/operationresult"
+	"github.com/chande/justasking/common/utility"
+	applogsdomain "github.com/chande/justasking/core/domain/applogs"
+	emaildomain "github.com/chande/justasking/core/domain/email"
+	priceplandomain "github.com/chande/justasking/core/domain/priceplan"
+	userdomain "github.com/chande/justasking/core/domain/user"
+	accountmodel "github.com/chande/justasking/core/model/account"
+	accountinvitationmodel "github.com/chande/justasking/core/model/accountinvitation"
+	accountusermodel "github.com/chande/justasking/core/model/accountuser"
+	accountrepo "github.com/chande/justasking/core/repo/account"
+	accountuserrepo "github.com/chande/justasking/core/repo/accountuser"
+	emailtemplaterepo "github.com/chande/justasking/core/repo/emailtemplate"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"
@@ -185,7 +186,7 @@ func UserBelongsToAccount(userId uuid.UUID, accountId uuid.UUID) bool {
 	return found
 }
 
-//GetActiveNonBasicAccounts gets all active accounts which are not on the BASIC plan
+// GetActiveNonBasicAccounts gets all active accounts which are not on the BASIC plan
 func GetActiveNonBasicAccounts() ([]accountmodel.Account, *operationresult.OperationResult) {
 	functionName := "GetActiveNonBasicAccounts"
 	result := operationresult.New()

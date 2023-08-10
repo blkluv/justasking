@@ -1,10 +1,11 @@
 package usermodel
 
 import (
-	"justasking/GO/core/model/account"
-	"justasking/GO/core/model/priceplan"
-	"justasking/GO/core/model/role"
 	"time"
+
+	accountmodel "github.com/chande/justasking/core/model/account"
+	priceplanmodel "github.com/chande/justasking/core/model/priceplan"
+	rolemodel "github.com/chande/justasking/core/model/role"
 
 	uuid "github.com/satori/go.uuid"
 )
