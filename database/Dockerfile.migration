@@ -1,0 +1,30 @@
+# Start from a Debian base image
+FROM debian:bullseye-slim
+
+# Install MySQL client
+RUN apt-get update && \
+    apt-get install -y default-mysql-client && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Node.js
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy your scripts into the container
+COPY . /app/
+WORKDIR /app
+
+ENV SCRIPT_NAME dev.sh
+ENV MYSQL_USER justasking_user
+ENV MYSQL_PASSWORD justasking_password
+ENV MYSQL_DATABASE justasking
+
+# Make the shell scripts executable
+RUN chmod +x concat.sh ${SCRIPT_NAME}
+
+# Command to execute your scripts
+CMD ./${SCRIPT_NAME} && sleep 10 && mysql -h db --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE} < scripts_dev.sql
+RUN ls -al /app && cat /app/${SCRIPT_NAME}

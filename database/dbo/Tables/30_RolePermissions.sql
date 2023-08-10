@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `justasking`.`role_permissions` (
   `role_id`             CHAR(36)    NOT NULL,
   `permission_id`       CHAR(36)    NOT NULL,
   `permission_value`    TINYINT     NOT NULL,
-  `created_at`          TIMESTAMP   NOT NULL,
+  `created_at`          TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`          TIMESTAMP   NULL,
   `deleted_at`          TIMESTAMP   NULL,
   CONSTRAINT `fk_role_permissions_role_id`

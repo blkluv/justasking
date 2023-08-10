@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `justasking`.`themes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `value` VARCHAR(50) NOT NULL,
-  `created_at` TIMESTAMP NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL,
   `deleted_at` TIMESTAMP NULL,
   PRIMARY KEY (`id`));

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `justasking`.`phone_numbers` (
   `sms`           bit          NULL,
   `mms`           bit          NULL,
   `is_active`     TINYINT      NOT NULL DEFAULT 0,
-  `created_at`    TIMESTAMP    NOT NULL,
+  `created_at`    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`    TIMESTAMP    NULL,
   `deleted_at`    TIMESTAMP    NULL,
   PRIMARY KEY (`id`));

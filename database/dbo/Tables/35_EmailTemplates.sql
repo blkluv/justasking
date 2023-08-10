@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `justasking`.`email_templates` (
   `from` VARCHAR(100) NOT NULL,
   `subject` VARCHAR(500) NOT NULL,
   `body` TEXT NOT NULL,
-  `created_at` TIMESTAMP NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NULL,
   `deleted_at` TIMESTAMP NULL,
   PRIMARY KEY (`id`));

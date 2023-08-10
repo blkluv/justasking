@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+
+  justasking-web:
+    build:
+      context: ./web
+      args:
+        build_env: dev
+    ports:
+      - 4200:80
+
+  db:
+    image: mysql:5.7
+    env_file:
+      - ./database/.env.dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  migration:
+    build:
+      context: ./database
+      dockerfile: Dockerfile.migration
+    env_file:
+    - ./database/.env.dev
+    depends_on:
+      - db
+
+volumes:
+  db_data:
