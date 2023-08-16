@@ -4,7 +4,7 @@
                 "DatabaseType" : "mysql",
                 "ConnectionString" : "",
 		"IntervalInMinutes" : "60",
-		"NoReplyEmail" : "noreply@justasking.io",
+		"NoReplyEmail" : "contact@justasking.app",
 		"NoReplyPassword" : ""
         },
         "Email": {

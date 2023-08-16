@@ -7,7 +7,7 @@
     "TwilioTestModeFlag" : "true",
     "RealTimeHubBaseUrl": "http://localhost:4202",
     "JustAskingWebBaseUrl": "http://localhost:4200",
-    "StripeSecretKey" : "",
+    "StripeSecretKey" : "sk_test_51Ne2O4HA0hnFV3voAdvd9voKirEXYZmAnjjdPu00hPUNcbfnlCkUqLP5TQnbiDYnWDp6JERJLduQlQdLinmsUPag009zDMJcVB",
     "WelcomeEmailSubject": "Welcome to Justasking.io - DEV",
     "WelcomeEmailBcc": "",
     "ErrorEmailSubject": "Error in {DomainName} - DEV",

@@ -1,0 +1,17 @@
+# Use an official Go image as a parent image
+FROM golang:1.20.5
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the local package files to the container's workspace
+COPY . /app
+
+# Build the WebSocket server application
+RUN go build -o realtimehub ./realtimehub
+
+# Make the binary executable
+RUN chmod +x realtimehub
+
+# Command to run the application
+CMD ["./realtimehub/realtimehub"]

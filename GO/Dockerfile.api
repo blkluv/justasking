@@ -1,0 +1,19 @@
+# Use an official Go image as a parent image
+FROM golang:1.20.5
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the local package files to the container's workspace
+COPY . /app
+
+# This script will wait for the database to be initialized before running the command
+COPY wait-for-it.sh /app/wait-for-it.sh
+
+RUN chmod +x /app/wait-for-it.sh
+
+# Build the API application
+RUN go build -o api ./api
+
+# Make the binary executable
+RUN chmod +x api

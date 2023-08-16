@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/blue-jay/core/router"
 	"github.com/blue-jay/core/server"
@@ -13,11 +14,16 @@ import (
 )
 
 func main() {
-	//enable when going to prod
-	//appengine.Main()
+
+	// Set configuration file based on environment variable
+	value := os.Getenv("JUSTASKING_ENV")
+	configFile := "realtimehub/config.json"
+	if value == "PROD" {
+		configFile = "realtimehub/config.prod.json"
+	}
 
 	// Load the configuration file
-	config, err := env.LoadConfig("config.json")
+	config, err := env.LoadConfig(configFile)
 	if err != nil {
 		log.Fatalln(err)
 	}

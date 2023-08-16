@@ -2,13 +2,35 @@ version: '3.4'
 
 services:
 
-  justasking-web:
+  web:
     build:
       context: ./web
       args:
         build_env: dev
     ports:
       - 4200:80
+
+  api:
+    build:
+      context: ./GO
+      dockerfile: Dockerfile.api
+    environment:
+      - JUSTASKING_ENV=DEV
+    ports:
+      - "4201:4201"
+    depends_on:
+      - db
+      - migration
+    command: ["/app/wait-for-it.sh", "db:3306", "--", "./api/api"]
+
+  realtimehub:
+    build:
+      context: ./GO
+      dockerfile: Dockerfile.realtimehub
+    environment:
+      - JUSTASKING_ENV=DEV
+    ports:
+      - "4202:4202"
 
   db:
     image: mysql:5.7

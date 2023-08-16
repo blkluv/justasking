@@ -2,13 +2,31 @@ version: '3.4'
 
 services:
 
-  justasking-web:
+  web:
     build:
       context: ./web
       args:
         build_env: prod
     ports:
       - 4200:80
+
+  api:
+    build:
+      context: ./GO
+      dockerfile: Dockerfile.api
+    environment:
+      - JUSTASKING_ENV=PROD
+    ports:
+      - "4201:4201"
+
+  realtimehub:
+    build:
+      context: ./GO
+      dockerfile: Dockerfile.realtimehub
+    environment:
+      - JUSTASKING_ENV=PROD
+    ports:
+      - "4202:4202"
 
   db:
     image: mysql:5.7

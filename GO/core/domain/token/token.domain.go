@@ -2,7 +2,8 @@ package tokendomain
 
 import (
 	"fmt"
-	"io/ioutil"
+	"log"
+	"os"
 
 	"github.com/chande/justasking/common/authenticationclaim"
 	"github.com/chande/justasking/common/operationresult"
@@ -120,9 +121,10 @@ func DeserializeToken(tokenString string) *authenticationclaim.AuthenticationCla
 func GetSecret() []byte {
 	funcName := "GetSecret"
 	var secret []byte
-	if keyData, e := ioutil.ReadFile("keys/hmac"); e == nil {
+	if keyData, e := os.ReadFile("api/keys/hmac"); e == nil {
 		secret = keyData
 	} else {
+		log.Fatalln(e.Error())
 		applogsdomain.LogError(domainName, funcName, e.Error(), false)
 	}
 	return secret

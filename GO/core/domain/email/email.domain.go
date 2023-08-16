@@ -40,7 +40,7 @@ func SendEmailWithCredentials(emailTemplate emailtemplatemodel.EmailTemplate, fr
 
 	m := setGoMailParameters(to, cc, bcc, emailTemplate.Subject, emailTemplate.Body)
 
-	d := gomail.NewPlainDialer("smtp.gmail.com", 587, fromEmailAddress, fromEmailPassword)
+	d := gomail.NewDialer("smtp-mail.outlook.com", 587, fromEmailAddress, fromEmailPassword)
 
 	if err := d.DialAndSend(m); err != nil {
 		panic(err)
@@ -52,7 +52,7 @@ func SendEmailWithCredentials(emailTemplate emailtemplatemodel.EmailTemplate, fr
 func setGoMailParameters(to []string, cc []string, bcc []string, subject string, body string) *gomail.Message {
 
 	m := gomail.NewMessage()
-	m.SetAddressHeader("From", "noreply@justasking.io", "Justasking.io")
+	m.SetAddressHeader("From", "contact@justasking.app", "Justasking.app")
 	m.SetHeader("To", to...)
 	if len(cc) > 0 {
 		m.SetHeader("Cc", cc...)

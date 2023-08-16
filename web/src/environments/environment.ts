@@ -9,5 +9,5 @@ export const environment = {
   googleApiClientId: '',
   stripeKey: "",
   googleAnalyticsTrackingID: "",
-  reCaptchaSiteKey: ""
+  reCaptchaSiteKey: "6LdToUAUAAAAAGjTrihdcJ_dKmm0DZIDty8BxDmL"
 };

@@ -137,7 +137,7 @@ func GetVotesBoxByBoxCode(code string) (votesboxmodel.VotesBox, error) {
 
 	//get votesboxquestionanswers
 	for _, question := range votesBoxQuestions {
-		err = db.Raw(`SELECT a.answer_id, a.question_id, answer, sort_order, COUNT(v.answer_id) as votes, IFNULL(v.created_at, current_timestamp) as created_at, IFNULL(v.created_by, 0) as created_by, v.updated_at, v.updated_by, v.deleted_at
+		err = db.Raw(`SELECT a.answer_id, a.question_id, answer, sort_order, COUNT(v.answer_id) as votes
 		FROM votes_box_question_answers a LEFT JOIN votes_box_question_answers_votes v ON a.answer_id = v.answer_id
 		WHERE a.question_id = ?
 		GROUP BY a.answer_id

@@ -4,8 +4,8 @@
                 "DatabaseType" : "mysql",
                 "ConnectionString" : "",
                 "TokenExpirationInDays" : "30",
-		"NoReplyEmail" : "noreply@justasking.io",
-		"NoReplyPassword" : ""
+		"NoReplyEmail" : "contact@justasking.app",
+		"NoReplyPassword" : "RKE0rdj1fjp!jeq2fmx"
         },
         "Email": {
                 "Username": "",
