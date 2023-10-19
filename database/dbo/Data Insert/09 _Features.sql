@@ -54,14 +54,14 @@ INSERT INTO features (id, name, description)
 
 
 INSERT INTO features (id, name, description)
-	SELECT * FROM (SELECT '4d7f6826-afb4-11e7-a739-305a3a07203e', 'Delegates', 'Number of users that will share access to the justasking.io account.') AS tmp
+	SELECT * FROM (SELECT '4d7f6826-afb4-11e7-a739-305a3a07203e', 'Delegates', 'Number of users that will share access to the justasking.app account.') AS tmp
 		WHERE NOT EXISTS (
 			SELECT name FROM features WHERE name = 'Delegates'
 );
 
 
 INSERT INTO features (id, name, description)
-	SELECT * FROM (SELECT '538512cc-afb4-11e7-a739-305a3a07203e', 'Support', 'Justasking.io support options.') AS tmp
+	SELECT * FROM (SELECT '538512cc-afb4-11e7-a739-305a3a07203e', 'Support', 'justasking.app support options.') AS tmp
 		WHERE NOT EXISTS (
 			SELECT name FROM features WHERE name = 'Support'
 );

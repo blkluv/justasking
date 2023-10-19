@@ -37,7 +37,7 @@ export class StripeService {
 
     handler.open({
       amount: plan.Price * 100,
-      name: 'justasking.io',
+      name: 'justasking.app',
       description: plan.DisplayName,
       image: '/assets/logos/logo-indigo.png',
       email: user.Email,

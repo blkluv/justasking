@@ -4,7 +4,7 @@
 		"DatabaseType" : "mysql",
 		"ConnectionString" : "root:ohhh@/justasking?charset=utf8&parseTime=True&loc=Local",
 		"IntervalInMinutes" : "10",
-		"NoReplyEmail" : "noreply@justasking.io",
+		"NoReplyEmail" : "noreply@justasking.app",
 		"NoReplyPassword" : ""
 	},
 	"Email": {

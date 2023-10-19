@@ -45,7 +45,7 @@
                   (keydown)="invalidateCode($event)" (keyup)="validateCode(newBox.BaseBox.Code)" [(ngModel)]="newBox.BaseBox.Code"
                   placeholder="Poll Access Code">
                 <mat-hint align="start">
-                  <span>justasking.io/{{newBox.BaseBox.Code || 'code'}}</span>
+                  <span>justasking.app/{{newBox.BaseBox.Code || 'code'}}</span>
                 </mat-hint>
                 <div class="code-status" *ngIf="newBox.BaseBox.Code">
                   <div class="spinner" *ngIf="validatingCode">
@@ -65,7 +65,7 @@
               <mat-input-container class="property-preview non-custom-code">
                 <input disabled matInput maxlength="50" name="Code" class="code-input" value="{{newBox.BaseBox.Code}}" placeholder="Poll Access Code">
                 <mat-hint align="start">
-                  <span>justasking.io/{{newBox.BaseBox.Code}}</span>
+                  <span>justasking.app/{{newBox.BaseBox.Code}}</span>
                 </mat-hint>
                 <mat-icon matTooltipPosition="before" matTooltip="Upgrade to PREMIUM to create your own custom poll access code.">
                   info</mat-icon>

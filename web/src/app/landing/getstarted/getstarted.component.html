@@ -14,9 +14,8 @@
         <br/>
       </div>
     </div>
-    <div class="video-container animated fadeIn">
+    <!-- <div class="video-container animated fadeIn">
       <div class="video">
-        <!-- controlsList="nofullscreen" autoplay="true"  -->
         <video class="video-js vjs-default-skin vjs-big-play-centered" controls="true" preload="auto" poster="https://storage.googleapis.com/justasking-web.appspot.com/assets/logo-indigo-background.PNG"
           data-setup="{}">
           <source src="https://storage.googleapis.com/justasking-web.appspot.com/videos/promo.mp4" type='video/mp4'>
@@ -26,7 +25,7 @@
           </p>
         </video>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -112,7 +111,6 @@
 
 <section class="faqs">
   <h4 class="section-subheader">FAQs</h4>
-  <h1 class="section-header">Got questions?</h1>
   <div class="faq-container">
     <div class="faq" [class.top-faq]="i==0" [class.bottom-faq]="i==faqs.length-1" *ngFor="let faq of faqs; let i = index;" (click)="faq.expanded = !faq.expanded">
       <div class="question">{{faq.question}}</div>

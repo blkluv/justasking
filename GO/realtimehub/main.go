@@ -37,7 +37,7 @@ func main() {
 	//set CORS and Methods Allowed
 	c := cors.New(cors.Options{
 		AllowCredentials: true,
-		AllowedOrigins:   []string{"http://localhost:4200", "http://justasking.io"},
+		AllowedOrigins:   []string{"http://localhost:4200", "http://justasking.app"},
 		AllowedHeaders: []string{
 			"authorization",
 			"cache-control",

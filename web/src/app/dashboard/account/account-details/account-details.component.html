@@ -1,7 +1,7 @@
 <mat-card class="account-card membership-card">
   <mat-card-title>
     <span>Details</span>
-    <button mat-raised-button color="primary" routerLink="upgrade" *ngIf="user.MembershipDetails.Price < 1">
+    <button disabled mat-raised-button color="primary" routerLink="upgrade" *ngIf="user.MembershipDetails.Price < 1">
       Upgrade
       <span class="hidden-xs">to PREMIUM</span>
     </button>

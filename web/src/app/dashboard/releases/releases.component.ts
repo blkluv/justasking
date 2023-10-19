@@ -43,7 +43,7 @@ export class ReleasesComponent implements OnInit {
     .subscribe((releases:ReleaseModel[])=>{
       this.featureRequest = "";
       this.processingFeatureRequestSubmit = false;
-      this.notificationsService.openSnackBar("Thank you for making justasking.io better!", 3500);
+      this.notificationsService.openSnackBar("Thank you for making justasking.app better!", 3500);
     });
   }  
 

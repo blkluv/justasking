@@ -11,7 +11,7 @@ func GetEmailTemplateByName(name string) (emailtemplatemodel.EmailTemplate, erro
 
 	var emailTemplate emailtemplatemodel.EmailTemplate
 
-	err := db.Raw("SELECT `id`,`name`,`is_active`,`to`,`cc`,`bcc`,`from`,`subject`,`body`,`created_at`,`updated_at`,`deleted_at` FROM email_templates WHERE name = ? ", name).Scan(&emailTemplate).Error
+	err := db.Raw("SELECT `id`,`name`,`is_active`,`to`,`cc`,`bcc`,`from`,`subject`,`body`,`created_at`,`updated_at`,`deleted_at` FROM email_templates WHERE name = ?", name).Scan(&emailTemplate).Error
 
 	return emailTemplate, err
 }

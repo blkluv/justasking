@@ -37,7 +37,7 @@ export class UserMenuComponent implements OnInit {
 
   handleLogout(){
     this.googleAnalyticsService.trackCustomEvent("logout",{'method': 'User menu - Top right'});
-    this.idpAuthenticationService.disconnectGoogleAccount();
+    //this.idpAuthenticationService.disconnectGoogleAccount();
     this.baseApiService.removeToken();
     this.userService.resetUser();
     this.router.navigate(["/"]);

@@ -4,8 +4,8 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 
 
-fromaddr = "noreply@justasking.io"
-toaddr = "contact@justasking.io"
+fromaddr = "noreply@justasking.app"
+toaddr = "contact@justasking.app"
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr

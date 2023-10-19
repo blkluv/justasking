@@ -160,7 +160,7 @@ export class QuickStatBoxComponent implements OnInit {
     this.boxChannel = this.boxWebSocket;
     this.accountChannel = this.accountWebSocket;
     this.boxChannel.onMessage(this.onQuickStatBoxHubMessage, { autoApply: false });
-    this.pollUrl = `https://justasking.io/${this.box.Code}`;
+    this.pollUrl = `https://justasking.app/${this.box.Code}`;
   }
 
 }

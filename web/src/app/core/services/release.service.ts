@@ -33,7 +33,7 @@ export class ReleaseService {
       Name: "V1.0.1",
       Date: "Dec. 17, 2017",
       Notes: [
-        "Report any issues you're experiencing with justasking.io right from the web application.",
+        "Report any issues you're experiencing with justasking.app right from the web application.",
         "A help widget lives on the bottom right corner of the application that helps you submit a summary of the issue.",
       ]
     },
@@ -41,7 +41,7 @@ export class ReleaseService {
       Name: "V1.0.0",
       Date: "Dec. 29, 2017",
       Notes: [
-        "Version 1.0 of justasking.io is finally out.",
+        "Version 1.0 of justasking.app is finally out.",
         "Create unlimited polls with unlimited responses."
       ]
     },

@@ -3,7 +3,7 @@
     <span>
       Users
     </span>
-    <button mat-raised-button color="primary" routerLink="upgrade" *ngIf="userService.user.MembershipDetails.Price < 1">
+    <button disabled mat-raised-button color="primary" routerLink="upgrade" *ngIf="userService.user.MembershipDetails.Price < 1">
       Upgrade
       <span class="hidden-xs">to PREMIUM</span>
     </button>
@@ -51,7 +51,7 @@
       </form>
       <ng-template #upgradeTemplate>
         <p class="need-more-users">Need to add more users?
-          <a href="mailto:contact@justasking.io"> Contact us.</a>
+          <a href="mailto:contact@justasking.app"> Contact us.</a>
         </p>
       </ng-template>
     </mat-card-content>

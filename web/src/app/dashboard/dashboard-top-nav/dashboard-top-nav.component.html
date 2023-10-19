@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="openSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="logo-brand-text hidden-xs" routerLink="/dashboard">justasking.io</h1>
+    <h1 class="logo-brand-text hidden-xs" routerLink="/dashboard">justasking.app</h1>
     <div class="accounts-section" *ngIf="userService && userService.user && accountService.accounts && accountService.accounts.length > 1">
       <div class="separator hidden-xs"></div>
 
@@ -37,14 +37,14 @@
     </div>
   </div>
   <span class="spacer"></span>
-  <button matTooltip="Releases" matTooltipLocation="below" mat-icon-button routerLink="releases">
+  <!-- <button matTooltip="Releases" matTooltipLocation="below" mat-icon-button routerLink="releases">
     <mat-icon>new_releases</mat-icon>
-  </button>
+  </button> -->
   <div class="separator"></div>
-  <a class="go-premium-button hidden-xs" *ngIf="userService.user && userService.user.MembershipDetails.Price < 1" mat-raised-button
+  <!-- <a class="go-premium-button hidden-xs" *ngIf="userService.user && userService.user.MembershipDetails.Price < 1" mat-raised-button
     routerLink="/dashboard/account/upgrade">
     Go PREMIUM
-  </a>
+  </a> -->
   <app-user-menu [user]="userService.user">
   </app-user-menu>
 </mat-toolbar>

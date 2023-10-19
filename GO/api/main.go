@@ -44,10 +44,10 @@ func main() {
 		AllowCredentials: true,
 		AllowedOrigins: []string{
 			"http://localhost:4200",
-			"http://justasking.io",
-			"https://justasking.io",
-			"http://www.justasking.io",
-			"https://www.justasking.io",
+			"http://justasking.app",
+			"https://justasking.app",
+			"http://www.justasking.app",
+			"https://www.justasking.app",
 		},
 		AllowedHeaders: []string{
 			"authorization",

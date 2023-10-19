@@ -84,7 +84,7 @@ export class ExistingUserComponent implements OnInit {
     let plan = this.route.snapshot.queryParams['plan'];
     let duration = this.route.snapshot.queryParams['duration'];
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    let googleSignInButton = document.getElementById('google-login');
-    this.idpAuthenticationService.attachGoogleSignin(googleSignInButton, this.returnUrl, plan, duration);
+    // let googleSignInButton = document.getElementById('google-login');
+    // this.idpAuthenticationService.attachGoogleSignin(googleSignInButton, this.returnUrl, plan, duration);
   }
 }

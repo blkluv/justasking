@@ -23,15 +23,8 @@ export class GetstartedComponent implements OnInit {
   ngOnInit() { 
     this.faqs = [
       {
-        question: "Do you offer a free plan?",
-        answer: `Yes, with our BASIC plan you can create unlimited number of polls for unlimited number of participants. You will, however be missing out 
-        on some cool features like receiving responses through SMS, having multiple polls open at the same time, customizing polls with your branding, 
-        sharing control of your polls with others, and more.`,
-        expanded: false
-      },
-      {
-        question: "How does billing work?",
-        answer: `When you sign up for the PREMIUM plan, you will be billed once. You can choose to keep the plan for one month or one year.`,
+        question: "Do you offer a paid plan?",
+        answer: `JustAsking is free for anyone who finds it useful.`,
         expanded: false
       },
       {

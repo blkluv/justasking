@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit {
   
   handleLogout(){
     this.googleAnalyticsService.trackCustomEvent("logout",{'method': 'Leftnav logout button'});
-    this.idpAuthenticationService.disconnectGoogleAccount();
+    //this.idpAuthenticationService.disconnectGoogleAccount();
     this.baseApiService.removeToken();
     this.userService.resetUser();
     this.router.navigate(["/"]);

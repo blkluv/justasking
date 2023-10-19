@@ -2,8 +2,8 @@
     <mat-sidenav class="justasking-sidenav" #dashboardSidenav mode="over">
         <mat-toolbar class="sidenav">
             <mat-toolbar-row class="sidenav-logo">
-                <img src="../../assets/logos/logo-teal.png" alt="justasking.io">
-                <h1 routerLink=".">justasking.io</h1>
+                <img src="../../assets/logos/logo-teal.png" alt="justasking.app">
+                <h1 routerLink=".">justasking.app</h1>
             </mat-toolbar-row>
             <mat-toolbar-row routerLink="boxes">
                 <mat-icon>inbox</mat-icon>
@@ -13,10 +13,10 @@
                 <mat-icon>account_circle</mat-icon>
                 <span>Account</span>
             </mat-toolbar-row> 
-            <mat-toolbar-row routerLink="releases">
+            <!-- <mat-toolbar-row routerLink="releases">
                 <mat-icon>new_releases</mat-icon>
                 <span>What's new?</span>
-            </mat-toolbar-row>
+            </mat-toolbar-row> -->
             <mat-toolbar-row (click)="logout()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Logout</span>
@@ -24,7 +24,7 @@
         </mat-toolbar>
         <div class="sidenav-footer"> 
             <p>
-                <span (click)="showTermsAndConditions()">Terms and Conditions </span> | <span routerLink="releases"> {{latestRelease.Name}}</span>
+                <span (click)="showTermsAndConditions()">Terms and Conditions </span>
             </p> 
         </div>
     </mat-sidenav>
